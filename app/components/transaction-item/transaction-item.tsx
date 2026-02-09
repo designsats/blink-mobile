@@ -1,5 +1,5 @@
 import React from "react"
-import { View } from "react-native"
+import { Pressable, View } from "react-native"
 import Animated, { useSharedValue, useAnimatedStyle } from "react-native-reanimated"
 import { useIsFocused } from "@react-navigation/native"
 import { Text, makeStyles, ListItem } from "@rn-vui/themed"
@@ -99,7 +99,7 @@ const TransactionItem: React.FC<Props> = ({
   } = useAppConfig()
   const { formatMoneyAmount, formatCurrency } = useDisplayCurrency()
 
-  const { hideAmount } = useHideAmount()
+  const { hideAmount, switchMemoryHideAmount } = useHideAmount()
 
   const description = useDescriptionDisplay({
     tx,
@@ -196,16 +196,18 @@ const TransactionItem: React.FC<Props> = ({
           </ListItem.Subtitle>
         </ListItem.Content>
 
-        {hideAmount ? (
-          <Text>****</Text>
-        ) : (
-          <View>
-            <Text style={amountStyle}>{formattedDisplayAmount}</Text>
-            {formattedSecondaryAmount && (
-              <Text style={amountStyle}>{formattedSecondaryAmount}</Text>
-            )}
-          </View>
-        )}
+        <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
+          {hideAmount ? (
+            <Text>****</Text>
+          ) : (
+            <View>
+              <Text style={amountStyle}>{formattedDisplayAmount}</Text>
+              {formattedSecondaryAmount && (
+                <Text style={amountStyle}>{formattedSecondaryAmount}</Text>
+              )}
+            </View>
+          )}
+        </Pressable>
       </ListItem>
     </Animated.View>
   )

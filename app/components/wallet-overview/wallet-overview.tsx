@@ -163,15 +163,19 @@ const WalletOverview: React.FC<Props> = ({
           </View>
           {loading ? (
             <Loader />
-          ) : hideAmount ? (
-            <Text>****</Text>
           ) : (
-            <View style={[styles.hideableArea, pressedBtc && styles.pressedOpacity]}>
-              <Text type="p1" bold {...testProps("bitcoin-balance")}>
-                {btcInUnderlyingCurrency}
-              </Text>
-              <Text type="p3">{btcInDisplayCurrencyFormatted}</Text>
-            </View>
+            <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
+              {hideAmount ? (
+                <Text>****</Text>
+              ) : (
+                <View style={[styles.hideableArea, pressedBtc && styles.pressedOpacity]}>
+                  <Text type="p1" bold {...testProps("bitcoin-balance")}>
+                    {btcInUnderlyingCurrency}
+                  </Text>
+                  <Text type="p3">{btcInDisplayCurrencyFormatted}</Text>
+                </View>
+              )}
+            </Pressable>
           )}
         </View>
       </Pressable>
@@ -205,25 +209,28 @@ const WalletOverview: React.FC<Props> = ({
           {loading ? (
             <Loader />
           ) : (
-            <View style={[styles.hideableArea, pressedUsd && styles.pressedOpacity]}>
-              {!hideAmount && (
-                <>
-                  {usdInUnderlyingCurrency ? (
-                    <Text type="p1" bold>
-                      {usdInUnderlyingCurrency}
+            <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
+              <View style={[styles.hideableArea, pressedUsd && styles.pressedOpacity]}>
+                {hideAmount ? (
+                  <Text>****</Text>
+                ) : (
+                  <>
+                    {usdInUnderlyingCurrency ? (
+                      <Text type="p1" bold>
+                        {usdInUnderlyingCurrency}
+                      </Text>
+                    ) : null}
+                    <Text
+                      {...testProps("stablesats-balance")}
+                      type={usdInUnderlyingCurrency ? "p3" : "p1"}
+                      bold={!usdInUnderlyingCurrency}
+                    >
+                      {usdInDisplayCurrencyFormatted}
                     </Text>
-                  ) : null}
-                  <Text
-                    {...testProps("stablesats-balance")}
-                    type={usdInUnderlyingCurrency ? "p3" : "p1"}
-                    bold={!usdInUnderlyingCurrency}
-                  >
-                    {usdInDisplayCurrencyFormatted}
-                  </Text>
-                </>
-              )}
-              {hideAmount && <Text>****</Text>}
-            </View>
+                  </>
+                )}
+              </View>
+            </Pressable>
           )}
         </View>
       </Pressable>
