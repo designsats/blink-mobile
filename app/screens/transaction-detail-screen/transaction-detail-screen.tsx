@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { useFragment } from "@apollo/client"
 import { GaloyIconButton } from "@app/components/atomic/galoy-icon-button"
 import { GaloyInfo } from "@app/components/atomic/galoy-info"
+import { HiddenBalanceIndicator } from "@app/components/hidden-balance-indicator/hidden-balance-indicator"
 import { TransactionDate } from "@app/components/transaction-date"
 import { useDescriptionDisplay } from "@app/components/transaction-item"
 import { DeepPartialObject } from "@app/components/transaction-item/index.types"
@@ -319,7 +320,9 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
             />
             <Text type="h2">{spendOrReceiveText}</Text>
             <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
-              <Text type="h1">{hideAmount ? "****" : displayAmount}</Text>
+              <View style={styles.amountWrapper}>
+                {hideAmount ? <HiddenBalanceIndicator size="small" /> : <Text type="h1">{displayAmount}</Text>}
+              </View>
             </Pressable>
           </View>
         </View>
@@ -575,6 +578,12 @@ const useStyles = makeStyles(({ colors }) => ({
     alignItems: "center",
     justifyContent: "center",
     transform: [{ translateY: -12 }],
+  },
+
+  amountWrapper: {
+    minHeight: 36,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   description: {

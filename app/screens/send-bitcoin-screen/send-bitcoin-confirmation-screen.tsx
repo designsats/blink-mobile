@@ -9,7 +9,8 @@ import { GaloyIcon } from "@app/components/atomic/galoy-icon"
 import GaloySliderButton from "@app/components/atomic/galoy-slider-button/galoy-slider-button"
 import { PaymentDestinationDisplay } from "@app/components/payment-destination-display"
 import { Screen } from "@app/components/screen"
-import { BODY_PADDING, HIDDEN_AMOUNT_PLACEHOLDER } from "@app/config"
+import { HiddenBalanceIndicator } from "@app/components/hidden-balance-indicator/hidden-balance-indicator"
+import { BODY_PADDING } from "@app/config"
 import {
   useSendBitcoinConfirmationScreenQuery,
   WalletCurrency,
@@ -304,7 +305,7 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     })
     if (!validAmount) {
       invalidAmountErrorMessage = LL.SendBitcoinScreen.amountExceed({
-        balance: hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : btcPrimaryText,
+        balance: btcPrimaryText,
       })
     }
   }
@@ -320,7 +321,7 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     })
     if (!validAmount) {
       invalidAmountErrorMessage = LL.SendBitcoinScreen.amountExceed({
-        balance: hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : usdPrimaryText,
+        balance: usdPrimaryText,
       })
     }
   }
@@ -411,25 +412,26 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
               />
             </View>
             <View style={styles.walletSelectorInfoContainer}>
-              <View style={styles.walletSelectorTypeTextContainer}>
-                {sendingWalletDescriptor.currency === WalletCurrency.Btc ? (
-                  <Text style={styles.walletCurrencyText}>
-                    {hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : btcPrimaryText}
-                  </Text>
-                ) : (
-                  <Text style={styles.walletCurrencyText}>
-                    {hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : usdPrimaryText}
-                  </Text>
-                )}
-              </View>
-              <View style={styles.walletSelectorBalanceContainer}>
-                {sendingWalletDescriptor.currency === WalletCurrency.Btc ? (
-                  <Text>{hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : btcSecondaryText}</Text>
-                ) : (
-                  <Text>{hideAmount ? HIDDEN_AMOUNT_PLACEHOLDER : usdSecondaryText}</Text>
-                )}
-              </View>
-              <View />
+              {hideAmount ? (
+                <HiddenBalanceIndicator size="small" />
+              ) : (
+                <>
+                  <View style={styles.walletSelectorTypeTextContainer}>
+                    {sendingWalletDescriptor.currency === WalletCurrency.Btc ? (
+                      <Text style={styles.walletCurrencyText}>{btcPrimaryText}</Text>
+                    ) : (
+                      <Text style={styles.walletCurrencyText}>{usdPrimaryText}</Text>
+                    )}
+                  </View>
+                  <View style={styles.walletSelectorBalanceContainer}>
+                    {sendingWalletDescriptor.currency === WalletCurrency.Btc ? (
+                      <Text>{btcSecondaryText}</Text>
+                    ) : (
+                      <Text>{usdSecondaryText}</Text>
+                    )}
+                  </View>
+                </>
+              )}
             </View>
           </View>
         </View>

@@ -4,6 +4,7 @@ import { TouchableOpacity, View, Text } from "react-native"
 
 import { makeStyles } from "@rn-vui/themed"
 
+import { HiddenBalanceIndicator } from "@app/components/hidden-balance-indicator/hidden-balance-indicator"
 import { useHideAmount } from "@app/graphql/hide-amount-context"
 import { testProps } from "@app/utils/testProps"
 
@@ -37,13 +38,9 @@ export const BalanceHeader: React.FC<Props> = ({ loading, formattedBalance }) =>
   // so there is no need to pass loading from parent?
   return (
     <View {...testProps("balance-header")} style={styles.balanceHeaderContainer}>
-      {hideAmount ? (
-        <TouchableOpacity onPress={switchMemoryHideAmount}>
-          <Text style={styles.balanceHiddenText}>****</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity onPress={switchMemoryHideAmount}>
-          <View>
+      <TouchableOpacity onPress={switchMemoryHideAmount}>
+        <View style={styles.balanceWrapper}>
+          <View style={{ opacity: hideAmount ? 0 : 1 }}>
             {loading ? (
               <Loader />
             ) : (
@@ -56,8 +53,13 @@ export const BalanceHeader: React.FC<Props> = ({ loading, formattedBalance }) =>
               </Text>
             )}
           </View>
-        </TouchableOpacity>
-      )}
+          {hideAmount && (
+            <View style={styles.indicatorOverlay}>
+              <HiddenBalanceIndicator size="large" />
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -67,8 +69,22 @@ const useStyles = makeStyles(({ colors }) => ({
     alignItems: "center",
     textAlign: "center",
   },
+  balanceWrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  indicatorOverlay: {
+    position: "absolute" as const,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center" as const,
+    alignItems: "center" as const,
+  },
   primaryBalanceText: {
     fontSize: 32,
+    fontWeight: "bold",
     color: colors.black,
   },
   loaderBackground: {
@@ -76,10 +92,5 @@ const useStyles = makeStyles(({ colors }) => ({
   },
   loaderForefound: {
     color: colors.loaderForeground,
-  },
-  balanceHiddenText: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: colors.black,
   },
 }))

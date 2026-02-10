@@ -16,6 +16,7 @@ import { makeStyles, Text, useTheme } from "@rn-vui/themed"
 import { GaloyIcon } from "../atomic/galoy-icon"
 import { useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
+import { HiddenBalanceIndicator } from "@app/components/hidden-balance-indicator/hidden-balance-indicator"
 import { NotificationBadge } from "@app/components/notification-badge"
 import { RootStackParamList } from "@app/navigation/stack-param-lists"
 import { CurrencyPill, useEqualPillWidth } from "../atomic/currency-pill"
@@ -165,16 +166,18 @@ const WalletOverview: React.FC<Props> = ({
             <Loader />
           ) : (
             <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
-              {hideAmount ? (
-                <Text>****</Text>
-              ) : (
-                <View style={[styles.hideableArea, pressedBtc && styles.pressedOpacity]}>
-                  <Text type="p1" bold {...testProps("bitcoin-balance")}>
-                    {btcInUnderlyingCurrency}
-                  </Text>
-                  <Text type="p3">{btcInDisplayCurrencyFormatted}</Text>
-                </View>
-              )}
+              <View style={[styles.hideableArea, pressedBtc && styles.pressedOpacity]}>
+                {hideAmount ? (
+                  <HiddenBalanceIndicator size="small" />
+                ) : (
+                  <>
+                    <Text type="p1" bold {...testProps("bitcoin-balance")}>
+                      {btcInUnderlyingCurrency}
+                    </Text>
+                    <Text type="p3">{btcInDisplayCurrencyFormatted}</Text>
+                  </>
+                )}
+              </View>
             </Pressable>
           )}
         </View>
@@ -212,7 +215,7 @@ const WalletOverview: React.FC<Props> = ({
             <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
               <View style={[styles.hideableArea, pressedUsd && styles.pressedOpacity]}>
                 {hideAmount ? (
-                  <Text>****</Text>
+                  <HiddenBalanceIndicator size="small" />
                 ) : (
                   <>
                     {usdInUnderlyingCurrency ? (
@@ -288,6 +291,8 @@ const useStyles = makeStyles(({ colors }) => ({
   },
   hideableArea: {
     alignItems: "flex-end",
+    justifyContent: "center",
+    minHeight: 45,
   },
   loaderContainer: {
     flex: 1,
