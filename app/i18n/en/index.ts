@@ -64,6 +64,10 @@ const en: BaseTranslation = {
     allContacts: "All Contacts",
     viewAllContacts: "View all contacts",
     frequentContacts: "Frequent Contacts",
+    deleteContactConfirmation:
+      "Do you really want to delete {username: string} from your contacts?",
+    deleteContactCancel: "Cancel",
+    deleteContactConfirm: "Yes",
   },
   ContactDetailsScreen: {
     title: "Transactions with {username: string}",

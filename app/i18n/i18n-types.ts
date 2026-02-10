@@ -233,6 +233,19 @@ type RootTranslation = {
 		 * F​r​e​q​u​e​n​t​ ​C​o​n​t​a​c​t​s
 		 */
 		frequentContacts: string
+		/**
+		 * D​o​ ​y​o​u​ ​r​e​a​l​l​y​ ​w​a​n​t​ ​t​o​ ​d​e​l​e​t​e​ ​{​u​s​e​r​n​a​m​e​}​ ​f​r​o​m​ ​y​o​u​r​ ​c​o​n​t​a​c​t​s​?
+		 * @param {string} username
+		 */
+		deleteContactConfirmation: RequiredParams<'username'>
+		/**
+		 * C​a​n​c​e​l
+		 */
+		deleteContactCancel: string
+		/**
+		 * Y​e​s
+		 */
+		deleteContactConfirm: string
 	}
 	ContactDetailsScreen: {
 		/**
@@ -9809,6 +9822,18 @@ export type TranslationFunctions = {
 		 * Frequent Contacts
 		 */
 		frequentContacts: () => LocalizedString
+		/**
+		 * Do you really want to delete {username} from your contacts?
+		 */
+		deleteContactConfirmation: (arg: { username: string }) => LocalizedString
+		/**
+		 * Cancel
+		 */
+		deleteContactCancel: () => LocalizedString
+		/**
+		 * Yes
+		 */
+		deleteContactConfirm: () => LocalizedString
 	}
 	ContactDetailsScreen: {
 		/**

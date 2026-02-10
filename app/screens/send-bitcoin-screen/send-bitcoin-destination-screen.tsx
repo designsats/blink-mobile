@@ -13,6 +13,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { gql } from "@apollo/client"
 import { GaloyPrimaryButton } from "@app/components/atomic/galoy-primary-button"
 import { Screen } from "@app/components/screen"
+import { SwipeableContactRow } from "@app/components/swipeable-contact-row/swipeable-contact-row"
 import { LNURL_DOMAINS } from "@app/config"
 import { useAppConfig } from "@app/hooks"
 import {
@@ -52,6 +53,7 @@ import {
 } from "./send-bitcoin-reducer"
 import { PhoneInput, PhoneInputInfo } from "@app/components/phone-input"
 import { GaloyIcon } from "@app/components/atomic/galoy-icon"
+import { useDeletedContacts } from "@app/store/deleted-contacts/deleted-contacts-context"
 import { normalizeString } from "@app/utils/helper"
 import { isPhoneNumber, parseValidPhoneNumber } from "@app/utils/phone"
 import { isInt } from "validator"
@@ -151,6 +153,7 @@ const SendBitcoinDestinationScreen: React.FC<Props> = ({ route }) => {
   const navigation =
     useNavigation<StackNavigationProp<RootStackParamList, "sendBitcoinDestination">>()
   const isAuthed = useIsAuthed()
+  const { isDeleted } = useDeletedContacts()
 
   const [destinationState, dispatchDestinationStateAction] = useReducer(
     sendBitcoinDestinationReducer,
@@ -198,10 +201,12 @@ const SendBitcoinDestinationScreen: React.FC<Props> = ({ route }) => {
 
   const allContacts: UserContact[] = useMemo(
     () =>
-      (contacts.slice() ?? []).sort((a, b) => {
-        return b.transactionsCount - a.transactionsCount
-      }),
-    [contacts],
+      (contacts.slice() ?? [])
+        .filter((c) => !isDeleted(c.handle))
+        .sort((a, b) => {
+          return b.transactionsCount - a.transactionsCount
+        }),
+    [contacts, isDeleted],
   )
 
   const {
@@ -773,35 +778,37 @@ const SendBitcoinDestinationScreen: React.FC<Props> = ({ route }) => {
               handle && !handle.includes("@") ? `${handle}@${lnAddressHostname}` : handle
 
             return (
-              <View
-                style={[
-                  styles.listContainer,
-                  item.id === selectedId && styles.listContainerSelected,
-                ]}
-              >
-                <ListItem
-                  key={item.handle}
-                  style={[]}
-                  containerStyle={[
-                    matchingContacts.length > 1 &&
-                      matchingContacts.length > index + 1 &&
-                      styles.listItemContainer,
-                    styles.listItemContainerBase,
+              <SwipeableContactRow contact={item}>
+                <View
+                  style={[
+                    styles.listContainer,
+                    item.id === selectedId && styles.listContainerSelected,
                   ]}
-                  onPress={() => handleContactPress(item)}
                 >
-                  <GaloyIcon name={"user"} size={20} />
-                  <ListItem.Content>
-                    <ListItem.Title
-                      style={styles.itemText}
-                      numberOfLines={1}
-                      ellipsizeMode="tail"
-                    >
-                      {displayHandle}
-                    </ListItem.Title>
-                  </ListItem.Content>
-                </ListItem>
-              </View>
+                  <ListItem
+                    key={item.handle}
+                    style={[]}
+                    containerStyle={[
+                      matchingContacts.length > 1 &&
+                        matchingContacts.length > index + 1 &&
+                        styles.listItemContainer,
+                      styles.listItemContainerBase,
+                    ]}
+                    onPress={() => handleContactPress(item)}
+                  >
+                    <GaloyIcon name={"user"} size={20} />
+                    <ListItem.Content>
+                      <ListItem.Title
+                        style={styles.itemText}
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                      >
+                        {displayHandle}
+                      </ListItem.Title>
+                    </ListItem.Content>
+                  </ListItem>
+                </View>
+              </SwipeableContactRow>
             )
           }}
           keyExtractor={(item) => item.handle}

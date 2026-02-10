@@ -51,6 +51,7 @@ import User from "@app/assets/icons-redesign/user.svg"
 import Video from "@app/assets/icons-redesign/video.svg"
 import WarningWithBackground from "@app/assets/icons-redesign/warning-with-background.svg"
 import Warning from "@app/assets/icons-redesign/warning.svg"
+import Trash from "@app/assets/icons-redesign/trash.svg"
 import Telegram from "@app/assets/icons/telegram.svg"
 import TelegramSimple from "@app/assets/icons-redesign/telegram-simple.svg"
 import Note from "@app/assets/icons/note.svg"
@@ -121,6 +122,7 @@ export const icons = {
   "payment-error": PaymentError,
   "bell": Bell,
   "refresh": Refresh,
+  "trash": Trash,
   "telegram": Telegram,
   "telegram-simple": TelegramSimple,
   "upgrade": Upgrade,

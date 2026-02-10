@@ -6,11 +6,13 @@ import Icon from "react-native-vector-icons/Ionicons"
 
 import { gql } from "@apollo/client"
 import { Screen } from "@app/components/screen"
+import { SwipeableContactRow } from "@app/components/swipeable-contact-row/swipeable-contact-row"
 import { UserContact, useContactsQuery } from "@app/graphql/generated"
 import { useIsAuthed } from "@app/graphql/is-authed-context"
 import { useI18nContext } from "@app/i18n/i18n-react"
 import { PeopleStackParamList } from "@app/navigation/stack-param-lists"
 import { testProps } from "@app/utils/testProps"
+import { useDeletedContacts } from "@app/store/deleted-contacts/deleted-contacts-context"
 import { toastShow } from "@app/utils/toast"
 import { useAppConfig } from "@app/hooks"
 import { useNavigation } from "@react-navigation/native"
@@ -48,6 +50,7 @@ export const AllContactsScreen: React.FC = () => {
   const navigation = useNavigation<StackNavigationProp<PeopleStackParamList>>()
 
   const isAuthed = useIsAuthed()
+  const { isDeleted } = useDeletedContacts()
 
   const [matchingContacts, setMatchingContacts] = useState<UserContact[]>([])
   const [searchText, setSearchText] = useState("")
@@ -62,8 +65,8 @@ export const AllContactsScreen: React.FC = () => {
   }
 
   const contacts: UserContact[] = useMemo(() => {
-    return data?.me?.contacts.slice() ?? []
-  }, [data])
+    return (data?.me?.contacts.slice() ?? []).filter((c) => !isDeleted(c.handle))
+  }, [data, isDeleted])
 
   const reset = useCallback(() => {
     setSearchText("")
@@ -178,17 +181,19 @@ export const AllContactsScreen: React.FC = () => {
             handle && !handle.includes("@") ? `${handle}@${lnAddressHostname}` : handle
 
           return (
-            <ListItem
-              key={item.handle}
-              style={styles.item}
-              containerStyle={styles.itemContainer}
-              onPress={() => navigation.navigate("contactDetail", { contact: item })}
-            >
-              <Icon name={"person-outline"} size={24} color={colors.primary} />
-              <ListItem.Content>
-                <ListItem.Title style={styles.itemText}>{displayHandle}</ListItem.Title>
-              </ListItem.Content>
-            </ListItem>
+            <SwipeableContactRow contact={item}>
+              <ListItem
+                key={item.handle}
+                style={styles.item}
+                containerStyle={styles.itemContainer}
+                onPress={() => navigation.navigate("contactDetail", { contact: item })}
+              >
+                <Icon name={"person-outline"} size={24} color={colors.primary} />
+                <ListItem.Content>
+                  <ListItem.Title style={styles.itemText}>{displayHandle}</ListItem.Title>
+                </ListItem.Content>
+              </ListItem>
+            </SwipeableContactRow>
           )
         }}
         keyExtractor={(item) => item.handle}

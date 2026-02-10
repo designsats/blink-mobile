@@ -15,6 +15,7 @@ import {
   PeopleStackParamList,
   RootStackParamList,
 } from "@app/navigation/stack-param-lists"
+import { useDeletedContacts } from "@app/store/deleted-contacts/deleted-contacts-context"
 import { toastShow } from "@app/utils/toast"
 import { useAppConfig } from "@app/hooks"
 import { useNavigation } from "@react-navigation/native"
@@ -73,6 +74,7 @@ export const ContactsCard = () => {
   const { LL } = useI18nContext()
 
   const isAuthed = useIsAuthed()
+  const { isDeleted } = useDeletedContacts()
   const navigation = useNavigation<StackNavigationProp<PeopleStackParamList>>()
 
   const { loading, data, error } = useContactsCardQuery({
@@ -84,7 +86,13 @@ export const ContactsCard = () => {
     toastShow({ message: error.message, LL })
   }
 
-  const contacts = useMemo(() => (data ? getFrequentContacts(data) : []), [data])
+  const contacts = useMemo(
+    () =>
+      data
+        ? getFrequentContacts(data).filter((c) => !isDeleted(c.handle))
+        : [],
+    [data, isDeleted],
+  )
 
   return (
     <View style={styles.container}>

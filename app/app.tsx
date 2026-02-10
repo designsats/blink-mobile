@@ -30,6 +30,7 @@ import { AppStateWrapper } from "./navigation/app-state"
 import { NavigationContainerWrapper } from "./navigation/navigation-container-wrapper"
 import { RootStack } from "./navigation/root-navigator"
 import { ErrorScreen } from "./screens/error-screen"
+import { DeletedContactsProvider } from "./store/deleted-contacts/deleted-contacts-context"
 import { PersistentStateProvider } from "./store/persistent-state"
 import { detectDefaultLocale } from "./utils/locale-detector"
 import "./utils/logs"
@@ -54,6 +55,7 @@ export const App = () => (
         <GaloyClient>
           <GaloyThemeProvider>
             <FeatureFlagContextProvider>
+              <DeletedContactsProvider>
               <ActionsProvider>
                 <NavigationContainerWrapper>
                   <ErrorBoundary FallbackComponent={ErrorScreen}>
@@ -70,6 +72,7 @@ export const App = () => (
                   </ErrorBoundary>
                 </NavigationContainerWrapper>
               </ActionsProvider>
+              </DeletedContactsProvider>
             </FeatureFlagContextProvider>
           </GaloyThemeProvider>
         </GaloyClient>
