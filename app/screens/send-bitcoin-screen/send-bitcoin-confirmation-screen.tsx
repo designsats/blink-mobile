@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ActivityIndicator, TouchableOpacity, View } from "react-native"
 import { PanGestureHandler } from "react-native-gesture-handler"
-import ReactNativeHapticFeedback from "react-native-haptic-feedback"
+import { haptics } from "@app/utils/haptics"
 
 import { gql } from "@apollo/client"
 import { CurrencyPill, useEqualPillWidth } from "@app/components/atomic/currency-pill"
@@ -237,26 +237,20 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
             index: routes.length - 1,
           })
         })
-        ReactNativeHapticFeedback.trigger("notificationSuccess", {
-          ignoreAndroidSystemSettings: true,
-        })
+        haptics.success()
         return
       }
 
       if (status === "ALREADY_PAID") {
         setPaymentError(LL.SendBitcoinConfirmationScreen.invoiceAlreadyPaid())
-        ReactNativeHapticFeedback.trigger("notificationError", {
-          ignoreAndroidSystemSettings: true,
-        })
+        haptics.error()
         return
       }
 
       setPaymentError(
         errorsMessage || LL.SendBitcoinConfirmationScreen.somethingWentWrong(),
       )
-      ReactNativeHapticFeedback.trigger("notificationError", {
-        ignoreAndroidSystemSettings: true,
-      })
+      haptics.error()
     } catch (err) {
       if (err instanceof Error) {
         crashlytics().recordError(err)

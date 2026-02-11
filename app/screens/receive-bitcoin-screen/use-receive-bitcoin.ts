@@ -1,7 +1,7 @@
 import fetch from "cross-fetch"
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react"
 import { Alert, Share } from "react-native"
-import ReactNativeHapticFeedback from "react-native-haptic-feedback"
+import { haptics } from "@app/utils/haptics"
 
 import { gql } from "@apollo/client"
 import {
@@ -270,9 +270,7 @@ export const useReceiveBitcoin = () => {
       lastHash === pr.info.data.paymentHash
     ) {
       setPR((pq) => pq && pq.setState(PaymentRequestState.Paid))
-      ReactNativeHapticFeedback.trigger("notificationSuccess", {
-        ignoreAndroidSystemSettings: true,
-      })
+      haptics.success()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastHash])

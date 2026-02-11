@@ -14,6 +14,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated"
 
+import { haptics } from "@app/utils/haptics"
 import { testProps } from "@app/utils/testProps"
 import { Text, makeStyles, useTheme } from "@rn-vui/themed"
 
@@ -44,6 +45,7 @@ const GaloySliderButton = ({
   const styles = useStyles()
 
   const X = useSharedValue(0)
+  const hasPassedThreshold = useSharedValue(false)
 
   useEffect(() => {
     if (!isLoading) {
@@ -58,6 +60,14 @@ const GaloySliderButton = ({
 
       if (newValue >= 0 && newValue <= SWIPE_RANGE) {
         X.value = newValue
+      }
+
+      if (newValue >= SWIPE_RANGE * 0.6 && !hasPassedThreshold.value) {
+        hasPassedThreshold.value = true
+        runOnJS(haptics.medium)()
+      }
+      if (newValue < SWIPE_RANGE * 0.6) {
+        hasPassedThreshold.value = false
       }
     },
     onEnd: () => {

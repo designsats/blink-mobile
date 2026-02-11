@@ -6,6 +6,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated"
+import { haptics } from "@app/utils/haptics"
 import { makeStyles, useTheme } from "@rn-vui/themed"
 
 const TRACK_WIDTH = 51
@@ -42,6 +43,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
   const handlePress = () => {
     if (!disabled) {
+      haptics.selection()
       onValueChange(!value)
     }
   }

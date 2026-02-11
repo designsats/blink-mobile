@@ -4,6 +4,7 @@ import { TranslationFunctions } from "@app/i18n/i18n-types"
 import { i18nObject } from "@app/i18n/i18n-util"
 
 import { logToastShown } from "./analytics"
+import { haptics } from "./haptics"
 
 export const toastShow = ({
   message,
@@ -44,4 +45,8 @@ export const toastShow = ({
     visibilityTime: 4000,
     autoHide,
   })
+
+  if (type === "success") haptics.success()
+  else if (type === "error") haptics.error()
+  else if (type === "warning") haptics.warning()
 }

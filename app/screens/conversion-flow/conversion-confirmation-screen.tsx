@@ -4,7 +4,7 @@ import { TouchableOpacity, View } from "react-native"
 import { makeStyles, useTheme, Text } from "@rn-vui/themed"
 import Icon from "react-native-vector-icons/Ionicons"
 import { PanGestureHandler, ScrollView } from "react-native-gesture-handler"
-import ReactNativeHapticFeedback from "react-native-haptic-feedback"
+import { haptics } from "@app/utils/haptics"
 import crashlytics from "@react-native-firebase/crashlytics"
 import {
   CommonActions,
@@ -143,21 +143,15 @@ export const ConversionConfirmationScreen: React.FC<Props> = ({ route }) => {
           index: routes.length - 1,
         })
       })
-      ReactNativeHapticFeedback.trigger("notificationSuccess", {
-        ignoreAndroidSystemSettings: true,
-      })
+      haptics.success()
     }
 
     if (typeof errorsMessage === "string") {
       setErrorMessage(errorsMessage)
-      ReactNativeHapticFeedback.trigger("notificationError", {
-        ignoreAndroidSystemSettings: true,
-      })
+      haptics.error()
     } else if (errorsMessage?.length) {
       setErrorMessage(getErrorMessages(errorsMessage))
-      ReactNativeHapticFeedback.trigger("notificationError", {
-        ignoreAndroidSystemSettings: true,
-      })
+      haptics.error()
     }
   }
 

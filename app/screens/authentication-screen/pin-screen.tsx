@@ -10,6 +10,7 @@ import { StackNavigationProp } from "@react-navigation/stack"
 import { Button } from "@rn-vui/base"
 import { makeStyles } from "@rn-vui/themed"
 
+import { haptics } from "@app/utils/haptics"
 import { Screen } from "../../components/screen"
 import useLogout from "../../hooks/use-logout"
 import { RootStackParamList } from "../../navigation/stack-param-lists"
@@ -47,6 +48,7 @@ export const PinScreen: React.FC<Props> = ({ route }) => {
 
   const handleCompletedPinForAuthenticatePin = async (newEnteredPIN: string) => {
     if (newEnteredPIN === (await KeyStoreWrapper.getPinOrEmptyString())) {
+      haptics.success()
       KeyStoreWrapper.resetPinAttempts()
       setAppUnlocked()
       navigation.reset({
@@ -57,6 +59,7 @@ export const PinScreen: React.FC<Props> = ({ route }) => {
       const newPinAttempts = pinAttempts + 1
       KeyStoreWrapper.setPinAttempts(newPinAttempts.toString())
       setPinAttempts(newPinAttempts)
+      haptics.error()
       setEnteredPIN("")
       if (newPinAttempts === MAX_PIN_ATTEMPTS - 1) {
         setHelperText(LL.PinScreen.oneAttemptRemaining())
@@ -65,6 +68,7 @@ export const PinScreen: React.FC<Props> = ({ route }) => {
         setHelperText(LL.PinScreen.attemptsRemaining({ attemptsRemaining }))
       }
     } else {
+      haptics.error()
       setHelperText(LL.PinScreen.tooManyAttempts())
       await logout()
       await sleep(1000)
@@ -86,6 +90,7 @@ export const PinScreen: React.FC<Props> = ({ route }) => {
   }
 
   const addDigit = (digit: string) => {
+    haptics.light()
     if (enteredPIN.length < 4) {
       const newEnteredPIN = enteredPIN + digit
       setEnteredPIN(newEnteredPIN)
@@ -178,7 +183,10 @@ export const PinScreen: React.FC<Props> = ({ route }) => {
             <Button
               buttonStyle={styles.pinPadButton}
               icon={<Icon style={styles.pinPadButtonIcon} name="arrow-back" />}
-              onPress={() => setEnteredPIN(enteredPIN.slice(0, -1))}
+              onPress={() => {
+                haptics.light()
+                setEnteredPIN(enteredPIN.slice(0, -1))
+              }}
             />
           </View>
         </View>
