@@ -83,7 +83,7 @@ const useStyles = makeStyles(({ colors }) => ({
     alignItems: "center" as const,
   },
   primaryBalanceText: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: "bold",
     color: colors.black,
   },

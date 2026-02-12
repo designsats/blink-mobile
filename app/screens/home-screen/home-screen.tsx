@@ -566,12 +566,12 @@ const useStyles = makeStyles(({ colors }) => ({
   scrollViewContainer: {
     paddingHorizontal: BODY_PADDING,
     paddingBottom: 20,
-    rowGap: 20,
+    rowGap: 14,
   },
   listItemsContainer: {
     paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderRadius: 12,
+    paddingVertical: 10,
+    borderRadius: 20,
     backgroundColor: colors.grey5,
     display: "flex",
     flexDirection: "row",
@@ -627,11 +627,11 @@ const useStyles = makeStyles(({ colors }) => ({
     alignItems: "center",
   },
   balanceContainer: {
-    marginTop: 7,
+    marginTop: 10,
     flexDirection: "column",
     flex: 1,
-    height: 40,
-    maxHeight: 40,
+    height: 70,
+    maxHeight: 70,
   },
   header: {
     flexDirection: "row",
@@ -639,7 +639,7 @@ const useStyles = makeStyles(({ colors }) => ({
     justifyContent: "space-between",
     alignItems: "center",
     marginHorizontal: 20,
-    marginTop: 6,
+    marginTop: 0,
   },
   error: {
     alignSelf: "center",

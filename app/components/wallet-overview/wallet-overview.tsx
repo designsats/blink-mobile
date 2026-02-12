@@ -130,17 +130,6 @@ const WalletOverview: React.FC<Props> = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.myAccounts}>
-        <Text type="p1" bold {...testProps(LL.HomeScreen.myAccounts())}>
-          {LL.HomeScreen.myAccounts()}
-        </Text>
-        <Pressable onPress={switchMemoryHideAmount}>
-          <GaloyIcon name={hideAmount ? "eye-slash" : "eye"} size={24} />
-        </Pressable>
-      </View>
-
-      <View style={[styles.separator, styles.titleSeparator]} />
-
       <Pressable
         onPressIn={() => setPressedBtc(true)}
         onPressOut={() => setPressedBtc(false)}
@@ -248,8 +237,10 @@ const useStyles = makeStyles(({ colors }) => ({
     backgroundColor: colors.grey5,
     display: "flex",
     flexDirection: "column",
-    borderRadius: 12,
-    padding: 12,
+    borderRadius: 20,
+    padding: 14,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   loaderBackground: {
     color: colors.loaderBackground,
@@ -268,7 +259,7 @@ const useStyles = makeStyles(({ colors }) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: 45,
+    height: 55,
     marginVertical: 4,
     marginTop: 5,
   },
