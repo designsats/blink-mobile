@@ -21,6 +21,7 @@ import WalletOverview from "@app/components/wallet-overview/wallet-overview"
 import { BalanceHeader, useTotalBalance } from "@app/components/balance-header"
 import { TrialAccountLimitsModal } from "@app/components/upgrade-account-modal"
 import SlideUpHandle from "@app/components/slide-up-handle"
+import SwipeToScan from "@app/components/swipe-to-scan"
 import { Screen } from "@app/components/screen"
 import {
   UnseenTxAmountBadge,
@@ -328,6 +329,14 @@ export const HomeScreen: React.FC = () => {
 
   const numberOfTxs = transactions.length
 
+  const handleSwipeToScan = React.useCallback(() => {
+    if (isAuthed) {
+      navigation.navigate("scanningQRCode")
+    } else {
+      setModalVisible(true)
+    }
+  }, [isAuthed, navigation])
+
   const onMenuClick = (target: Target) => {
     if (isAuthed) {
       if (
@@ -462,87 +471,89 @@ export const HomeScreen: React.FC = () => {
           reopenUpgradeModal.current = true
         }}
       />
-      <View style={styles.balanceContainer}>
-        <View style={styles.header}>
-          <GaloyIconButton
-            onPress={() => navigation.navigate("priceHistory")}
-            size={"medium"}
-            name="graph"
-            iconOnly={true}
-          />
-          <View>
-            {!loading && usernameTitle && (
-              <Pressable onPress={isAtLeastLevelOne ? handleSwitchPress : null}>
-                <View style={styles.profileContainer}>
-                  <Text type="p2">{usernameTitle}</Text>
-                  {isAtLeastLevelOne && <GaloyIcon name={"caret-down"} size={18} />}
-                </View>
-              </Pressable>
-            )}
+      <SwipeToScan onSwipeComplete={handleSwipeToScan}>
+        <View style={styles.balanceContainer}>
+          <View style={styles.header}>
+            <GaloyIconButton
+              onPress={() => navigation.navigate("priceHistory")}
+              size={"medium"}
+              name="graph"
+              iconOnly={true}
+            />
+            <View>
+              {!loading && usernameTitle && (
+                <Pressable onPress={isAtLeastLevelOne ? handleSwitchPress : null}>
+                  <View style={styles.profileContainer}>
+                    <Text type="p2">{usernameTitle}</Text>
+                    {isAtLeastLevelOne && <GaloyIcon name={"caret-down"} size={18} />}
+                  </View>
+                </Pressable>
+              )}
+            </View>
+            <GaloyIconButton
+              onPress={() => navigation.navigate("settings")}
+              size={"medium"}
+              name="menu"
+              iconOnly={true}
+            />
           </View>
-          <GaloyIconButton
-            onPress={() => navigation.navigate("settings")}
-            size={"medium"}
-            name="menu"
-            iconOnly={true}
+        </View>
+        <BalanceHeader loading={loading} formattedBalance={formattedBalance} />
+        <View style={styles.badgeSlot}>
+          <UnseenTxAmountBadge
+            key={latestUnseenTx?.id}
+            amountText={unseenAmountText ?? ""}
+            visible={isOutgoing ? showOutgoingBadge : Boolean(unseenAmountText)}
+            onPress={handleUnseenBadgePress}
+            isOutgoing={isOutgoing}
           />
         </View>
-      </View>
-      <BalanceHeader loading={loading} formattedBalance={formattedBalance} />
-      <View style={styles.badgeSlot}>
-        <UnseenTxAmountBadge
-          key={latestUnseenTx?.id}
-          amountText={unseenAmountText ?? ""}
-          visible={isOutgoing ? showOutgoingBadge : Boolean(unseenAmountText)}
-          onPress={handleUnseenBadgePress}
-          isOutgoing={isOutgoing}
-        />
-      </View>
-      <ScrollView
-        {...testProps("home-screen")}
-        contentContainerStyle={styles.scrollViewContainer}
-        refreshControl={
-          <RefreshControl
-            refreshing={loading && isFocused}
-            onRefresh={refetch}
-            colors={[colors.primary]}
-            tintColor={colors.primary}
+        <ScrollView
+          {...testProps("home-screen")}
+          contentContainerStyle={styles.scrollViewContainer}
+          refreshControl={
+            <RefreshControl
+              refreshing={loading && isFocused}
+              onRefresh={refetch}
+              colors={[colors.primary]}
+              tintColor={colors.primary}
+            />
+          }
+        >
+          <WalletOverview
+            loading={loading}
+            setIsStablesatModalVisible={setIsStablesatModalVisible}
+            wallets={wallets}
+            showBtcNotification={isOutgoing ? false : hasUnseenBtcTx}
+            showUsdNotification={isOutgoing ? false : hasUnseenUsdTx}
           />
-        }
-      >
-        <WalletOverview
-          loading={loading}
-          setIsStablesatModalVisible={setIsStablesatModalVisible}
-          wallets={wallets}
-          showBtcNotification={isOutgoing ? false : hasUnseenBtcTx}
-          showUsdNotification={isOutgoing ? false : hasUnseenUsdTx}
-        />
-        {error && <GaloyErrorBox errorMessage={getErrorMessages(error)} />}
-        <View style={styles.listItemsContainer}>
-          {buttons.map((item) => (
-            <React.Fragment key={item.icon}>
-              {item.icon === "qr-code" && <View style={styles.actionsSeparator} />}
-              <View style={styles.button}>
-                <GaloyIconButton
-                  name={item.icon}
-                  size="large"
-                  text={item.title}
-                  onPress={() => onMenuClick(item.target)}
-                />
-              </View>
-            </React.Fragment>
-          ))}
-        </View>
-        <BulletinsCard loading={bulletinsLoading} bulletins={bulletins} />
-        <AppUpdate />
-        <SetDefaultAccountModal
-          isVisible={setDefaultAccountModalVisible}
-          toggleModal={() => {
-            toggleSetDefaultAccountModal()
-            navigation.navigate("receiveBitcoin")
-          }}
-        />
-      </ScrollView>
+          {error && <GaloyErrorBox errorMessage={getErrorMessages(error)} />}
+          <View style={styles.listItemsContainer}>
+            {buttons.map((item) => (
+              <React.Fragment key={item.icon}>
+                {item.icon === "qr-code" && <View style={styles.actionsSeparator} />}
+                <View style={styles.button}>
+                  <GaloyIconButton
+                    name={item.icon}
+                    size="large"
+                    text={item.title}
+                    onPress={() => onMenuClick(item.target)}
+                  />
+                </View>
+              </React.Fragment>
+            ))}
+          </View>
+          <BulletinsCard loading={bulletinsLoading} bulletins={bulletins} />
+          <AppUpdate />
+          <SetDefaultAccountModal
+            isVisible={setDefaultAccountModalVisible}
+            toggleModal={() => {
+              toggleSetDefaultAccountModal()
+              navigation.navigate("receiveBitcoin")
+            }}
+          />
+        </ScrollView>
+      </SwipeToScan>
       <SlideUpHandle
         bottomOffset={15}
         onAction={() => navigation.navigate("transactionHistory")}
