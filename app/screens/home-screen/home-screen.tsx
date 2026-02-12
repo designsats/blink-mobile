@@ -21,6 +21,7 @@ import WalletOverview from "@app/components/wallet-overview/wallet-overview"
 import { BalanceHeader, useTotalBalance } from "@app/components/balance-header"
 import { TrialAccountLimitsModal } from "@app/components/upgrade-account-modal"
 import SlideUpHandle from "@app/components/slide-up-handle"
+import SwipeToScan from "@app/components/swipe-to-scan"
 import { Screen } from "@app/components/screen"
 import {
   UnseenTxAmountBadge,
@@ -335,6 +336,14 @@ export const HomeScreen: React.FC = () => {
 
   const numberOfTxs = transactions.length
 
+  const handleSwipeToScan = React.useCallback(() => {
+    if (isAuthed) {
+      navigation.navigate("scanningQRCode")
+    } else {
+      setModalVisible(true)
+    }
+  }, [isAuthed, navigation])
+
   const onMenuClick = (target: Target) => {
     if (isAuthed) {
       if (
@@ -469,6 +478,7 @@ export const HomeScreen: React.FC = () => {
           reopenUpgradeModal.current = true
         }}
       />
+      <SwipeToScan onSwipeComplete={handleSwipeToScan}>
         <View style={styles.balanceContainer}>
           <View style={styles.header}>
             <GaloyIconButton
@@ -554,6 +564,7 @@ export const HomeScreen: React.FC = () => {
             }}
           />
         </ScrollView>
+      </SwipeToScan>
       <SlideUpHandle
         bottomOffset={15}
         onAction={() => navigation.navigate("transactionHistory")}
