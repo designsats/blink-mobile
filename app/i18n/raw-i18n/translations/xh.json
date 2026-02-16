@@ -504,7 +504,11 @@
         "useALightningInvoice": "Sebenzisa i-invoyisi yoMbane",
         "setANote": "Seta Inqaku",
         "invoiceAmount": "Isixa se-invoyisi",
-        "fees": "{minBankFee: string} sats fees for onchain payment below {minBankFeeThreshold: string} sats"
+        "fees": "{minBankFee: string} sats fees for onchain payment below {minBankFeeThreshold: string} sats",
+        "lightningAddress": "Idilesi ye-Lightning",
+        "lightningInvoice": "I-invoyisi ye-Lightning",
+        "bitcoinOnchain": "Bitcoin onchain",
+        "depositFee": "Intlawulo yokufaka: {fee} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Sebenzisa i-Bitcoin",

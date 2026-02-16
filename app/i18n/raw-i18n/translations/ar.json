@@ -2100,7 +2100,11 @@
         "receiveViaInvoice": "Receive via Lightning",
         "receiveViaPaycode": "Receive via Paycode",
         "receiveViaOnchain": "Receive via Onchain",
-        "payCodeOrLNURL": "Paycode / LNURL"
+        "payCodeOrLNURL": "Paycode / LNURL",
+        "lightningAddress": "عنوان Lightning",
+        "lightningInvoice": "فاتورة Lightning",
+        "bitcoinOnchain": "Bitcoin onchain",
+        "depositFee": "رسوم الإيداع: {fee} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "حرر البيتكوين",
