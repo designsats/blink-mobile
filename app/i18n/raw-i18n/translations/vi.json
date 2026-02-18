@@ -2101,8 +2101,8 @@
         "receiveViaPaycode": "Receive via Paycode",
         "receiveViaOnchain": "Receive via Onchain",
         "payCodeOrLNURL": "Paycode / LNURL",
-        "lightningAddress": "Địa chỉ Lightning",
-        "lightningInvoice": "Hóa đơn Lightning",
+        "lightningAddress": "Địa chỉ lightning",
+        "lightningInvoice": "Hóa đơn lightning",
         "bitcoinOnchain": "Bitcoin onchain",
         "depositFee": "Phí nạp tiền: {fee} SAT"
     },

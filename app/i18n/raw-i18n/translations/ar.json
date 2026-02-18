@@ -2101,8 +2101,8 @@
         "receiveViaPaycode": "Receive via Paycode",
         "receiveViaOnchain": "Receive via Onchain",
         "payCodeOrLNURL": "Paycode / LNURL",
-        "lightningAddress": "عنوان Lightning",
-        "lightningInvoice": "فاتورة Lightning",
+        "lightningAddress": "عنوان lightning",
+        "lightningInvoice": "فاتورة lightning",
         "bitcoinOnchain": "Bitcoin onchain",
         "depositFee": "رسوم الإيداع: {fee} SAT"
     },

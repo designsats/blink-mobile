@@ -2116,8 +2116,8 @@
         "receiveViaOnchain": "Λήψη μέσω On-chain",
         "payCodeOrLNURL": "Paycode / LNURL",
         "cantReceiveZeroSats": "Δεν μπορείτε να λαμβάνετε μηδενικά sats. Παρακαλούμε εισάγετε ένα ποσό που αντιστοιχεί σε 1 ή περισσότερα sats.",
-        "lightningAddress": "Διεύθυνση Lightning",
-        "lightningInvoice": "Τιμολόγιο Lightning",
+        "lightningAddress": "Διεύθυνση lightning",
+        "lightningInvoice": "Τιμολόγιο lightning",
         "bitcoinOnchain": "Bitcoin onchain",
         "depositFee": "Χρέωση κατάθεσης: {fee} SAT"
     },
