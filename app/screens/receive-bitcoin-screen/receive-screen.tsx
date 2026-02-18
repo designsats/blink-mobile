@@ -10,7 +10,8 @@ import { useFocusEffect, useIsFocused, useNavigation } from "@react-navigation/n
 import { StackNavigationProp } from "@react-navigation/stack"
 import { makeStyles, Text, useTheme } from "@rn-vui/themed"
 
-import { GaloyIcon } from "@app/components/atomic/galoy-icon"
+import { ActionButton } from "@app/components/action-button"
+import { AmountInputModal } from "@app/components/amount-input/amount-input-modal"
 import { ContextualInfo } from "@app/components/contextual-info"
 import { CustomIcon } from "@app/components/custom-icon"
 import { ModalNfc } from "@app/components/modal-nfc"
@@ -75,11 +76,13 @@ const ReceiveScreen = () => {
       : request?.usdWalletId
   const onchain = useOnChainAddress(onchainWalletId, {
     amount: request?.settlementAmount?.amount,
-    memo: request?.memoChangeText || undefined,
+    memo: request?.memo || undefined,
   })
 
+  const pendingNfc = useRef(false)
   const [isTrialAccountModalVisible, setIsTrialAccountModalVisible] = useState(false)
   const [displayReceiveNfc, setDisplayReceiveNfc] = useState(false)
+  const [isNfcAmountModalOpen, setIsNfcAmountModalOpen] = useState(false)
 
   const closeTrialAccountModal = () => setIsTrialAccountModalVisible(false)
   const openTrialAccountModal = () => setIsTrialAccountModalVisible(true)
@@ -120,14 +123,39 @@ const ReceiveScreen = () => {
       if (
         !isNonZeroMoneyAmount(amount) &&
         request.type === Invoice.Lightning &&
-        request.canUsePaycode
+        request.canUsePaycode &&
+        !request.memoChangeText
       ) {
         request.setType(Invoice.PayCode)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [request?.setAmount, request?.type, request?.canUsePaycode],
+    [request?.setAmount, request?.type, request?.canUsePaycode, request?.memoChangeText],
   )
+
+  const handleMemoBlur = useCallback(() => {
+    if (!request) return
+    request.setMemo()
+    if (request.memoChangeText && request.type === Invoice.PayCode) {
+      request.setType(Invoice.Lightning)
+      return
+    }
+    if (
+      !request.memoChangeText &&
+      request.type === Invoice.Lightning &&
+      request.canUsePaycode &&
+      !isNonZeroMoneyAmount(request.unitOfAccountAmount)
+    ) {
+      request.setType(Invoice.PayCode)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    request?.setMemo,
+    request?.memoChangeText,
+    request?.type,
+    request?.canUsePaycode,
+    request?.unitOfAccountAmount,
+  ])
 
   const handleCopy = useCallback(() => {
     if (isOnChainPage) {
@@ -154,6 +182,15 @@ const ReceiveScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOnChainPage, onchain.address, request?.share])
 
+  const handleNfcAmountSet = useCallback(
+    (amount: MoneyAmount<WalletOrDisplayCurrency>) => {
+      handleSetAmount(amount)
+      pendingNfc.current = true
+      setIsNfcAmountModalOpen(false)
+    },
+    [handleSetAmount],
+  )
+
   const handleCarouselSnap = useCallback(
     (index: number) => {
       if (index === CarouselPage.OnChain && isLevelZero) {
@@ -176,13 +213,17 @@ const ReceiveScreen = () => {
       return
     }
 
-    if (request.type === Invoice.PayCode) {
-      request.setType(Invoice.Lightning)
-    }
     const next =
       request.receivingWalletDescriptor.currency === WalletCurrency.Btc
         ? WalletCurrency.Usd
         : WalletCurrency.Btc
+
+    const hasContent =
+      isNonZeroMoneyAmount(request.unitOfAccountAmount) || request.memoChangeText
+    const revertToPaycode =
+      next === WalletCurrency.Btc && request.canUsePaycode && !hasContent
+
+    request.setType(revertToPaycode ? Invoice.PayCode : Invoice.Lightning)
     request.setReceivingWallet(next)
     request.setExpirationTime(0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -194,6 +235,9 @@ const ReceiveScreen = () => {
     request?.setType,
     request?.setReceivingWallet,
     request?.setExpirationTime,
+    request?.canUsePaycode,
+    request?.unitOfAccountAmount,
+    request?.memoChangeText,
   ])
 
   useEffect(() => {
@@ -206,16 +250,26 @@ const ReceiveScreen = () => {
 
   useEffect(() => {
     ;(async () => {
+      const isNfcType =
+        !isOnChainPage &&
+        (request?.type === Invoice.Lightning || request?.type === Invoice.PayCode)
       if (
-        request?.type === Invoice.Lightning &&
+        isNfcType &&
         request?.state === PaymentRequestState.Created &&
         (await nfcManager.isSupported())
       ) {
         navigation.setOptions({
           headerRight: () => (
             <TouchableOpacity
+              {...testProps("nfc-icon")}
               style={styles.nfcIcon}
-              onPress={() => setDisplayReceiveNfc(true)}
+              onPress={() => {
+                if (!request?.settlementAmount) {
+                  setIsNfcAmountModalOpen(true)
+                  return
+                }
+                setDisplayReceiveNfc(true)
+              }}
             >
               <CustomIcon name="nfc" color={colors.black} size={24} />
             </TouchableOpacity>
@@ -227,7 +281,7 @@ const ReceiveScreen = () => {
     })()
     // Disable exhaustive-deps because styles.nfcIcon was causing an infinite loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colors.black, navigation, request?.state, request?.type])
+  }, [colors.black, navigation, request?.state, request?.type, isOnChainPage])
 
   useFocusEffect(
     useCallback(() => {
@@ -255,6 +309,14 @@ const ReceiveScreen = () => {
     }
     return () => timeout && clearTimeout(timeout)
   }, [isAuthed, isFocused, client])
+
+  useEffect(() => {
+    if (!pendingNfc.current) return
+    if (request?.type !== Invoice.Lightning) return
+    if (request?.state !== PaymentRequestState.Created) return
+    pendingNfc.current = false
+    setDisplayReceiveNfc(true)
+  }, [request?.type, request?.state])
 
   useEffect(() => {
     if (request?.state === PaymentRequestState.Paid) {
@@ -356,12 +418,12 @@ const ReceiveScreen = () => {
           setAmount={handleSetAmount}
           canSetAmount={request.canSetAmount}
           onToggleWallet={handleToggleWallet}
-          canToggleWallet={isOnChainPage || request.canSetReceivingWalletDescriptor}
+          canToggleWallet={true}
           disabled={isOnChainPage && onchainWalletCurrency === WalletCurrency.Usd}
         />
 
         <NoteInput
-          onBlur={request.setMemo}
+          onBlur={handleMemoBlur}
           onChangeText={request.setMemoChangeText}
           value={request.memoChangeText || ""}
           editable={request.canSetMemo}
@@ -372,32 +434,24 @@ const ReceiveScreen = () => {
 
         {showActions && (
           <View style={styles.actionsRow}>
-            <Pressable
-              {...testProps(LL.ReceiveScreen.copyInvoice())}
-              style={styles.actionButton}
+            <ActionButton
+              label={LL.ReceiveScreen.copyInvoice()}
+              icon="copy-paste"
               onPress={handleCopy}
-              accessibilityRole="button"
               accessibilityHint={
                 isOnChainPage
                   ? LL.ReceiveScreen.copyClipboardBitcoin()
                   : LL.ReceiveScreen.copyClipboard()
               }
-            >
-              <Text style={styles.actionText}>{LL.ReceiveScreen.copyInvoice()}</Text>
-              <GaloyIcon name="copy-paste" size={16} color={colors.primary} />
-            </Pressable>
-            <Pressable
-              {...testProps(LL.ReceiveScreen.shareInvoice())}
-              style={styles.actionButton}
+            />
+            <ActionButton
+              label={LL.ReceiveScreen.shareInvoice()}
+              icon="share"
               onPress={handleShare}
-              accessibilityRole="button"
               accessibilityHint={
                 isOnChainPage ? LL.common.shareBitcoin() : LL.common.shareLightning()
               }
-            >
-              <Text style={styles.actionText}>{LL.ReceiveScreen.shareInvoice()}</Text>
-              <GaloyIcon name="share" size={16} color={colors.primary} />
-            </Pressable>
+            />
           </View>
         )}
 
@@ -421,6 +475,15 @@ const ReceiveScreen = () => {
         setIsActive={setDisplayReceiveNfc}
         settlementAmount={request.settlementAmount}
         receiveViaNFC={request.receiveViaNFC}
+      />
+
+      <AmountInputModal
+        moneyAmount={request.unitOfAccountAmount}
+        walletCurrency={request.receivingWalletDescriptor.currency}
+        convertMoneyAmount={request.convertMoneyAmount}
+        onSetAmount={handleNfcAmountSet}
+        isOpen={isNfcAmountModalOpen}
+        close={() => setIsNfcAmountModalOpen(false)}
       />
 
       <TrialAccountLimitsModal
@@ -456,20 +519,6 @@ const useStyles = makeStyles(({ colors }) => ({
     justifyContent: "center",
     alignItems: "flex-start",
     columnGap: 10,
-  },
-  actionButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    columnGap: 5,
-    backgroundColor: colors.grey5,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    borderRadius: 8,
-  },
-  actionText: {
-    fontSize: 14,
-    fontWeight: "400",
-    color: colors.black,
   },
   inputsContainer: {
     marginTop: 14,

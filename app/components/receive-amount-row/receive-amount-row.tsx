@@ -84,6 +84,7 @@ export const ReceiveAmountRow: React.FC<ReceiveAmountRowProps> = ({
   const { LL } = useI18nContext()
   const { formatMoneyAmount, getSecondaryAmountIfCurrencyIsDifferent } =
     useDisplayCurrency()
+  const [isPressed, setIsPressed] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { widthStyle: pillWidthStyle, onPillLayout } = useEqualPillWidth()
   const { triggerSpin, spinStyle } = useAlternatingSpin()
@@ -107,11 +108,13 @@ export const ReceiveAmountRow: React.FC<ReceiveAmountRowProps> = ({
 
   return (
     <>
-      <View style={styles.container}>
+      <View style={[styles.container, isPressed && styles.pressedBg]}>
         {disabled && <View pointerEvents="none" style={styles.disabledOverlay} />}
         <Pressable
           style={[styles.amountSection, disabled && styles.textDisabled]}
           onPress={onPressAmount}
+          onPressIn={() => setIsPressed(true)}
+          onPressOut={() => setIsPressed(false)}
           disabled={disabled || !canSetAmount}
           accessibilityRole="button"
           accessibilityLabel={formattedPrimary || LL.AmountInputButton.tapToSetAmount()}
@@ -129,12 +132,14 @@ export const ReceiveAmountRow: React.FC<ReceiveAmountRowProps> = ({
             triggerSpin()
             onToggleWallet()
           }}
+          onPressIn={() => setIsPressed(true)}
+          onPressOut={() => setIsPressed(false)}
           disabled={!canToggleWallet}
           accessibilityRole="button"
           accessibilityLabel="Toggle wallet"
         >
           <Animated.View style={spinStyle}>
-            <GaloyIcon name="refresh" size={20} color={colors.grey1} />
+            <GaloyIcon name="refresh" size={16} color={colors.grey1} />
           </Animated.View>
           <CurrencyPill
             currency={walletCurrency}
@@ -203,8 +208,11 @@ const useStyles = makeStyles(({ colors }) => ({
   walletSection: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 8,
+    columnGap: 12,
     paddingHorizontal: 14,
     paddingVertical: 14,
+  },
+  pressedBg: {
+    backgroundColor: colors.grey6,
   },
 }))

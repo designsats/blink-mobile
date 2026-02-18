@@ -3,6 +3,7 @@ import { it } from "@jest/globals"
 import { Share } from "react-native"
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react-native"
 import Clipboard from "@react-native-clipboard/clipboard"
+import nfcManager from "react-native-nfc-manager"
 
 import { loadLocale } from "@app/i18n/i18n-util.sync"
 import { i18nObject } from "@app/i18n/i18n-util"
@@ -11,14 +12,14 @@ import ReceiveScreen from "@app/screens/receive-bitcoin-screen/receive-screen"
 
 import { ContextForScreen } from "./helper"
 
-const paymentRequestQueryMock = jest.fn(() => ({
+const makeQueryResult = (defaultWalletId = "btc-wallet-id") => ({
   loading: false,
   data: {
     globals: {
       __typename: "Globals" as const,
       network: "signet" as const,
       feesInformation: {
-        deposit: { minBankFee: "3000", minBankFeeThreshold: "1000000" },
+        deposit: { minBankFee: "3000", minBankFeeThreshold: "1000000", ratio: "50" },
       },
     },
     me: {
@@ -26,7 +27,7 @@ const paymentRequestQueryMock = jest.fn(() => ({
       username: "test1",
       defaultAccount: {
         id: "account-id",
-        defaultWalletId: "btc-wallet-id",
+        defaultWalletId,
         wallets: [
           {
             id: "btc-wallet-id",
@@ -46,7 +47,9 @@ const paymentRequestQueryMock = jest.fn(() => ({
       __typename: "User" as const,
     },
   },
-}))
+})
+
+const paymentRequestQueryMock = jest.fn(() => makeQueryResult())
 
 const lnNoAmountInvoiceCreateMock = jest.fn(() =>
   Promise.resolve({
@@ -118,13 +121,38 @@ jest.mock("@app/hooks", () => {
   }
 })
 
-jest.mock("@app/hooks/use-display-currency", () => ({
-  useDisplayCurrency: () => ({
-    formatMoneyAmount: ({ moneyAmount }: { moneyAmount: { amount: number } }) =>
-      `$${moneyAmount.amount}`,
-    getSecondaryAmountIfCurrencyIsDifferent: () => null,
-  }),
-}))
+jest.mock("@app/hooks/use-display-currency", () => {
+  const info = {
+    BTC: {
+      symbol: "",
+      minorUnitToMajorUnitOffset: 0,
+      showFractionDigits: false,
+      currencyCode: "SAT",
+    },
+    USD: {
+      symbol: "$",
+      minorUnitToMajorUnitOffset: 2,
+      showFractionDigits: true,
+      currencyCode: "USD",
+    },
+    DisplayCurrency: {
+      symbol: "$",
+      minorUnitToMajorUnitOffset: 2,
+      showFractionDigits: true,
+      currencyCode: "USD",
+    },
+  }
+
+  return {
+    useDisplayCurrency: () => ({
+      currencyInfo: info,
+      zeroDisplayAmount: { amount: 0, currency: "DisplayCurrency", currencyCode: "USD" },
+      formatMoneyAmount: ({ moneyAmount }: { moneyAmount: { amount: number } }) =>
+        `$${moneyAmount.amount}`,
+      getSecondaryAmountIfCurrencyIsDifferent: () => null,
+    }),
+  }
+})
 
 jest.mock("@react-native-clipboard/clipboard", () => ({
   setString: jest.fn(),
@@ -143,6 +171,34 @@ jest.mock("react-native-nfc-manager", () => ({
     stop: jest.fn(),
   },
 }))
+
+jest.mock("@gorhom/bottom-sheet", () => {
+  const RN = jest.requireActual("react-native")
+  const ReactMod = jest.requireActual("react")
+
+  const BottomSheetModal = ReactMod.forwardRef(
+    (
+      { children }: { children: React.ReactNode },
+      ref: React.Ref<{ present: () => void; dismiss: () => void }>,
+    ) => {
+      const [visible, setVisible] = ReactMod.useState(false)
+      ReactMod.useImperativeHandle(ref, () => ({
+        present: () => setVisible(true),
+        dismiss: () => setVisible(false),
+      }))
+      if (!visible) return null
+      return <RN.View testID="bottom-sheet-modal">{children}</RN.View>
+    },
+  )
+
+  return {
+    BottomSheetModal,
+    BottomSheetView: ({ children }: { children: React.ReactNode }) => (
+      <RN.View>{children}</RN.View>
+    ),
+    BottomSheetBackdrop: () => null,
+  }
+})
 
 jest.mock("react-native-haptic-feedback", () => ({
   trigger: jest.fn(),
@@ -450,6 +506,188 @@ describe("ReceiveScreen", () => {
       })
 
       shareSpy.mockRestore()
+    })
+  })
+
+  describe("Note input", () => {
+    it("is editable on onchain page", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await flushAsync()
+      await flushAsync()
+
+      fireEvent.press(screen.getByTestId("carousel-page-1"))
+
+      await flushAsync()
+      await flushAsync()
+
+      expect(screen.getByTestId("add-note").props.editable).toBe(true)
+    })
+  })
+
+  describe("Wallet toggle (BTC default)", () => {
+    it("switches from PayCode to Lightning when toggling wallet", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await waitFor(() => {
+        expect(screen.getByText("QR-PayCode")).toBeTruthy()
+      })
+
+      fireEvent.press(screen.getByLabelText("Toggle wallet"))
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-Lightning")).toBeTruthy()
+      })
+    })
+
+    it("reverts to PayCode when toggling back to BTC with no content", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await waitFor(() => {
+        expect(screen.getByText("QR-PayCode")).toBeTruthy()
+      })
+
+      fireEvent.press(screen.getByLabelText("Toggle wallet"))
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-Lightning")).toBeTruthy()
+      })
+
+      fireEvent.press(screen.getByLabelText("Toggle wallet"))
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-PayCode")).toBeTruthy()
+      })
+    })
+  })
+
+  describe("USD default account", () => {
+    beforeEach(() => {
+      paymentRequestQueryMock.mockReturnValue(makeQueryResult("usd-wallet-id"))
+    })
+
+    afterEach(() => {
+      paymentRequestQueryMock.mockReturnValue(makeQueryResult())
+    })
+
+    it("starts on Lightning instead of PayCode", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-Lightning")).toBeTruthy()
+      })
+
+      expect(screen.queryByTestId("qr-view-PayCode")).toBeNull()
+    })
+
+    it("reverts to PayCode when toggling to BTC with no content", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-Lightning")).toBeTruthy()
+      })
+
+      fireEvent.press(screen.getByLabelText("Toggle wallet"))
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-PayCode")).toBeTruthy()
+      })
+    })
+  })
+
+  describe("NFC without amount", () => {
+    beforeEach(() => {
+      jest.mocked(nfcManager.isSupported).mockResolvedValue(true)
+    })
+
+    afterEach(() => {
+      jest.mocked(nfcManager.isSupported).mockResolvedValue(false)
+    })
+
+    it("opens amount input when pressing NFC icon on PayCode", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await waitFor(() => {
+        expect(screen.getByText("QR-PayCode")).toBeTruthy()
+      })
+
+      await flushAsync()
+      await flushAsync()
+
+      fireEvent.press(screen.getByTestId("nfc-icon"))
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByText(LL.AmountInputScreen.setAmount())).toBeTruthy()
+      })
+    })
+
+    it("opens amount input when pressing NFC icon on Lightning invoice", async () => {
+      render(
+        <ContextForScreen>
+          <ReceiveScreen />
+        </ContextForScreen>,
+      )
+
+      await waitFor(() => {
+        expect(screen.getByText("QR-PayCode")).toBeTruthy()
+      })
+
+      fireEvent.press(screen.getByLabelText("Toggle wallet"))
+      await flushAsync()
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByTestId("qr-view-Lightning")).toBeTruthy()
+      })
+
+      await flushAsync()
+      await flushAsync()
+
+      fireEvent.press(screen.getByTestId("nfc-icon"))
+      await flushAsync()
+
+      await waitFor(() => {
+        expect(screen.getByText(LL.AmountInputScreen.setAmount())).toBeTruthy()
+      })
     })
   })
 

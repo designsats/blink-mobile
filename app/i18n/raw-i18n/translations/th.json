@@ -2101,10 +2101,10 @@
         "receiveViaPaycode": "Receive via Paycode",
         "receiveViaOnchain": "Receive via Onchain",
         "payCodeOrLNURL": "Paycode / LNURL",
-        "lightningAddress": "ที่อยู่ Lightning",
-        "lightningInvoice": "ใบแจ้งหนี้ Lightning",
+        "lightningAddress": "ที่อยู่ lightning",
+        "lightningInvoice": "ใบแจ้งหนี้ lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "ค่าธรรมเนียมฝากเงิน: {fee} SAT"
+        "depositFee": "ค่าธรรมเนียมการฝาก: {fee} SAT สำหรับจำนวนต่ำกว่า {threshold} SAT หรือ {overFee} SAT สำหรับการฝากมากกว่า {threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "แลกรับบิตคอยน์",

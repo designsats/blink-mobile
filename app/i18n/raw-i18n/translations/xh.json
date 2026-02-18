@@ -505,10 +505,10 @@
         "setANote": "Seta Inqaku",
         "invoiceAmount": "Isixa se-invoyisi",
         "fees": "{minBankFee: string} sats fees for onchain payment below {minBankFeeThreshold: string} sats",
-        "lightningAddress": "Idilesi ye-Lightning",
-        "lightningInvoice": "I-invoyisi ye-Lightning",
+        "lightningAddress": "Idilesi ye-lightning",
+        "lightningInvoice": "I-invoyisi ye-lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "Intlawulo yokufaka: {fee} SAT"
+        "depositFee": "Imali yokufaka: {fee} SAT kwimali engaphantsi kwe-{threshold} SAT okanye {overFee} SAT kwimali efakwe engaphezulu kwe-{threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Sebenzisa i-Bitcoin",

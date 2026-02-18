@@ -51,6 +51,7 @@ gql`
         deposit {
           minBankFee
           minBankFeeThreshold
+          ratio
         }
       }
     }
@@ -202,9 +203,12 @@ export const useReceiveBitcoin = () => {
         id: bitcoinWallet.id,
       } as BtcWalletDescriptor
 
+      const isBtcDefault = defaultWalletDescriptor.currency === WalletCurrency.Btc
+      const initialType = username && isBtcDefault ? Invoice.PayCode : Invoice.Lightning
+
       const initialPRParams: BaseCreatePaymentRequestCreationDataParams<WalletCurrency> =
         {
-          type: username ? Invoice.PayCode : Invoice.Lightning,
+          type: initialType,
           defaultWalletDescriptor,
           bitcoinWalletDescriptor,
           convertMoneyAmount: _convertMoneyAmount,
@@ -314,18 +318,6 @@ export const useReceiveBitcoin = () => {
     }
   }, [pr?.info?.data, setExpiresInSeconds])
 
-  // Clean Memo
-  useLayoutEffect(() => {
-    if (memoChangeText === "") {
-      setPRCD((pr) => {
-        if (pr && pr.setMemo) {
-          return pr.setMemo("")
-        }
-        return pr
-      })
-    }
-  }, [memoChangeText, setPRCD])
-
   const { copyToClipboard, share } = useMemo(() => {
     if (!pr) {
       return {}
@@ -415,19 +407,12 @@ export const useReceiveBitcoin = () => {
 
   const setType = (type: InvoiceType) => {
     setPRCD((pr) => pr && pr.setType(type))
-    setPRCD((pr) => {
-      if (pr && pr.setMemo) {
-        return pr.setMemo("")
-      }
-      return pr
-    })
-    setMemoChangeText("")
   }
 
   const setMemo = () => {
     setPRCD((pr) => {
-      if (pr && memoChangeText && pr.setMemo) {
-        return pr.setMemo(memoChangeText)
+      if (pr && pr.setMemo) {
+        return pr.setMemo(memoChangeText || "")
       }
       return pr
     })
