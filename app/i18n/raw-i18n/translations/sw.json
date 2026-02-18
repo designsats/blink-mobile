@@ -2119,7 +2119,7 @@
         "lightningAddress": "Anwani ya lightning",
         "lightningInvoice": "Ankara ya lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "Ada ya amana: {fee} SAT"
+        "depositFee": "Ada ya amana: {fee} SAT kwa kiasi chini ya {threshold} SAT au {overFee} SAT kwa amana zaidi ya {threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Badilisha Bitcoin",

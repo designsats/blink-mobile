@@ -508,7 +508,7 @@
         "lightningAddress": "Idilesi ye-lightning",
         "lightningInvoice": "I-invoyisi ye-lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "Intlawulo yokufaka: {fee} SAT"
+        "depositFee": "Imali yokufaka: {fee} SAT kwimali engaphantsi kwe-{threshold} SAT okanye {overFee} SAT kwimali efakwe engaphezulu kwe-{threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Sebenzisa i-Bitcoin",

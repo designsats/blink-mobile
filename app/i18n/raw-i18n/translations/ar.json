@@ -2104,7 +2104,7 @@
         "lightningAddress": "عنوان lightning",
         "lightningInvoice": "فاتورة lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "رسوم الإيداع: {fee} SAT"
+        "depositFee": "رسوم الإيداع: {fee} SAT للمبالغ تحت {threshold} SAT أو {overFee} SAT للإيداعات فوق {threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "حرر البيتكوين",

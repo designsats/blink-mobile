@@ -2119,7 +2119,7 @@
         "lightningAddress": "Endagiriro ya lightning",
         "lightningInvoice": "Invoisi ya lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "Ssente z'okuteeka: {fee} SAT"
+        "depositFee": "Ssente z'okuteekawo: {fee} SAT ku muwendo gw'okuwandiika {threshold} SAT oba {overFee} SAT ku biteekawo ebisukka {threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Nunula Bitcoin",

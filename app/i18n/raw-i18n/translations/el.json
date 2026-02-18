@@ -2119,7 +2119,7 @@
         "lightningAddress": "Διεύθυνση lightning",
         "lightningInvoice": "Τιμολόγιο lightning",
         "bitcoinOnchain": "Bitcoin onchain",
-        "depositFee": "Χρέωση κατάθεσης: {fee} SAT"
+        "depositFee": "Χρέωση κατάθεσης: {fee} SAT για ποσά κάτω από {threshold} SAT ή {overFee} SAT για καταθέσεις πάνω από {threshold} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "Εξαργύρωση Bitcoin",
