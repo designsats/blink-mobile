@@ -335,14 +335,6 @@ export const HomeScreen: React.FC = () => {
 
   const numberOfTxs = transactions.length
 
-  const handleSwipeToScan = React.useCallback(() => {
-    if (isAuthed) {
-      navigation.navigate("scanningQRCode")
-    } else {
-      setModalVisible(true)
-    }
-  }, [isAuthed, navigation])
-
   const onMenuClick = (target: Target) => {
     if (isAuthed) {
       if (
@@ -477,7 +469,6 @@ export const HomeScreen: React.FC = () => {
           reopenUpgradeModal.current = true
         }}
       />
-      <SwipeToScan onSwipeComplete={handleSwipeToScan}>
         <View style={styles.balanceContainer}>
           <View style={styles.header}>
             <GaloyIconButton
@@ -563,7 +554,6 @@ export const HomeScreen: React.FC = () => {
             }}
           />
         </ScrollView>
-      </SwipeToScan>
       <SlideUpHandle
         bottomOffset={15}
         onAction={() => navigation.navigate("transactionHistory")}
@@ -574,7 +564,7 @@ export const HomeScreen: React.FC = () => {
 
 const useStyles = makeStyles(({ colors }) => ({
   scrollViewContainer: {
-    paddingHorizontal: BODY_PADDING,
+    paddingHorizontal: 20,
     paddingBottom: 20,
     rowGap: 14,
   },
@@ -612,7 +602,7 @@ const useStyles = makeStyles(({ colors }) => ({
     backgroundColor: colors.white,
     height: "30%",
     justifyContent: "flex-end",
-    paddingHorizontal: BODY_PADDING,
+    paddingHorizontal: 20,
   },
   openWalletContainer: {
     alignSelf: "stretch",
