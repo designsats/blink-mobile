@@ -21,12 +21,12 @@ import WalletOverview from "@app/components/wallet-overview/wallet-overview"
 import { BalanceHeader, useTotalBalance } from "@app/components/balance-header"
 import { TrialAccountLimitsModal } from "@app/components/upgrade-account-modal"
 import SlideUpHandle from "@app/components/slide-up-handle"
-import SwipeToScan from "@app/components/swipe-to-scan"
 import { Screen } from "@app/components/screen"
 import {
   UnseenTxAmountBadge,
   useUnseenTxAmountBadge,
   useOutgoingBadgeVisibility,
+  useIncomingBadgeAutoSeen,
 } from "@app/components/unseen-tx-amount-badge"
 
 import { RootStackParamList } from "@app/navigation/stack-param-lists"
@@ -41,7 +41,6 @@ import {
   useAutoShowUpgradeModal,
   useTransactionSeenState,
 } from "@app/hooks"
-import { BODY_PADDING } from "@app/config"
 import {
   AccountLevel,
   TransactionFragment,
@@ -281,6 +280,13 @@ export const HomeScreen: React.FC = () => {
     onHide: handleOutgoingBadgeHide,
   })
 
+  const showIncomingBadge = useIncomingBadgeAutoSeen({
+    isFocused,
+    isOutgoing,
+    unseenCurrency: latestUnseenTx?.settlementCurrency,
+    markTxSeen,
+  })
+
   const [modalVisible, setModalVisible] = React.useState(false)
   const [isStablesatModalVisible, setIsStablesatModalVisible] = React.useState(false)
   const [isUpgradeModalVisible, setIsUpgradeModalVisible] = React.useState(false)
@@ -503,7 +509,11 @@ export const HomeScreen: React.FC = () => {
           <UnseenTxAmountBadge
             key={latestUnseenTx?.id}
             amountText={unseenAmountText ?? ""}
-            visible={isOutgoing ? showOutgoingBadge : Boolean(unseenAmountText)}
+            visible={
+              isOutgoing
+                ? showOutgoingBadge
+                : showIncomingBadge && Boolean(unseenAmountText)
+            }
             onPress={handleUnseenBadgePress}
             isOutgoing={isOutgoing}
           />

@@ -2100,7 +2100,11 @@
         "receiveViaInvoice": "Receive via Lightning",
         "receiveViaPaycode": "Receive via Paycode",
         "receiveViaOnchain": "Receive via Onchain",
-        "payCodeOrLNURL": "Paycode / LNURL"
+        "payCodeOrLNURL": "Paycode / LNURL",
+        "lightningAddress": "ที่อยู่ Lightning",
+        "lightningInvoice": "ใบแจ้งหนี้ Lightning",
+        "bitcoinOnchain": "Bitcoin onchain",
+        "depositFee": "ค่าธรรมเนียมฝากเงิน: {fee} SAT"
     },
     "RedeemBitcoinScreen": {
         "title": "แลกรับบิตคอยน์",

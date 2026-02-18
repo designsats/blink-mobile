@@ -26,7 +26,12 @@ import Clipboard from "@react-native-clipboard/clipboard"
 import crashlytics from "@react-native-firebase/crashlytics"
 
 import { ReceiveDestination } from "../send-bitcoin-screen/payment-destination/index.types"
-import { generateFutureLocalTime, secondsToH, secondsToHMS } from "./payment/helpers"
+import {
+  generateFutureLocalTime,
+  secondsToH,
+  secondsToHMS,
+  truncateMiddle,
+} from "./payment/helpers"
 import {
   BaseCreatePaymentRequestCreationDataParams,
   Invoice,
@@ -199,7 +204,7 @@ export const useReceiveBitcoin = () => {
 
       const initialPRParams: BaseCreatePaymentRequestCreationDataParams<WalletCurrency> =
         {
-          type: Invoice.Lightning,
+          type: username ? Invoice.PayCode : Invoice.Lightning,
           defaultWalletDescriptor,
           bitcoinWalletDescriptor,
           convertMoneyAmount: _convertMoneyAmount,
@@ -463,6 +468,8 @@ export const useReceiveBitcoin = () => {
     })
   }
 
+  // TODO: extraDetails (expiration countdown, paid status, LNURL label) is computed
+  // but not consumed by the new carousel UI. Re-enable when adding a status row.
   let extraDetails = ""
   if (
     prcd.type === "Lightning" &&
@@ -491,17 +498,12 @@ export const useReceiveBitcoin = () => {
     extraDetails = LL.ReceiveScreen.invoiceHasBeenPaid()
   } else if (prcd.type === "PayCode" && pr?.info?.data?.invoiceType === "PayCode") {
     extraDetails = "LNURL"
-  } else if (prcd.type === "OnChain" && pr?.info?.data?.invoiceType === "OnChain") {
-    extraDetails = LL.ReceiveScreen.btcOnChainAddress()
   }
 
   let readablePaymentRequest = ""
   if (pr?.info?.data?.invoiceType === Invoice.Lightning) {
     const uri = pr.info?.data?.getFullUriFn({})
-    readablePaymentRequest = `${uri.slice(0, 10)}..${uri.slice(-10)}`
-  } else if (pr?.info?.data?.invoiceType === Invoice.OnChain) {
-    const address = pr.info?.data?.address || ""
-    readablePaymentRequest = `${address}`
+    readablePaymentRequest = truncateMiddle(uri)
   } else if (prcd.type === "PayCode" && pr?.info?.data?.invoiceType === "PayCode") {
     readablePaymentRequest = `${pr.info.data.username}@${lnAddressHostname}`
   }
@@ -525,5 +527,7 @@ export const useReceiveBitcoin = () => {
     toggleIsSetLightningAddressModalVisible,
     readablePaymentRequest,
     receiveViaNFC,
+    btcWalletId: bitcoinWallet?.id,
+    usdWalletId: usdWallet?.id,
   }
 }
