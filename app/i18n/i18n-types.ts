@@ -10623,18 +10623,6 @@ type RootTranslation = {
 				 * I​m​p​o​r​t​a​n​t
 				 */
 				important: string
-				/**
-				 * Y​o​u​r​ ​v​i​r​t​u​a​l​ ​c​a​r​d​ ​w​i​l​l​ ​r​e​m​a​i​n​ ​a​c​t​i​v​e​ ​w​h​i​l​e​ ​y​o​u​ ​w​a​i​t​ ​f​o​r​ ​t​h​e​ ​p​h​y​s​i​c​a​l​ ​c​a​r​d
-				 */
-				importantBullet1: string
-				/**
-				 * Y​o​u​'​l​l​ ​n​e​e​d​ ​t​o​ ​a​c​t​i​v​a​t​e​ ​y​o​u​r​ ​p​h​y​s​i​c​a​l​ ​c​a​r​d​ ​w​h​e​n​ ​i​t​ ​a​r​r​i​v​e​s
-				 */
-				importantBullet2: string
-				/**
-				 * B​o​t​h​ ​c​a​r​d​s​ ​w​i​l​l​ ​h​a​v​e​ ​t​h​e​ ​s​a​m​e​ ​c​a​r​d​ ​n​u​m​b​e​r​ ​a​n​d​ ​d​e​t​a​i​l​s
-				 */
-				importantBullet3: string
 			}
 			Confirm: {
 				/**
@@ -21185,18 +21173,6 @@ export type TranslationFunctions = {
 				 * Important
 				 */
 				important: () => LocalizedString
-				/**
-				 * Your virtual card will remain active while you wait for the physical card
-				 */
-				importantBullet1: () => LocalizedString
-				/**
-				 * You'll need to activate your physical card when it arrives
-				 */
-				importantBullet2: () => LocalizedString
-				/**
-				 * Both cards will have the same card number and details
-				 */
-				importantBullet3: () => LocalizedString
 			}
 			Confirm: {
 				/**
