@@ -10459,6 +10459,10 @@ type RootTranslation = {
 				 * U​s​e​ ​r​e​g​i​s​t​e​r​e​d​ ​a​d​d​r​e​s​s​ ​a​s​ ​s​h​i​p​p​i​n​g​ ​a​d​d​r​e​s​s
 				 */
 				useRegisteredAddress: string
+				/**
+				 * C​h​o​o​s​e​ ​d​e​l​i​v​e​r​y​ ​s​p​e​e​d
+				 */
+				chooseDeliverySpeed: string
 			}
 			Confirm: {
 				/**
@@ -21011,6 +21015,10 @@ export type TranslationFunctions = {
 				 * Use registered address as shipping address
 				 */
 				useRegisteredAddress: () => LocalizedString
+				/**
+				 * Choose delivery speed
+				 */
+				chooseDeliverySpeed: () => LocalizedString
 			}
 			Confirm: {
 				/**
