@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Linking, Pressable, TouchableWithoutFeedback, View } from "react-native"
+import { Linking, TouchableWithoutFeedback, View } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { ScrollView } from "react-native-gesture-handler"
 import Icon from "react-native-vector-icons/Ionicons"
@@ -7,7 +7,6 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { useFragment } from "@apollo/client"
 import { GaloyIconButton } from "@app/components/atomic/galoy-icon-button"
 import { GaloyInfo } from "@app/components/atomic/galoy-info"
-import { HiddenBalanceIndicator } from "@app/components/hidden-balance-indicator/hidden-balance-indicator"
 import { TransactionDate } from "@app/components/transaction-date"
 import { useDescriptionDisplay } from "@app/components/transaction-item"
 import { DeepPartialObject } from "@app/components/transaction-item/index.types"
@@ -20,13 +19,10 @@ import {
   useHomeAuthedQuery,
   WalletCurrency,
 } from "@app/graphql/generated"
-import { useHideAmount } from "@app/graphql/hide-amount-context"
-import { useAppConfig, useTransactionSeenState } from "@app/hooks"
+import { useAppConfig, useClipboard, useTransactionSeenState } from "@app/hooks"
 import { useDisplayCurrency } from "@app/hooks/use-display-currency"
 import { useI18nContext } from "@app/i18n/i18n-react"
 import { toWalletAmount } from "@app/types/amounts"
-import { toastShow } from "@app/utils/toast"
-import Clipboard from "@react-native-clipboard/clipboard"
 import { RouteProp, useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 import { makeStyles, Text, useTheme } from "@rn-vui/themed"
@@ -105,7 +101,6 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
   const insets = useSafeAreaInsets()
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
-  const { hideAmount, switchMemoryHideAmount } = useHideAmount()
   const { formatMoneyAmount } = useDisplayCurrency()
   const {
     appConfig: { galoyInstance },
@@ -135,6 +130,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
   const [timer, setTimer] = React.useState<number>(0)
 
   const { LL, locale } = useI18nContext()
+  const { copyToClipboard } = useClipboard()
   const { formatCurrency } = useDisplayCurrency()
 
   const description = useDescriptionDisplay({
@@ -281,12 +277,16 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
     />
   )
 
-  const copyToClipboard = ({ content, type }: { content: string; type: string }) => {
-    Clipboard.setString(content)
-    toastShow({
-      type: "success",
-      message: LL.TransactionDetailScreen.hasBeenCopiedToClipboard({ type }),
-      LL,
+  const handleCopyToClipboard = ({
+    content,
+    type,
+  }: {
+    content: string
+    type: string
+  }) => {
+    copyToClipboard({
+      content,
+      message: LL.common.hasBeenCopiedToClipboard({ type }),
     })
   }
 
@@ -319,11 +319,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
               onChain={settlementVia?.__typename === "SettlementViaOnChain"}
             />
             <Text type="h2">{spendOrReceiveText}</Text>
-            <Pressable hitSlop={10} onPress={switchMemoryHideAmount}>
-              <View style={styles.amountWrapper}>
-                {hideAmount ? <HiddenBalanceIndicator size="small" /> : <Text type="h1">{displayAmount}</Text>}
-              </View>
-            </Pressable>
+            <Text type="h1">{displayAmount}</Text>
           </View>
         </View>
 
@@ -366,7 +362,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
                   <View key="copy">
                     <TouchableWithoutFeedback
                       onPress={() =>
-                        copyToClipboard({
+                        handleCopyToClipboard({
                           content:
                             ("transactionHash" in settlementVia &&
                               settlementVia?.transactionHash) ||
@@ -410,7 +406,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
               <View key="copy">
                 <TouchableWithoutFeedback
                   onPress={() =>
-                    copyToClipboard({
+                    handleCopyToClipboard({
                       content: description || "",
                       type: LL.common.description(),
                     })
@@ -442,7 +438,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
                   <View key="copy">
                     <TouchableWithoutFeedback
                       onPress={() =>
-                        copyToClipboard({
+                        handleCopyToClipboard({
                           content: initiationVia?.paymentHash ?? "",
                           type: "Hash",
                         })
@@ -470,7 +466,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
                   <View key="copy">
                     <TouchableWithoutFeedback
                       onPress={() =>
-                        copyToClipboard({
+                        handleCopyToClipboard({
                           content: settlementVia?.preImage || "",
                           type: LL.common.preimageProofOfPayment(),
                         })
@@ -510,7 +506,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
                   <View key="copy">
                     <TouchableWithoutFeedback
                       onPress={() =>
-                        copyToClipboard({
+                        handleCopyToClipboard({
                           content: initiationVia?.paymentRequest ?? "",
                           type: LL.common.paymentRequest(),
                         })
@@ -535,7 +531,7 @@ export const TransactionDetailScreen: React.FC<Props> = ({ route }) => {
                 <View key="copy">
                   <TouchableWithoutFeedback
                     onPress={() =>
-                      copyToClipboard({
+                      handleCopyToClipboard({
                         content: id,
                         type: "Blink Internal Id",
                       })
@@ -578,12 +574,6 @@ const useStyles = makeStyles(({ colors }) => ({
     alignItems: "center",
     justifyContent: "center",
     transform: [{ translateY: -12 }],
-  },
-
-  amountWrapper: {
-    minHeight: 36,
-    justifyContent: "center",
-    alignItems: "center",
   },
 
   description: {

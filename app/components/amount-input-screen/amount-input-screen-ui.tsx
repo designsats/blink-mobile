@@ -4,7 +4,6 @@ import { Pressable, StyleSheet, TextInput, View } from "react-native"
 import { useI18nContext } from "@app/i18n/i18n-react"
 import { makeStyles, Text, useTheme } from "@rn-vui/themed"
 
-import { GaloyErrorBox } from "../atomic/galoy-error-box"
 import { GaloyIcon } from "../atomic/galoy-icon/galoy-icon"
 import { GaloyPrimaryButton } from "../atomic/galoy-primary-button"
 import { CurrencyPill } from "../atomic/currency-pill/currency-pill"
@@ -48,10 +47,13 @@ export const AmountInputScreenUI: React.FC<AmountInputScreenUIProps> = ({
   const { theme } = useTheme()
 
   const hasSecondary = Boolean(secondaryCurrencyFormattedAmount)
+  const hasError = Boolean(errorMessage)
 
   return (
     <View style={styles.sheet}>
-      <View style={styles.currencyInputGroup}>
+      <View
+        style={[styles.currencyInputGroup, hasError && styles.currencyInputGroupError]}
+      >
         <View
           style={[
             styles.inputRow,
@@ -77,6 +79,8 @@ export const AmountInputScreenUI: React.FC<AmountInputScreenUIProps> = ({
               }}
               style={styles.hiddenInput}
               caretHidden
+              accessibilityElementsHidden
+              importantForAccessibility="no"
             />
           </View>
         </View>
@@ -95,9 +99,11 @@ export const AmountInputScreenUI: React.FC<AmountInputScreenUIProps> = ({
             <View style={styles.toggleOverlay} pointerEvents="box-none">
               <Pressable
                 onPress={onToggleCurrency}
+                accessibilityLabel="Switch currencies"
+                accessibilityRole="button"
                 style={({ pressed }) => [
                   styles.toggleButton,
-                  pressed && { opacity: 0.7 },
+                  pressed && styles.toggleButtonPressed,
                 ]}
               >
                 <GaloyIcon name="transfer" size={34} color={theme.colors.primary} />
@@ -108,7 +114,16 @@ export const AmountInputScreenUI: React.FC<AmountInputScreenUIProps> = ({
       </View>
 
       <View>
-        {errorMessage && <GaloyErrorBox errorMessage={errorMessage} />}
+        <View style={styles.errorRow}>
+          <GaloyIcon
+            name="warning"
+            size={14}
+            color={hasError ? theme.colors.error : "transparent"}
+          />
+          <Text type="p3" color={hasError ? theme.colors.error : "transparent"}>
+            {errorMessage || " "}
+          </Text>
+        </View>
         <View style={styles.keyboardContainer}>
           <CurrencyKeyboard onPress={onKeyPress} disabledKeys={disabledKeys} />
         </View>
@@ -134,6 +149,11 @@ const useStyles = makeStyles(({ colors }) => ({
   currencyInputGroup: {
     backgroundColor: colors.grey5,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "transparent",
+  },
+  currencyInputGroupError: {
+    borderColor: colors.error,
   },
   inputRow: {
     minHeight: 50,
@@ -178,6 +198,9 @@ const useStyles = makeStyles(({ colors }) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  toggleButtonPressed: {
+    opacity: 0.7,
+  },
   amountContainer: {
     flex: 1,
     minWidth: 100,
@@ -193,9 +216,15 @@ const useStyles = makeStyles(({ colors }) => ({
     ...StyleSheet.absoluteFillObject,
     opacity: 0,
   },
+  errorRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingVertical: 3,
+  },
   keyboardContainer: {
-    paddingTop: 40,
-    paddingBottom: 14,
+    paddingTop: 14,
+    paddingBottom: 0,
   },
   ctaSection: {
     paddingTop: 10,

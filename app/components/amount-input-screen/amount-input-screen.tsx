@@ -7,11 +7,7 @@ import {
   PreferredAmountCurrency,
   savePreferredAmountCurrency,
 } from "@app/graphql/client-only-query"
-import {
-  PreferredAmountCurrencyDocument,
-  PreferredAmountCurrencyQuery,
-  WalletCurrency,
-} from "@app/graphql/generated"
+import { usePreferredAmountCurrencyQuery, WalletCurrency } from "@app/graphql/generated"
 import { CurrencyInfo, useDisplayCurrency } from "@app/hooks/use-display-currency"
 import { useI18nContext } from "@app/i18n/i18n-react"
 import { ConvertMoneyAmount } from "@app/screens/send-bitcoin-screen/payment-details"
@@ -40,6 +36,7 @@ export type AmountInputScreenProps = {
   walletCurrency: WalletCurrency
   convertMoneyAmount: ConvertMoneyAmount
   maxAmount?: MoneyAmount<WalletOrDisplayCurrency>
+  maxAmountIsBalance?: boolean
   minAmount?: MoneyAmount<WalletOrDisplayCurrency>
 }
 
@@ -126,6 +123,7 @@ export const AmountInputScreen: React.FC<AmountInputScreenProps> = ({
   walletCurrency,
   convertMoneyAmount,
   maxAmount,
+  maxAmountIsBalance,
   minAmount,
 }) => {
   const {
@@ -137,12 +135,11 @@ export const AmountInputScreen: React.FC<AmountInputScreenProps> = ({
 
   const { LL } = useI18nContext()
   const client = useApolloClient()
-  const preferredCurrency = client.readQuery<PreferredAmountCurrencyQuery>({
-    query: PreferredAmountCurrencyDocument,
-  })?.preferredAmountCurrency
+  const { data: preferredData } = usePreferredAmountCurrencyQuery()
+  const preferredCurrency = preferredData?.preferredAmountCurrency
 
-  const resolvedInitialAmount = (() => {
-    if (initialAmount?.amount) return initialAmount
+  const resolvedInitialAmount = useMemo(() => {
+    if (initialAmount && initialAmount.amount !== undefined) return initialAmount
     if (preferredCurrency) {
       const currency =
         preferredCurrency === PreferredAmountCurrency.Display
@@ -155,7 +152,7 @@ export const AmountInputScreen: React.FC<AmountInputScreenProps> = ({
       } as MoneyAmount<WalletOrDisplayCurrency>
     }
     return initialAmount || zeroDisplayAmount
-  })()
+  }, [initialAmount, preferredCurrency, walletCurrency, currencyInfo, zeroDisplayAmount])
 
   const [numberPadState, dispatchNumberPadAction] = useReducer(
     numberPadReducer,
@@ -232,7 +229,7 @@ export const AmountInputScreen: React.FC<AmountInputScreenProps> = ({
     })
 
   useEffect(() => {
-    if (initialAmount?.amount) {
+    if (initialAmount && initialAmount.amount !== undefined) {
       setNumberPadAmount(initialAmount)
     }
   }, [initialAmount, setNumberPadAmount])
@@ -250,9 +247,10 @@ export const AmountInputScreen: React.FC<AmountInputScreenProps> = ({
       greaterThan: maxAmountInPrimaryCurrency,
     })
   ) {
-    errorMessage = LL.AmountInputScreen.maxAmountExceeded({
-      maxAmount: formatMoneyAmount({ moneyAmount: maxAmountInPrimaryCurrency }),
-    })
+    const formatted = formatMoneyAmount({ moneyAmount: maxAmountInPrimaryCurrency })
+    errorMessage = maxAmountIsBalance
+      ? LL.AmountInputScreen.exceedsAvailableBalance({ maxAmount: formatted })
+      : LL.AmountInputScreen.maxAmountExceeded({ maxAmount: formatted })
   } else if (
     minAmountInPrimaryCurrency &&
     newPrimaryAmount.amount &&

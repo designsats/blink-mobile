@@ -7,14 +7,20 @@ import { AmountInputScreen } from "@app/components/amount-input-screen/amount-in
 const mockFormatMoneyAmount = jest.fn()
 const mockGetSecondaryAmount = jest.fn()
 const mockSavePreferredAmountCurrency = jest.fn()
-const mockReadQuery = jest.fn()
+const mockPreferredCurrencyData = {
+  data: null as { preferredAmountCurrency: string } | null,
+}
 
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
   useApolloClient: () => ({
-    readQuery: mockReadQuery,
     writeQuery: jest.fn(),
   }),
+}))
+
+jest.mock("@app/graphql/generated", () => ({
+  ...jest.requireActual("@app/graphql/generated"),
+  usePreferredAmountCurrencyQuery: () => mockPreferredCurrencyData,
 }))
 
 jest.mock("@app/graphql/client-only-query", () => ({
@@ -65,6 +71,8 @@ jest.mock("@app/i18n/i18n-react", () => ({
       AmountInputScreen: {
         maxAmountExceeded: ({ maxAmount }: { maxAmount: string }) =>
           `Maximum amount exceeded: ${maxAmount}`,
+        exceedsAvailableBalance: ({ maxAmount }: { maxAmount: string }) =>
+          `Exceeds available balance: ${maxAmount}`,
         minAmountNotMet: ({ minAmount }: { minAmount: string }) =>
           `Minimum amount not met: ${minAmount}`,
         setAmount: () => "Set Amount",
@@ -104,7 +112,7 @@ describe("AmountInputScreen", () => {
     mockConvertMoneyAmount.mockImplementation((amount) => amount)
     mockFormatMoneyAmount.mockReturnValue("$0.00")
     mockGetSecondaryAmount.mockReturnValue(undefined)
-    mockReadQuery.mockReturnValue(null)
+    mockPreferredCurrencyData.data = null
   })
 
   it("renders AmountInputScreenUI", () => {
@@ -142,7 +150,7 @@ describe("AmountInputScreen", () => {
   })
 
   it("uses preferred currency from cache when no initial amount", () => {
-    mockReadQuery.mockReturnValue({ preferredAmountCurrency: "display" })
+    mockPreferredCurrencyData.data = { preferredAmountCurrency: "display" }
 
     const { getByTestId } = render(
       <AmountInputScreen
@@ -223,5 +231,52 @@ describe("AmountInputScreen", () => {
     )
 
     expect(getByTestId("set-amount-disabled").props.children).toBe("true")
+  })
+
+  it("shows maxAmountExceeded error when amount exceeds maxAmount", () => {
+    mockConvertMoneyAmount.mockImplementation((amount) => amount)
+    mockFormatMoneyAmount.mockReturnValue("$1.00")
+
+    const { getByTestId } = render(
+      <AmountInputScreen
+        initialAmount={{
+          amount: 99999,
+          currency: "DisplayCurrency",
+          currencyCode: "USD",
+        }}
+        walletCurrency={WalletCurrency.Btc}
+        convertMoneyAmount={mockConvertMoneyAmount}
+        maxAmount={{ amount: 100, currency: "DisplayCurrency", currencyCode: "USD" }}
+        setAmount={jest.fn()}
+      />,
+    )
+
+    expect(getByTestId("error-message").props.children).toBe(
+      "Maximum amount exceeded: $1.00",
+    )
+  })
+
+  it("shows exceedsAvailableBalance error when maxAmountIsBalance is true", () => {
+    mockConvertMoneyAmount.mockImplementation((amount) => amount)
+    mockFormatMoneyAmount.mockReturnValue("100,000 SAT")
+
+    const { getByTestId } = render(
+      <AmountInputScreen
+        initialAmount={{
+          amount: 99999,
+          currency: "DisplayCurrency",
+          currencyCode: "USD",
+        }}
+        walletCurrency={WalletCurrency.Btc}
+        convertMoneyAmount={mockConvertMoneyAmount}
+        maxAmount={{ amount: 100, currency: "DisplayCurrency", currencyCode: "USD" }}
+        maxAmountIsBalance
+        setAmount={jest.fn()}
+      />,
+    )
+
+    expect(getByTestId("error-message").props.children).toBe(
+      "Exceeds available balance: 100,000 SAT",
+    )
   })
 })

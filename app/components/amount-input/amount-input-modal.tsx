@@ -21,6 +21,7 @@ export type AmountInputModalProps = {
   convertMoneyAmount: ConvertMoneyAmount
   onSetAmount?: (moneyAmount: MoneyAmount<WalletOrDisplayCurrency>) => void
   maxAmount?: MoneyAmount<WalletOrDisplayCurrency>
+  maxAmountIsBalance?: boolean
   minAmount?: MoneyAmount<WalletOrDisplayCurrency>
   isOpen: boolean
   close: () => void
@@ -31,20 +32,34 @@ export const AmountInputModal: React.FC<AmountInputModalProps> = ({
   walletCurrency,
   onSetAmount,
   maxAmount,
+  maxAmountIsBalance,
   minAmount,
   convertMoneyAmount,
   isOpen,
   close,
 }) => {
-  const styles = useStyles()
   const { bottom } = useSafeAreaInsets()
+  const styles = useStyles({ bottom })
   const bottomSheetRef = useRef<BottomSheetModal>(null)
+  const pendingSetAmountRef = useRef<MoneyAmount<WalletOrDisplayCurrency>>()
 
   useEffect(() => {
     if (isOpen) {
       bottomSheetRef.current?.present()
+      return
     }
+    bottomSheetRef.current?.dismiss()
   }, [isOpen])
+
+  const handleDismiss = useCallback(() => {
+    close()
+
+    const pendingAmount = pendingSetAmountRef.current
+    if (!pendingAmount || !onSetAmount) return
+
+    pendingSetAmountRef.current = undefined
+    onSetAmount(pendingAmount)
+  }, [close, onSetAmount])
 
   const renderBackdrop = useCallback(
     (props: BottomSheetBackdropProps) => (
@@ -67,9 +82,9 @@ export const AmountInputModal: React.FC<AmountInputModalProps> = ({
       backdropComponent={renderBackdrop}
       handleIndicatorStyle={styles.handleIndicator}
       backgroundStyle={styles.sheetBackground}
-      onDismiss={close}
+      onDismiss={handleDismiss}
     >
-      <BottomSheetView style={{ paddingBottom: bottom }}>
+      <BottomSheetView style={styles.sheetContent}>
         <AmountInputScreen
           initialAmount={moneyAmount}
           convertMoneyAmount={convertMoneyAmount}
@@ -77,11 +92,12 @@ export const AmountInputModal: React.FC<AmountInputModalProps> = ({
           setAmount={
             onSetAmount &&
             ((amount) => {
-              onSetAmount(amount)
+              pendingSetAmountRef.current = amount
               bottomSheetRef.current?.dismiss()
             })
           }
           maxAmount={maxAmount}
+          maxAmountIsBalance={maxAmountIsBalance}
           minAmount={minAmount}
         />
       </BottomSheetView>
@@ -89,7 +105,10 @@ export const AmountInputModal: React.FC<AmountInputModalProps> = ({
   )
 }
 
-const useStyles = makeStyles(({ colors }) => ({
+const useStyles = makeStyles(({ colors }, { bottom }: { bottom: number }) => ({
+  sheetContent: {
+    paddingBottom: bottom,
+  },
   handleIndicator: {
     backgroundColor: colors.grey3,
     width: 40,
