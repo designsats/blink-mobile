@@ -77,7 +77,6 @@ import VisaPlatinum from "@app/assets/icons-redesign/visa-platinum.svg"
 import BlinkIcon from "@app/assets/icons-redesign/blink-icon.svg"
 import PhysicalCard from "@app/assets/icons-redesign/physical-card.svg"
 import PrivacyPolicy from "@app/assets/icons-redesign/privacy-policy.svg"
-import Trash from "@app/assets/icons-redesign/trash.svg"
 import GooglePay from "@app/assets/icons/google-pay.svg"
 import ApplePay from "@app/assets/icons/apple-pay.svg"
 import Approved from "@app/assets/icons-redesign/approved.svg"
@@ -163,7 +162,6 @@ export const icons = {
   "blink-icon": BlinkIcon,
   "physical-card": PhysicalCard,
   "privacy-policy": PrivacyPolicy,
-  "trash": Trash,
   "google-pay": GooglePay,
   "apple-pay": ApplePay,
   "approved": Approved,
