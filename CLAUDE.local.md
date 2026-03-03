@@ -37,3 +37,8 @@ When running the Android emulator for this project:
 ### Notes
 - The project expects a `.env` file in the root for environment variables (managed by react-native-config)
 - For first-time setup, ADB server may need to be started manually: `adb start-server`
+
+## Git Rules
+
+- **NEVER use git worktrees** (`git worktree add`, `EnterWorktree` tool, or `isolation: "worktree"` on agents). Worktrees lock branches and break GitHub Desktop branch switching.
+- If work is needed on a different branch, use `git checkout <branch>`, do the work, then `git checkout -` to return.
