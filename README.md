@@ -1,6 +1,7 @@
-# GaloyMobile
+# BlinkMobile
 
-<img src=".readme/galoy-logo.png" alt="Galoy Logo" width="300">
+<img width="200" height="102" alt="image" src=".readme/blink-logo-white-bg.png" />
+
 
 ## Goal
 
@@ -8,7 +9,7 @@ This repository is the Blink mobile application. The goal is to make a mobile ap
 
 ## Screenshots
 
-<img src=".readme/screenshot-1.png" alt="Screenshot 1" width="150"> <img src=".readme/screenshot-2.png" alt="Screenshot 2" width="150"> <img src=".readme/screenshot-3.png" alt="Screenshot 3" width="150"> <img src=".readme/screenshot-4.png" alt="Screenshot 4" width="150">
+<img src=".readme/home.png" alt="Screenshot 1" width="150"> <img src=".readme/receive-LNURL.png" alt="Screenshot 2" width="150"> <img src=".readme/send-step3.png" alt="Screenshot 3" width="150"> <img src=".readme/sbtcmap" alt="Screenshot 4" width="150">
 
 ## Developing
 
