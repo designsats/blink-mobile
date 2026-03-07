@@ -2703,6 +2703,8 @@
     "csvExport": "Exporteer transacties als CSV",
     "date": "Datum",
     "description": "Omschrijving",
+    "discard": "Verwijderen",
+    "discardChangesMessage": "Je hebt niet-opgeslagen wijzigingen. Weet je zeker dat je ze wilt verwijderen?",
     "domain": "Domein",
     "email": "Email",
     "error": "Fout",
@@ -2789,7 +2791,12 @@
     "profiles": "Profielen",
     "paste": "Plakken",
     "hasBeenCopiedToClipboard": "{type: string} is naar het klembord gekopieerd",
-    "save": "Opslaan"
+    "save": "Opslaan",
+    "validation": {
+      "required": "Dit veld is verplicht",
+      "minChars": "Moet minimaal {min} tekens bevatten",
+      "invalidPostalCode": "Ongeldige postcode"
+    }
   },
   "errors": {
     "generic": "Er is een fout opgetreden.\nProbeer het later opnieuw.",
@@ -2968,7 +2975,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "In behandeling",
-      "completed": "Voltooid"
+      "completed": "Voltooid",
+      "declined": "Geweigerd",
+      "reversed": "Teruggedraaid"
     },
     "CardDashboard": {
       "Actions": {
@@ -2983,6 +2992,7 @@
       "title": "Visa-kaart"
     },
     "validThruLabel": "GELDIG TOT",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kaart bevroren",
     "cardFrozenSubtitle": "De kaart is tijdelijk uitgeschakeld",
     "CardLimits": {
@@ -3008,24 +3018,35 @@
         "contactless": "Contactloze betalingen",
         "contactlessDescription": "Contactloze transacties toestaan"
       },
-      "title": "Kaartlimieten"
+      "title": "Kaartlimieten",
+      "noLimit": "Geen limiet",
+      "limitUpdateSuccess": "Limiet succesvol bijgewerkt",
+      "limitUpdateError": "Limiet bijwerken mislukt",
+      "limitMustBePositive": "Limiet moet groter zijn dan nul"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Kaartgegevens",
+      "cardNumber": "Kaartnummer",
+      "expiryDate": "Vervaldatum",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
+      "cardholderName": "Naam kaarthouder",
+      "cardInformation": "Kaartinformatie",
+      "cardType": "Kaarttype",
       "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "statusActive": "Actief",
+      "statusFrozen": "Bevroren",
+      "statusInactive": "Inactief",
+      "issued": "Uitgegeven",
+      "network": "Netwerk",
+      "keepDetailsSafe": "Houd uw gegevens veilig",
+      "securityWarning": "Deel nooit uw kaartgegevens met iemand. Blink zal nooit uw kaartinformatie opvragen via e-mail of telefoon.",
+      "statusCancelled": "Geannuleerd",
+      "statusNotActivated": "Niet geactiveerd",
+      "statusPending": "In behandeling",
+      "statusFailed": "Mislukt",
+      "cardTypeVirtual": "Virtuele Visa-debet",
+      "cardTypePhysical": "Fysieke Visa-debet",
+      "authDescription": "Verifieer om kaartgegevens te bekijken"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3063,7 +3084,19 @@
       "privacyPolicy": "Privacybeleid kaart",
       "closeCardAccount": "Kaartaccount sluiten",
       "closeCardAccountDescription": "Sluit uw Visa-kaart permanent",
-      "addToAppleWallet": "Toevoegen aan Apple Wallet"
+      "addToAppleWallet": "Toevoegen aan Apple Wallet",
+      "notificationToggleError": "Kan meldingsinstellingen niet bijwerken",
+      "closeCardWarning": "Deze actie is permanent. Je Visa-kaart wordt geannuleerd en kan niet opnieuw worden geactiveerd.",
+      "closeCardTypeClose": "Typ \"{close}\" om te bevestigen",
+      "closeCardClose": "sluiten",
+      "closeCardFinalConfirmTitle": "Laatste Bevestiging",
+      "closeCardFinalConfirmMessage": "Weet je zeker dat je je kaartaccount wilt sluiten? Dit kan niet ongedaan worden gemaakt.",
+      "closeCardPendingTransactions": "Je hebt openstaande transacties. Wacht tot deze zijn verwerkt voordat je je kaart sluit.",
+      "closeCardBalanceWarning": "Je kaart heeft een saldo van {balance}. Neem je geld op voordat je sluit. Wil je toch doorgaan?",
+      "closeCardSuccessTitle": "Kaartaccount Gesloten",
+      "closeCardSuccessSubtitle": "Je Visa-kaart is permanent gesloten.",
+      "closeCardSuccessButton": "Terug naar Home",
+      "closeCardError": "Kan kaartaccount niet sluiten. Neem contact op met ondersteuning."
     },
     "TransactionDetails": {
       "title": "Transactiedetails",
@@ -3101,7 +3134,19 @@
       "dateOfBirth": "Geboortedatum",
       "contactInformation": "Contactgegevens",
       "registeredAddress": "Geregistreerd adres",
-      "shippingAddress": "Verzendadres"
+      "shippingAddress": "Verzendadres",
+      "kycPendingTitle": "KYC-verificatie in behandeling",
+      "kycPendingDescription": "Uw KYC-verificatie wordt verwerkt. Dit kan enige tijd duren.",
+      "kycDeclinedTitle": "KYC-verificatie geweigerd",
+      "kycDeclinedDescription": "Uw KYC-verificatie is geweigerd. Neem contact op met de klantenservice voor meer informatie.",
+      "kycNotStartedTitle": "Voltooi KYC-verificatie",
+      "kycNotStartedDescription": "Voltooi het KYC-verificatieproces om alle kaartfuncties te ontgrendelen.",
+      "kycAwaitingInputTitle": "Ga door met KYC-verificatie",
+      "kycAwaitingInputDescription": "Aanvullende informatie is nodig om uw KYC-verificatie te voltooien.",
+      "kycErrorTitle": "Verificatiefout",
+      "kycErrorDescription": "Er is een fout opgetreden tijdens de verificatie. Probeer het opnieuw of neem contact op met de klantenservice.",
+      "kycUnderReviewTitle": "KYC in beoordeling",
+      "kycUnderReviewDescription": "Uw KYC-verificatie wordt handmatig beoordeeld. Dit kan enige tijd duren."
     },
     "AddToMobileWallet": {
       "title": "Toevoegen aan mobiele portemonnee",
@@ -3131,7 +3176,8 @@
     },
     "ShippingAddress": {
       "title": "Verzendadres",
-      "fullName": "Volledige naam",
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
       "addressLine1": "Adresregel 1",
       "addressLine2": "Adresregel 2",
       "city": "Stad",

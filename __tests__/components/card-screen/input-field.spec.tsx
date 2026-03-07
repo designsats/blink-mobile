@@ -10,8 +10,12 @@ jest.mock("@rn-vui/themed", () => ({
     container: {},
     label: {},
     valueContainer: {},
+    valueContainerDisabled: {},
     value: {},
     editableInput: {},
+    helperText: {},
+    helperTextError: {},
+    helperTextContainer: { minHeight: 13 },
   }),
   useTheme: () => ({
     theme: {
@@ -105,12 +109,7 @@ describe("InputField", () => {
     it("calls onChangeText when text changes", () => {
       const onChangeText = jest.fn()
       const { getByLabelText } = render(
-        <InputField
-          label="Full name"
-          value="Satoshi"
-          editable
-          onChangeText={onChangeText}
-        />,
+        <InputField label="Full name" value="Satoshi" onChangeText={onChangeText} />,
       )
 
       fireEvent.changeText(getByLabelText("Full name"), "Nakamoto")
@@ -124,6 +123,75 @@ describe("InputField", () => {
       )
 
       expect(getByText("Address")).toBeTruthy()
+    })
+
+    it("calls onBlur with the current value when field loses focus", () => {
+      const onBlur = jest.fn()
+      const { getByLabelText } = render(
+        <InputField label="Amount" value="1000" onBlur={onBlur} />,
+      )
+      fireEvent.changeText(getByLabelText("Amount"), "2000")
+      fireEvent(getByLabelText("Amount"), "blur")
+      expect(onBlur).toHaveBeenCalledWith("2000")
+    })
+
+    it("shows formatted value when not focused and formatDisplay is provided", () => {
+      const { getByDisplayValue } = render(
+        <InputField
+          label="Limit"
+          value="1000"
+          editable
+          formatDisplay={(v) => `$${Intl.NumberFormat("en-US").format(Number(v))}`}
+        />,
+      )
+      expect(getByDisplayValue("$1,000")).toBeTruthy()
+    })
+
+    it("shows raw value when focused and formatDisplay is provided", () => {
+      const { getByLabelText, getByDisplayValue } = render(
+        <InputField
+          label="Limit"
+          value="1000"
+          editable
+          formatDisplay={(v) => `$${Intl.NumberFormat("en-US").format(Number(v))}`}
+        />,
+      )
+      fireEvent(getByLabelText("Limit"), "focus")
+      expect(getByDisplayValue("1000")).toBeTruthy()
+    })
+
+    it("renders helper text when provided", () => {
+      const { getByText } = render(
+        <InputField
+          label="Amount"
+          value="100"
+          editable
+          helperText="Max $10,000 per day"
+        />,
+      )
+      expect(getByText("Max $10,000 per day")).toBeTruthy()
+    })
+
+    it("reserves space for helper text when none provided", () => {
+      const { toJSON } = render(<InputField label="Amount" value="100" editable />)
+      const tree = JSON.stringify(toJSON())
+
+      expect(tree).toContain('"minHeight":13')
+      expect(tree).not.toContain("Max $10,000 per day")
+    })
+  })
+
+  describe("helper text", () => {
+    it("renders helper text in read-only mode when provided", () => {
+      const { getByText } = render(
+        <InputField label="Name" value="Satoshi" helperText="This is your legal name" />,
+      )
+      expect(getByText("This is your legal name")).toBeTruthy()
+    })
+
+    it("does not render helper text in read-only mode when not provided", () => {
+      const { queryByText } = render(<InputField label="Name" value="Satoshi" />)
+      expect(queryByText("This is your legal name")).toBeNull()
     })
   })
 

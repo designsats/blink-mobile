@@ -2703,6 +2703,8 @@
     "csvExport": "Exportovat transakce ve formátu CSV",
     "date": "Datum",
     "description": "Popis",
+    "discard": "Zahodit",
+    "discardChangesMessage": "Máte neuložené změny. Opravdu je chcete zahodit?",
     "domain": "Doména",
     "email": "Email",
     "error": "Chyba",
@@ -2789,7 +2791,12 @@
     "profiles": "Profily",
     "paste": "Vložit",
     "hasBeenCopiedToClipboard": "{type: string} byl zkopírován do schránky",
-    "save": "Uložit"
+    "save": "Uložit",
+    "validation": {
+      "required": "Toto pole je povinné",
+      "minChars": "Musí obsahovat alespoň {min} znaků",
+      "invalidPostalCode": "Neplatné PSČ"
+    }
   },
   "errors": {
     "generic": "Došlo k chybě.\nZkuste to prosím později.",
@@ -2968,7 +2975,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Čeká",
-      "completed": "Dokončeno"
+      "completed": "Dokončeno",
+      "declined": "Zamítnuto",
+      "reversed": "Stornováno"
     },
     "CardDashboard": {
       "Actions": {
@@ -2983,6 +2992,7 @@
       "title": "Karta Visa"
     },
     "validThruLabel": "PLATNOST DO",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Karta zmrazena",
     "cardFrozenSubtitle": "Karta je dočasně deaktivována",
     "CardLimits": {
@@ -3008,24 +3018,35 @@
         "contactless": "Bezkontaktní platby",
         "contactlessDescription": "Povolit bezkontaktní transakce"
       },
-      "title": "Limity karty"
+      "title": "Limity karty",
+      "noLimit": "Bez limitu",
+      "limitUpdateSuccess": "Limit úspěšně aktualizován",
+      "limitUpdateError": "Nepodařilo se aktualizovat limit",
+      "limitMustBePositive": "Limit musí být větší než nula"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Detaily karty",
+      "cardNumber": "Číslo karty",
+      "expiryDate": "Datum expirace",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Jméno držitele karty",
+      "cardInformation": "Informace o kartě",
+      "cardType": "Typ karty",
+      "status": "Stav",
+      "statusActive": "Aktivní",
+      "statusFrozen": "Zmrazená",
+      "statusInactive": "Neaktivní",
+      "issued": "Vydána",
+      "network": "Síť",
+      "keepDetailsSafe": "Udržujte své údaje v bezpečí",
+      "securityWarning": "Nikdy nesdílejte údaje o své kartě s nikým. Blink nikdy nebude požadovat informace o vaší kartě prostřednictvím e-mailu nebo telefonu.",
+      "statusCancelled": "Zrušena",
+      "statusNotActivated": "Neaktivována",
+      "statusPending": "Čeká na vyřízení",
+      "statusFailed": "Selhala",
+      "cardTypeVirtual": "Virtuální Visa debetní",
+      "cardTypePhysical": "Fyzická Visa debetní",
+      "authDescription": "Ověřte se pro zobrazení údajů karty"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3063,7 +3084,19 @@
       "privacyPolicy": "Zásady ochrany osobních údajů karty",
       "closeCardAccount": "Zrušit účet karty",
       "closeCardAccountDescription": "Trvale zrušte svou kartu Visa",
-      "addToAppleWallet": "Pridat do Apple Wallet"
+      "addToAppleWallet": "Pridat do Apple Wallet",
+      "notificationToggleError": "Nepodařilo se aktualizovat nastavení oznámení",
+      "closeCardWarning": "Tato akce je trvalá. Vaše karta Visa bude zrušena a nelze ji znovu aktivovat.",
+      "closeCardTypeClose": "Pro potvrzení napište \"{close}\"",
+      "closeCardClose": "zavřít",
+      "closeCardFinalConfirmTitle": "Závěrečné potvrzení",
+      "closeCardFinalConfirmMessage": "Jste si jisti, že chcete zavřít svůj karetní účet? Toto nelze vrátit zpět.",
+      "closeCardPendingTransactions": "Máte nevyřízené transakce. Počkejte prosím, než budou vyřízeny, než kartu zavřete.",
+      "closeCardBalanceWarning": "Vaše karta má zůstatek {balance}. Před zavřením prosím vyberte své prostředky. Chcete přesto pokračovat?",
+      "closeCardSuccessTitle": "Karetní účet uzavřen",
+      "closeCardSuccessSubtitle": "Vaše karta Visa byla trvale uzavřena.",
+      "closeCardSuccessButton": "Zpět na úvodní stránku",
+      "closeCardError": "Nepodařilo se zavřít karetní účet. Kontaktujte prosím podporu."
     },
     "TransactionDetails": {
       "title": "Detaily transakce",
@@ -3101,7 +3134,19 @@
       "dateOfBirth": "Datum narození",
       "contactInformation": "Kontaktní informace",
       "registeredAddress": "Registrovaná adresa",
-      "shippingAddress": "Dodací adresa"
+      "shippingAddress": "Dodací adresa",
+      "kycPendingTitle": "Ověření KYC čeká na vyřízení",
+      "kycPendingDescription": "Vaše ověření KYC se zpracovává. Může to chvíli trvat.",
+      "kycDeclinedTitle": "Ověření KYC zamítnuto",
+      "kycDeclinedDescription": "Vaše ověření KYC bylo zamítnuto. Pro více informací kontaktujte podporu.",
+      "kycNotStartedTitle": "Dokončete ověření KYC",
+      "kycNotStartedDescription": "Dokončete proces ověření KYC pro odemknutí všech funkcí karty.",
+      "kycAwaitingInputTitle": "Pokračujte v ověření KYC",
+      "kycAwaitingInputDescription": "K dokončení ověření KYC jsou potřeba další informace.",
+      "kycErrorTitle": "Chyba ověření",
+      "kycErrorDescription": "Při ověřování došlo k chybě. Zkuste to prosím znovu nebo kontaktujte podporu.",
+      "kycUnderReviewTitle": "KYC v přezkoumání",
+      "kycUnderReviewDescription": "Vaše ověření KYC je v manuálním přezkoumání. Může to chvíli trvat."
     },
     "AddToMobileWallet": {
       "title": "Pridat do mobilni penezenky",
@@ -3131,7 +3176,8 @@
     },
     "ShippingAddress": {
       "title": "Doručovací adresa",
-      "fullName": "Celé jméno",
+      "firstName": "Jméno",
+      "lastName": "Příjmení",
       "addressLine1": "Adresa řádek 1",
       "addressLine2": "Adresa řádek 2",
       "city": "Město",

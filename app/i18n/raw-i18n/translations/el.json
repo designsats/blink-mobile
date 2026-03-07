@@ -2686,6 +2686,8 @@
     "csvExport": "Εξαγωγή συναλλαγών σε μορφή CSV",
     "date": "Ημερομηνία",
     "description": "Περιγραφή",
+    "discard": "Απόρριψη",
+    "discardChangesMessage": "Έχετε μη αποθηκευμένες αλλαγές. Είστε σίγουροι ότι θέλετε να τις απορρίψετε;",
     "domain": "Τομέας",
     "email": "Email",
     "error": "Σφάλμα",
@@ -2772,7 +2774,12 @@
     "profiles": "Προφίλ",
     "paste": "Επικόλληση",
     "hasBeenCopiedToClipboard": "{type: string} έχει αντιγραφεί στο πρόχειρο",
-    "save": "Αποθήκευση"
+    "save": "Αποθήκευση",
+    "validation": {
+      "required": "Αυτό το πεδίο είναι υποχρεωτικό",
+      "minChars": "Πρέπει να είναι τουλάχιστον {min} χαρακτήρες",
+      "invalidPostalCode": "Μη έγκυρος ταχυδρομικός κώδικας"
+    }
   },
   "errors": {
     "generic": "Υπήρξε ένα σφάλμα. \nΠαρακαλούμε δοκιμάστε πάλι αργότερα. ",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Σε αναμονή",
-      "completed": "Ολοκληρώθηκε"
+      "completed": "Ολοκληρώθηκε",
+      "declined": "Απορρίφθηκε",
+      "reversed": "Αντιστράφηκε"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Κάρτα Visa"
     },
     "validThruLabel": "ΙΣΧΥΕΙ ΜΕΧΡΙ",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Κάρτα παγωμένη",
     "cardFrozenSubtitle": "Η κάρτα είναι προσωρινά απενεργοποιημένη",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Ανέπαφες πληρωμές",
         "contactlessDescription": "Επιτρέψτε ανέπαφες συναλλαγές"
       },
-      "title": "Όρια κάρτας"
+      "title": "Όρια κάρτας",
+      "noLimit": "Χωρίς όριο",
+      "limitUpdateSuccess": "Το όριο ενημερώθηκε επιτυχώς",
+      "limitUpdateError": "Αποτυχία ενημέρωσης ορίου",
+      "limitMustBePositive": "Το όριο πρέπει να είναι μεγαλύτερο από μηδέν"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Στοιχεία κάρτας",
+      "cardNumber": "Αριθμός κάρτας",
+      "expiryDate": "Ημερομηνία λήξης",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Όνομα κατόχου κάρτας",
+      "cardInformation": "Πληροφορίες κάρτας",
+      "cardType": "Τύπος κάρτας",
+      "status": "Κατάσταση",
+      "statusActive": "Ενεργή",
+      "statusFrozen": "Παγωμένη",
+      "statusInactive": "Ανενεργή",
+      "issued": "Εκδόθηκε",
+      "network": "Δίκτυο",
+      "keepDetailsSafe": "Κρατήστε τα στοιχεία σας ασφαλή",
+      "securityWarning": "Μην μοιράζεστε ποτέ τα στοιχεία της κάρτας σας με κανέναν. Η Blink δεν θα ζητήσει ποτέ τα στοιχεία της κάρτας σας μέσω email ή τηλεφώνου.",
+      "statusCancelled": "Ακυρωμένη",
+      "statusNotActivated": "Μη ενεργοποιημένη",
+      "statusPending": "Σε εκκρεμότητα",
+      "statusFailed": "Απέτυχε",
+      "cardTypeVirtual": "Εικονική χρεωστική Visa",
+      "cardTypePhysical": "Φυσική χρεωστική Visa",
+      "authDescription": "Επαληθεύστε για να δείτε τα στοιχεία της κάρτας"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Πολιτική απορρήτου κάρτας",
       "closeCardAccount": "Κλείσιμο λογαριασμού κάρτας",
       "closeCardAccountDescription": "Κλείστε μόνιμα την κάρτα Visa σας",
-      "addToAppleWallet": "Prosthiki sto Apple Wallet"
+      "addToAppleWallet": "Prosthiki sto Apple Wallet",
+      "notificationToggleError": "Αποτυχία ενημέρωσης ρυθμίσεων ειδοποιήσεων",
+      "closeCardWarning": "Αυτή η ενέργεια είναι μόνιμη. Η κάρτα Visa σου θα ακυρωθεί και δεν μπορεί να επανενεργοποιηθεί.",
+      "closeCardTypeClose": "Πληκτρολόγησε \"{close}\" για επιβεβαίωση",
+      "closeCardClose": "κλείσιμο",
+      "closeCardFinalConfirmTitle": "Τελική Επιβεβαίωση",
+      "closeCardFinalConfirmMessage": "Είσαι σίγουρος ότι θέλεις να κλείσεις τον λογαριασμό της κάρτας σου; Αυτό δεν μπορεί να αναιρεθεί.",
+      "closeCardPendingTransactions": "Έχεις εκκρεμείς συναλλαγές. Περίμενε μέχρι να εκκαθαριστούν πριν κλείσεις την κάρτα σου.",
+      "closeCardBalanceWarning": "Η κάρτα σου έχει υπόλοιπο {balance}. Κάνε ανάληψη των χρημάτων σου πριν κλείσεις. Θέλεις να συνεχίσεις;",
+      "closeCardSuccessTitle": "Ο Λογαριασμός Κάρτας Έκλεισε",
+      "closeCardSuccessSubtitle": "Η κάρτα Visa σου έχει κλείσει μόνιμα.",
+      "closeCardSuccessButton": "Επιστροφή στην Αρχική",
+      "closeCardError": "Αποτυχία κλεισίματος λογαριασμού κάρτας. Επικοινώνησε με την υποστήριξη."
     },
     "TransactionDetails": {
       "title": "Λεπτομέρειες συναλλαγής",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Ημερομηνία γέννησης",
       "contactInformation": "Στοιχεία επικοινωνίας",
       "registeredAddress": "Καταχωρημένη διεύθυνση",
-      "shippingAddress": "Διεύθυνση αποστολής"
+      "shippingAddress": "Διεύθυνση αποστολής",
+      "kycPendingTitle": "Επαλήθευση KYC σε εκκρεμότητα",
+      "kycPendingDescription": "Η επαλήθευση KYC σας επεξεργάζεται. Αυτό μπορεί να πάρει λίγο χρόνο.",
+      "kycDeclinedTitle": "Η επαλήθευση KYC απορρίφθηκε",
+      "kycDeclinedDescription": "Η επαλήθευση KYC σας απορρίφθηκε. Επικοινωνήστε με την υποστήριξη για περισσότερες πληροφορίες.",
+      "kycNotStartedTitle": "Ολοκληρώστε την επαλήθευση KYC",
+      "kycNotStartedDescription": "Ολοκληρώστε τη διαδικασία επαλήθευσης KYC για να ξεκλειδώσετε όλες τις λειτουργίες της κάρτας.",
+      "kycAwaitingInputTitle": "Συνεχίστε την επαλήθευση KYC",
+      "kycAwaitingInputDescription": "Απαιτούνται πρόσθετες πληροφορίες για την ολοκλήρωση της επαλήθευσης KYC.",
+      "kycErrorTitle": "Σφάλμα επαλήθευσης",
+      "kycErrorDescription": "Παρουσιάστηκε σφάλμα κατά την επαλήθευση. Δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη.",
+      "kycUnderReviewTitle": "KYC υπό εξέταση",
+      "kycUnderReviewDescription": "Η επαλήθευση KYC σας είναι υπό χειροκίνητη εξέταση. Αυτό μπορεί να πάρει λίγο χρόνο."
     },
     "AddToMobileWallet": {
       "title": "Prosthiki sto kinito portofoli",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Διεύθυνση αποστολής",
-      "fullName": "Πλήρες όνομα",
+      "firstName": "Όνομα",
+      "lastName": "Επώνυμο",
       "addressLine1": "Διεύθυνση γραμμή 1",
       "addressLine2": "Διεύθυνση γραμμή 2",
       "city": "Πόλη",

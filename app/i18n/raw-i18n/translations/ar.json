@@ -2703,6 +2703,8 @@
     "csvExport": "تصدير المُعاملات كملف CSV",
     "date": "تاريخ",
     "description": "وصف",
+    "discard": "تجاهل",
+    "discardChangesMessage": "لديك تغييرات غير محفوظة. هل أنت متأكد أنك تريد تجاهلها؟",
     "domain": "موقع ويب",
     "email": "عنوان البريد الالكتروني ",
     "error": "خطأ",
@@ -2789,7 +2791,12 @@
     "profiles": "الملفات الشخصية",
     "paste": "لصق",
     "hasBeenCopiedToClipboard": "تم نسخ {type: string} إلى الحافظة",
-    "save": "حفظ"
+    "save": "حفظ",
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "minChars": "يجب أن يكون {min} أحرف على الأقل",
+      "invalidPostalCode": "رمز بريدي غير صالح"
+    }
   },
   "errors": {
     "generic": "كان هناك خطأ.\nالرجاء معاودة المحاولة في وقت لاحق.",
@@ -2965,7 +2972,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "قيد الانتظار",
-      "completed": "مكتمل"
+      "completed": "مكتمل",
+      "declined": "مرفوضة",
+      "reversed": "معكوسة"
     },
     "CardDashboard": {
       "Actions": {
@@ -2980,6 +2989,7 @@
       "title": "بطاقة Visa"
     },
     "validThruLabel": "صالح حتى",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "البطاقة مجمدة",
     "cardFrozenSubtitle": "البطاقة معطلة مؤقتًا",
     "CardLimits": {
@@ -3005,24 +3015,35 @@
         "contactless": "الدفع بدون تلامس",
         "contactlessDescription": "السماح بمعاملات اللمس للدفع"
       },
-      "title": "حدود البطاقة"
+      "title": "حدود البطاقة",
+      "noLimit": "بدون حد",
+      "limitUpdateSuccess": "تم تحديث الحد بنجاح",
+      "limitUpdateError": "فشل تحديث الحد",
+      "limitMustBePositive": "يجب أن يكون الحد أكبر من الصفر"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "تفاصيل البطاقة",
+      "cardNumber": "رقم البطاقة",
+      "expiryDate": "تاريخ الانتهاء",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "اسم حامل البطاقة",
+      "cardInformation": "معلومات البطاقة",
+      "cardType": "نوع البطاقة",
+      "status": "الحالة",
+      "statusActive": "نشطة",
+      "statusFrozen": "مجمّدة",
+      "statusInactive": "غير نشطة",
+      "issued": "تاريخ الإصدار",
+      "network": "الشبكة",
+      "keepDetailsSafe": "حافظ على أمان بياناتك",
+      "securityWarning": "لا تشارك تفاصيل بطاقتك مع أي شخص أبداً. لن تطلب Blink معلومات بطاقتك عبر البريد الإلكتروني أو الهاتف.",
+      "statusCancelled": "ملغاة",
+      "statusNotActivated": "غير مفعّلة",
+      "statusPending": "قيد الانتظار",
+      "statusFailed": "فشلت",
+      "cardTypeVirtual": "بطاقة فيزا افتراضية مدينة",
+      "cardTypePhysical": "بطاقة فيزا فعلية مدينة",
+      "authDescription": "قم بالمصادقة لعرض تفاصيل البطاقة"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3060,7 +3081,19 @@
       "privacyPolicy": "سياسة خصوصية البطاقة",
       "closeCardAccount": "إغلاق حساب البطاقة",
       "closeCardAccountDescription": "أغلق بطاقة Visa الخاصة بك نهائياً",
-      "addToAppleWallet": "اضافة الى Apple Wallet"
+      "addToAppleWallet": "اضافة الى Apple Wallet",
+      "notificationToggleError": "فشل في تحديث إعدادات الإشعارات",
+      "closeCardWarning": "هذا الإجراء نهائي. سيتم إلغاء بطاقة فيزا الخاصة بك ولا يمكن إعادة تفعيلها.",
+      "closeCardTypeClose": "يرجى كتابة \"{close}\" للتأكيد",
+      "closeCardClose": "إغلاق",
+      "closeCardFinalConfirmTitle": "التأكيد النهائي",
+      "closeCardFinalConfirmMessage": "هل أنت متأكد أنك تريد إغلاق حساب بطاقتك؟ لا يمكن التراجع عن هذا.",
+      "closeCardPendingTransactions": "لديك معاملات معلقة. يرجى الانتظار حتى تتم تسويتها قبل إغلاق بطاقتك.",
+      "closeCardBalanceWarning": "بطاقتك بها رصيد قدره {balance}. يرجى سحب أموالك قبل الإغلاق. هل تريد المتابعة على أي حال؟",
+      "closeCardSuccessTitle": "تم إغلاق حساب البطاقة",
+      "closeCardSuccessSubtitle": "تم إغلاق بطاقة فيزا الخاصة بك نهائياً.",
+      "closeCardSuccessButton": "العودة إلى الرئيسية",
+      "closeCardError": "فشل إغلاق حساب البطاقة. يرجى الاتصال بالدعم."
     },
     "TransactionDetails": {
       "title": "تفاصيل المعاملة",
@@ -3098,7 +3131,19 @@
       "dateOfBirth": "تاريخ الميلاد",
       "contactInformation": "معلومات الاتصال",
       "registeredAddress": "العنوان المسجل",
-      "shippingAddress": "عنوان الشحن"
+      "shippingAddress": "عنوان الشحن",
+      "kycPendingTitle": "التحقق من الهوية قيد الانتظار",
+      "kycPendingDescription": "يتم معالجة التحقق من هويتك. قد يستغرق هذا بعض الوقت.",
+      "kycDeclinedTitle": "تم رفض التحقق من الهوية",
+      "kycDeclinedDescription": "تم رفض التحقق من هويتك. يرجى التواصل مع الدعم لمزيد من المعلومات.",
+      "kycNotStartedTitle": "أكمل التحقق من الهوية",
+      "kycNotStartedDescription": "أكمل عملية التحقق من الهوية لفتح جميع ميزات البطاقة.",
+      "kycAwaitingInputTitle": "متابعة التحقق من الهوية",
+      "kycAwaitingInputDescription": "مطلوب معلومات إضافية لإكمال التحقق من هويتك.",
+      "kycErrorTitle": "خطأ في التحقق",
+      "kycErrorDescription": "حدث خطأ أثناء التحقق. يرجى المحاولة مرة أخرى أو التواصل مع الدعم.",
+      "kycUnderReviewTitle": "KYC قيد المراجعة",
+      "kycUnderReviewDescription": "تتم مراجعة التحقق من KYC يدويًا. قد يستغرق ذلك بعض الوقت."
     },
     "AddToMobileWallet": {
       "title": "اضافة الى المحفظة",
@@ -3128,7 +3173,8 @@
     },
     "ShippingAddress": {
       "title": "عنوان الشحن",
-      "fullName": "الاسم الكامل",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
       "addressLine1": "سطر العنوان 1",
       "addressLine2": "سطر العنوان 2",
       "city": "المدينة",

@@ -2686,6 +2686,8 @@
     "csvExport": "Hifadhi malipo kama CSV",
     "date": "Tarehe",
     "description": "Maelezo",
+    "discard": "Tupa",
+    "discardChangesMessage": "Una mabadiliko ambayo hayajahifadhiwa. Je, una uhakika unataka kuyatupa?",
     "domain": "Kikoa",
     "email": "Barua pepe",
     "error": "Hitilafu",
@@ -2772,7 +2774,12 @@
     "profiles": "Wasifu",
     "paste": "Bandika",
     "hasBeenCopiedToClipboard": "{type: string} imekopishwa kwenye ubao wa kunakili",
-    "save": "Hifadhi"
+    "save": "Hifadhi",
+    "validation": {
+      "required": "Sehemu hii inahitajika",
+      "minChars": "Lazima iwe na angalau herufi {min}",
+      "invalidPostalCode": "Nambari ya posta si sahihi"
+    }
   },
   "errors": {
     "generic": "Kumekuwa na kosa.\nTafadhali jaribu tena.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Inasubiri",
-      "completed": "Imekamilika"
+      "completed": "Imekamilika",
+      "declined": "Imekataliwa",
+      "reversed": "Imerudishwa"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Kadi ya Visa"
     },
     "validThruLabel": "INATUMIKA HADI",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kadi imegandishwa",
     "cardFrozenSubtitle": "Kadi imezimwa kwa muda",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Malipo bila kugusa",
         "contactlessDescription": "Ruhusu miamala bila kugusa"
       },
-      "title": "Vipimo vya kadi"
+      "title": "Vipimo vya kadi",
+      "noLimit": "Hakuna kikomo",
+      "limitUpdateSuccess": "Kikomo kimesasishwa kwa mafanikio",
+      "limitUpdateError": "Imeshindikana kusasisha kikomo",
+      "limitMustBePositive": "Kikomo lazima kiwe kikubwa kuliko sifuri"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Maelezo ya kadi",
+      "cardNumber": "Nambari ya kadi",
+      "expiryDate": "Tarehe ya kumalizika",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Jina la mmiliki wa kadi",
+      "cardInformation": "Taarifa za kadi",
+      "cardType": "Aina ya kadi",
+      "status": "Hali",
+      "statusActive": "Hai",
+      "statusFrozen": "Imegandishwa",
+      "statusInactive": "Haifanyi kazi",
+      "issued": "Imetolewa",
+      "network": "Mtandao",
+      "keepDetailsSafe": "Hifadhi maelezo yako kwa usalama",
+      "securityWarning": "Usishiriki maelezo ya kadi yako na mtu yeyote. Blink haitakuomba taarifa za kadi yako kupitia barua pepe au simu.",
+      "statusCancelled": "Imefutwa",
+      "statusNotActivated": "Haijawashwa",
+      "statusPending": "Inasubiri",
+      "statusFailed": "Imeshindwa",
+      "cardTypeVirtual": "Kadi ya Visa pepe ya malipo",
+      "cardTypePhysical": "Kadi ya Visa halisi ya malipo",
+      "authDescription": "Thibitisha ili kuona maelezo ya kadi"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Sera ya faragha ya kadi",
       "closeCardAccount": "Funga akaunti ya kadi",
       "closeCardAccountDescription": "Funga kadi yako ya Visa kabisa",
-      "addToAppleWallet": "Ongeza kwenye Apple Wallet"
+      "addToAppleWallet": "Ongeza kwenye Apple Wallet",
+      "notificationToggleError": "Imeshindwa kusasisha mipangilio ya arifa",
+      "closeCardWarning": "Kitendo hiki ni cha kudumu. Kadi yako ya Visa itafutwa na haiwezi kuamilishwa tena.",
+      "closeCardTypeClose": "Tafadhali andika \"{close}\" kuthibitisha",
+      "closeCardClose": "funga",
+      "closeCardFinalConfirmTitle": "Uthibitisho wa Mwisho",
+      "closeCardFinalConfirmMessage": "Je, una uhakika unataka kufunga akaunti yako ya kadi? Hii haiwezi kutenduliwa.",
+      "closeCardPendingTransactions": "Una miamala inayosubiri. Tafadhali subiri hadi ikamilike kabla ya kufunga kadi yako.",
+      "closeCardBalanceWarning": "Kadi yako ina salio la {balance}. Tafadhali ondoa fedha zako kabla ya kufunga. Je, unataka kuendelea hata hivyo?",
+      "closeCardSuccessTitle": "Akaunti ya Kadi Imefungwa",
+      "closeCardSuccessSubtitle": "Kadi yako ya Visa imefungwa kabisa.",
+      "closeCardSuccessButton": "Rudi Nyumbani",
+      "closeCardError": "Imeshindwa kufunga akaunti ya kadi. Tafadhali wasiliana na msaada."
     },
     "TransactionDetails": {
       "title": "Maelezo ya muamala",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Tarehe ya kuzaliwa",
       "contactInformation": "Maelezo ya mawasiliano",
       "registeredAddress": "Anwani iliyosajiliwa",
-      "shippingAddress": "Anwani ya usafirishaji"
+      "shippingAddress": "Anwani ya usafirishaji",
+      "kycPendingTitle": "Uthibitishaji wa KYC unasubiri",
+      "kycPendingDescription": "Uthibitishaji wako wa KYC unashughulikiwa. Hii inaweza kuchukua muda.",
+      "kycDeclinedTitle": "Uthibitishaji wa KYC umekataliwa",
+      "kycDeclinedDescription": "Uthibitishaji wako wa KYC umekataliwa. Tafadhali wasiliana na msaada kwa maelezo zaidi.",
+      "kycNotStartedTitle": "Kamilisha uthibitishaji wa KYC",
+      "kycNotStartedDescription": "Kamilisha mchakato wa uthibitishaji wa KYC ili kufungua vipengele vyote vya kadi.",
+      "kycAwaitingInputTitle": "Endelea na uthibitishaji wa KYC",
+      "kycAwaitingInputDescription": "Maelezo ya ziada yanahitajika kukamilisha uthibitishaji wako wa KYC.",
+      "kycErrorTitle": "Hitilafu ya uthibitishaji",
+      "kycErrorDescription": "Hitilafu ilitokea wakati wa uthibitishaji. Tafadhali jaribu tena au wasiliana na msaada.",
+      "kycUnderReviewTitle": "KYC inakaguliwa",
+      "kycUnderReviewDescription": "Uthibitishaji wako wa KYC unakaguliwa kwa mikono. Hii inaweza kuchukua muda."
     },
     "AddToMobileWallet": {
       "title": "Ongeza kwenye pochi ya simu",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Anwani ya usafirishaji",
-      "fullName": "Jina kamili",
+      "firstName": "Jina la kwanza",
+      "lastName": "Jina la mwisho",
       "addressLine1": "Mstari wa anwani 1",
       "addressLine2": "Mstari wa anwani 2",
       "city": "Jiji",

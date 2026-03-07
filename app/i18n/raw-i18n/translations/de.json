@@ -2686,6 +2686,8 @@
         "csvExport": "Transaktionen als CSV exportieren",
         "date": "Datum",
         "description": "Beschreibung",
+        "discard": "Verwerfen",
+        "discardChangesMessage": "Du hast ungespeicherte Änderungen. Bist du sicher, dass du sie verwerfen möchtest?",
         "domain": "Domain",
         "email": "E-Mail",
         "error": "Fehler",
@@ -2772,7 +2774,12 @@
         "support": "Support",
         "profiles": "Profile",
         "paste": "Einfügen",
-        "hasBeenCopiedToClipboard": "{type: string} wurde in die Zwischenablage kopiert"
+        "hasBeenCopiedToClipboard": "{type: string} wurde in die Zwischenablage kopiert",
+        "validation": {
+            "required": "Dieses Feld ist erforderlich",
+            "minChars": "Muss mindestens {min} Zeichen lang sein",
+            "invalidPostalCode": "Ungültige Postleitzahl"
+        }
     },
     "errors": {
         "generic": "Es gab einen Fehler.\nBitte versuche es später erneut.",
@@ -2927,7 +2934,9 @@
     "CardFlow": {
         "TransactionStatus": {
             "pending": "Ausstehend",
-            "completed": "Abgeschlossen"
+            "completed": "Abgeschlossen",
+            "declined": "Abgelehnt",
+            "reversed": "Storniert"
         },
         "CardDashboard": {
             "Actions": {
@@ -2942,24 +2951,32 @@
             "title": "Visa-Karte"
         },
         "validThruLabel": "GÜLTIG BIS",
+        "networkVisa": "Visa",
         "cardFrozenTitle": "Karte eingefroren",
         "cardFrozenSubtitle": "Die Karte ist vorübergehend deaktiviert",
         "CardDetails": {
-            "title": "Card details",
-            "cardNumber": "Card number",
-            "expiryDate": "Expiry date",
+            "title": "Kartendetails",
+            "cardNumber": "Kartennummer",
+            "expiryDate": "Ablaufdatum",
             "cvv": "CVV",
-            "cardholderName": "Cardholder name",
-            "cardInformation": "Card information",
-            "cardType": "Card type",
+            "cardholderName": "Name des Karteninhabers",
+            "cardInformation": "Karteninformationen",
+            "cardType": "Kartentyp",
             "status": "Status",
-            "statusActive": "Active",
-            "statusFrozen": "Frozen",
-            "statusInactive": "Inactive",
-            "issued": "Issued",
-            "network": "Network",
-            "keepDetailsSafe": "Keep your details safe",
-            "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+            "statusActive": "Aktiv",
+            "statusFrozen": "Eingefroren",
+            "statusInactive": "Inaktiv",
+            "issued": "Ausgestellt",
+            "network": "Netzwerk",
+            "keepDetailsSafe": "Bewahren Sie Ihre Daten sicher auf",
+            "securityWarning": "Teilen Sie Ihre Kartendaten niemals mit anderen. Blink wird Sie niemals per E-Mail oder Telefon nach Ihren Karteninformationen fragen.",
+            "statusCancelled": "Storniert",
+            "statusNotActivated": "Nicht aktiviert",
+            "statusPending": "Ausstehend",
+            "statusFailed": "Fehlgeschlagen",
+            "cardTypeVirtual": "Virtuelle Visa-Debitkarte",
+            "cardTypePhysical": "Physische Visa-Debitkarte",
+            "authDescription": "Authentifizieren, um Kartendetails anzuzeigen"
         },
         "CardLimits": {
             "currentLimitsTitle": "Aktuelle Limits",
@@ -2984,7 +3001,11 @@
                 "contactless": "Kontaktlose Zahlungen",
                 "contactlessDescription": "Kontaktlose Transaktionen erlauben"
             },
-            "title": "Kartenlimits"
+            "title": "Kartenlimits",
+            "noLimit": "Kein Limit",
+            "limitUpdateSuccess": "Limit erfolgreich aktualisiert",
+            "limitUpdateError": "Limit konnte nicht aktualisiert werden",
+            "limitMustBePositive": "Das Limit muss größer als null sein"
         },
         "CardStatements": {
             "title": "Umsätze",
@@ -3022,7 +3043,19 @@
             "privacyPolicy": "Karten-Datenschutzrichtlinie",
             "closeCardAccount": "Kartenkonto schließen",
             "closeCardAccountDescription": "Schließen Sie Ihre Visa-Karte dauerhaft",
-            "addToAppleWallet": "Zu Apple Wallet hinzufuegen"
+            "addToAppleWallet": "Zu Apple Wallet hinzufuegen",
+            "notificationToggleError": "Benachrichtigungseinstellungen konnten nicht aktualisiert werden",
+            "closeCardWarning": "Diese Aktion ist dauerhaft. Deine Visa-Karte wird gekündigt und kann nicht reaktiviert werden.",
+            "closeCardTypeClose": "Bitte gib \"{close}\" zur Bestätigung ein",
+            "closeCardClose": "schließen",
+            "closeCardFinalConfirmTitle": "Letzte Bestätigung",
+            "closeCardFinalConfirmMessage": "Bist du sicher, dass du dein Kartenkonto schließen möchtest? Dies kann nicht rückgängig gemacht werden.",
+            "closeCardPendingTransactions": "Du hast ausstehende Transaktionen. Bitte warte, bis diese abgeschlossen sind, bevor du deine Karte schließt.",
+            "closeCardBalanceWarning": "Deine Karte hat ein Guthaben von {balance}. Bitte hebe dein Guthaben ab, bevor du schließt. Möchtest du trotzdem fortfahren?",
+            "closeCardSuccessTitle": "Kartenkonto geschlossen",
+            "closeCardSuccessSubtitle": "Deine Visa-Karte wurde dauerhaft geschlossen.",
+            "closeCardSuccessButton": "Zurück zur Startseite",
+            "closeCardError": "Kartenkonto konnte nicht geschlossen werden. Bitte kontaktiere den Support."
         },
         "TransactionDetails": {
             "title": "Transaktionsdetails",
@@ -3060,7 +3093,19 @@
             "dateOfBirth": "Geburtsdatum",
             "contactInformation": "Kontaktinformationen",
             "registeredAddress": "Registrierte Adresse",
-            "shippingAddress": "Lieferadresse"
+            "shippingAddress": "Lieferadresse",
+            "kycPendingTitle": "KYC-Verifizierung ausstehend",
+            "kycPendingDescription": "Ihre KYC-Verifizierung wird bearbeitet. Dies kann einige Zeit dauern.",
+            "kycDeclinedTitle": "KYC-Verifizierung abgelehnt",
+            "kycDeclinedDescription": "Ihre KYC-Verifizierung wurde abgelehnt. Bitte kontaktieren Sie den Support für weitere Informationen.",
+            "kycNotStartedTitle": "KYC-Verifizierung abschließen",
+            "kycNotStartedDescription": "Schließen Sie den KYC-Verifizierungsprozess ab, um alle Kartenfunktionen freizuschalten.",
+            "kycAwaitingInputTitle": "KYC-Verifizierung fortsetzen",
+            "kycAwaitingInputDescription": "Zusätzliche Informationen sind erforderlich, um Ihre KYC-Verifizierung abzuschließen.",
+            "kycErrorTitle": "Verifizierungsfehler",
+            "kycErrorDescription": "Bei der Verifizierung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support.",
+            "kycUnderReviewTitle": "KYC in Überprüfung",
+            "kycUnderReviewDescription": "Ihre KYC-Verifizierung wird manuell überprüft. Dies kann einige Zeit dauern."
         },
         "AddToMobileWallet": {
             "title": "Zur mobilen Geldbörse hinzufügen",
@@ -3090,7 +3135,8 @@
         },
         "ShippingAddress": {
             "title": "Lieferadresse",
-            "fullName": "Vollständiger Name",
+            "firstName": "Vorname",
+            "lastName": "Nachname",
             "addressLine1": "Adresszeile 1",
             "addressLine2": "Adresszeile 2",
             "city": "Stadt",

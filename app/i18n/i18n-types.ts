@@ -233,19 +233,6 @@ type RootTranslation = {
 		 * F​r​e​q​u​e​n​t​ ​C​o​n​t​a​c​t​s
 		 */
 		frequentContacts: string
-		/**
-		 * D​o​ ​y​o​u​ ​r​e​a​l​l​y​ ​w​a​n​t​ ​t​o​ ​d​e​l​e​t​e​ ​{​u​s​e​r​n​a​m​e​}​ ​f​r​o​m​ ​y​o​u​r​ ​c​o​n​t​a​c​t​s​?
-		 * @param {string} username
-		 */
-		deleteContactConfirmation: RequiredParams<'username'>
-		/**
-		 * C​a​n​c​e​l
-		 */
-		deleteContactCancel: string
-		/**
-		 * Y​e​s
-		 */
-		deleteContactConfirm: string
 	}
 	ContactDetailsScreen: {
 		/**
@@ -8757,6 +8744,14 @@ type RootTranslation = {
 		 */
 		description: string
 		/**
+		 * D​i​s​c​a​r​d
+		 */
+		discard: string
+		/**
+		 * Y​o​u​ ​h​a​v​e​ ​u​n​s​a​v​e​d​ ​c​h​a​n​g​e​s​.​ ​A​r​e​ ​y​o​u​ ​s​u​r​e​ ​y​o​u​ ​w​a​n​t​ ​t​o​ ​d​i​s​c​a​r​d​ ​t​h​e​m​?
+		 */
+		discardChangesMessage: string
+		/**
 		 * D​o​m​a​i​n
 		 */
 		domain: string
@@ -9103,6 +9098,21 @@ type RootTranslation = {
 		 * @param {string} type
 		 */
 		hasBeenCopiedToClipboard: RequiredParams<'type'>
+		validation: {
+			/**
+			 * T​h​i​s​ ​f​i​e​l​d​ ​i​s​ ​r​e​q​u​i​r​e​d
+			 */
+			required: string
+			/**
+			 * M​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​m​i​n​}​ ​c​h​a​r​a​c​t​e​r​s
+			 * @param {number} min
+			 */
+			minChars: RequiredParams<'min'>
+			/**
+			 * I​n​v​a​l​i​d​ ​p​o​s​t​a​l​ ​c​o​d​e
+			 */
+			invalidPostalCode: string
+		}
 	}
 	errors: {
 		/**
@@ -9652,6 +9662,10 @@ type RootTranslation = {
 		 */
 		validThruLabel: string
 		/**
+		 * V​i​s​a
+		 */
+		networkVisa: string
+		/**
 		 * C​a​r​d​ ​f​r​o​z​e​n
 		 */
 		cardFrozenTitle: string
@@ -9668,6 +9682,14 @@ type RootTranslation = {
 			 * C​o​m​p​l​e​t​e​d
 			 */
 			completed: string
+			/**
+			 * D​e​c​l​i​n​e​d
+			 */
+			declined: string
+			/**
+			 * R​e​v​e​r​s​e​d
+			 */
+			reversed: string
 		}
 		CardDashboard: {
 			Actions: {
@@ -9704,6 +9726,18 @@ type RootTranslation = {
 			 * N​o​ ​t​r​a​n​s​a​c​t​i​o​n​s​ ​y​e​t
 			 */
 			emptyTransactions: string
+			/**
+			 * N​o​ ​c​a​r​d​s​ ​a​v​a​i​l​a​b​l​e
+			 */
+			noCardAvailable: string
+			/**
+			 * C​o​u​l​d​ ​n​o​t​ ​u​p​d​a​t​e​ ​c​a​r​d​ ​s​t​a​t​u​s
+			 */
+			cardUpdateError: string
+			/**
+			 * T​h​i​s​ ​c​a​r​d​ ​i​s​ ​n​o​t​ ​c​u​r​r​e​n​t​l​y​ ​a​v​a​i​l​a​b​l​e​ ​f​o​r​ ​u​s​e
+			 */
+			cardNotUsable: string
 		}
 		CardDetails: {
 			/**
@@ -9750,6 +9784,34 @@ type RootTranslation = {
 			 * I​n​a​c​t​i​v​e
 			 */
 			statusInactive: string
+			/**
+			 * C​a​n​c​e​l​l​e​d
+			 */
+			statusCancelled: string
+			/**
+			 * N​o​t​ ​a​c​t​i​v​a​t​e​d
+			 */
+			statusNotActivated: string
+			/**
+			 * P​e​n​d​i​n​g
+			 */
+			statusPending: string
+			/**
+			 * F​a​i​l​e​d
+			 */
+			statusFailed: string
+			/**
+			 * V​i​r​t​u​a​l​ ​V​i​s​a​ ​d​e​b​i​t
+			 */
+			cardTypeVirtual: string
+			/**
+			 * P​h​y​s​i​c​a​l​ ​V​i​s​a​ ​d​e​b​i​t
+			 */
+			cardTypePhysical: string
+			/**
+			 * A​u​t​h​e​n​t​i​c​a​t​e​ ​t​o​ ​v​i​e​w​ ​c​a​r​d​ ​d​e​t​a​i​l​s
+			 */
+			authDescription: string
 			/**
 			 * I​s​s​u​e​d
 			 */
@@ -9824,6 +9886,22 @@ type RootTranslation = {
 			 * M​a​x​i​m​u​m​ ​A​T​M​ ​w​i​t​h​d​r​a​w​a​l​ ​p​e​r​ ​m​o​n​t​h
 			 */
 			monthlyAtmLimitHelper: string
+			/**
+			 * N​o​ ​l​i​m​i​t
+			 */
+			noLimit: string
+			/**
+			 * L​i​m​i​t​ ​u​p​d​a​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y
+			 */
+			limitUpdateSuccess: string
+			/**
+			 * F​a​i​l​e​d​ ​t​o​ ​u​p​d​a​t​e​ ​l​i​m​i​t
+			 */
+			limitUpdateError: string
+			/**
+			 * L​i​m​i​t​ ​m​u​s​t​ ​b​e​ ​g​r​e​a​t​e​r​ ​t​h​a​n​ ​z​e​r​o
+			 */
+			limitMustBePositive: string
 			/**
 			 * T​r​a​n​s​a​c​t​i​o​n​ ​t​y​p​e​s
 			 */
@@ -9998,6 +10076,56 @@ type RootTranslation = {
 			 * P​e​r​m​a​n​e​n​t​l​y​ ​c​l​o​s​e​ ​y​o​u​r​ ​V​i​s​a​ ​c​a​r​d
 			 */
 			closeCardAccountDescription: string
+			/**
+			 * T​h​i​s​ ​a​c​t​i​o​n​ ​i​s​ ​p​e​r​m​a​n​e​n​t​.​ ​Y​o​u​r​ ​V​i​s​a​ ​c​a​r​d​ ​w​i​l​l​ ​b​e​ ​c​a​n​c​e​l​e​d​ ​a​n​d​ ​c​a​n​n​o​t​ ​b​e​ ​r​e​a​c​t​i​v​a​t​e​d​.
+			 */
+			closeCardWarning: string
+			/**
+			 * P​l​e​a​s​e​ ​t​y​p​e​ ​"​{​c​l​o​s​e​}​"​ ​t​o​ ​c​o​n​f​i​r​m
+			 * @param {unknown} close
+			 */
+			closeCardTypeClose: RequiredParams<'close'>
+			/**
+			 * c​l​o​s​e
+			 */
+			closeCardClose: string
+			/**
+			 * F​i​n​a​l​ ​C​o​n​f​i​r​m​a​t​i​o​n
+			 */
+			closeCardFinalConfirmTitle: string
+			/**
+			 * A​r​e​ ​y​o​u​ ​s​u​r​e​ ​y​o​u​ ​w​a​n​t​ ​t​o​ ​c​l​o​s​e​ ​y​o​u​r​ ​c​a​r​d​ ​a​c​c​o​u​n​t​?​ ​T​h​i​s​ ​c​a​n​n​o​t​ ​b​e​ ​u​n​d​o​n​e​.
+			 */
+			closeCardFinalConfirmMessage: string
+			/**
+			 * Y​o​u​ ​h​a​v​e​ ​p​e​n​d​i​n​g​ ​t​r​a​n​s​a​c​t​i​o​n​s​.​ ​P​l​e​a​s​e​ ​w​a​i​t​ ​u​n​t​i​l​ ​t​h​e​y​ ​a​r​e​ ​s​e​t​t​l​e​d​ ​b​e​f​o​r​e​ ​c​l​o​s​i​n​g​ ​y​o​u​r​ ​c​a​r​d​.
+			 */
+			closeCardPendingTransactions: string
+			/**
+			 * Y​o​u​r​ ​c​a​r​d​ ​h​a​s​ ​a​ ​b​a​l​a​n​c​e​ ​o​f​ ​{​b​a​l​a​n​c​e​}​.​ ​P​l​e​a​s​e​ ​w​i​t​h​d​r​a​w​ ​y​o​u​r​ ​f​u​n​d​s​ ​b​e​f​o​r​e​ ​c​l​o​s​i​n​g​.​ ​D​o​ ​y​o​u​ ​w​a​n​t​ ​t​o​ ​p​r​o​c​e​e​d​ ​a​n​y​w​a​y​?
+			 * @param {string} balance
+			 */
+			closeCardBalanceWarning: RequiredParams<'balance'>
+			/**
+			 * C​a​r​d​ ​A​c​c​o​u​n​t​ ​C​l​o​s​e​d
+			 */
+			closeCardSuccessTitle: string
+			/**
+			 * Y​o​u​r​ ​V​i​s​a​ ​c​a​r​d​ ​h​a​s​ ​b​e​e​n​ ​p​e​r​m​a​n​e​n​t​l​y​ ​c​l​o​s​e​d​.
+			 */
+			closeCardSuccessSubtitle: string
+			/**
+			 * B​a​c​k​ ​t​o​ ​H​o​m​e
+			 */
+			closeCardSuccessButton: string
+			/**
+			 * F​a​i​l​e​d​ ​t​o​ ​c​l​o​s​e​ ​c​a​r​d​ ​a​c​c​o​u​n​t​.​ ​P​l​e​a​s​e​ ​c​o​n​t​a​c​t​ ​s​u​p​p​o​r​t​.
+			 */
+			closeCardError: string
+			/**
+			 * F​a​i​l​e​d​ ​t​o​ ​u​p​d​a​t​e​ ​n​o​t​i​f​i​c​a​t​i​o​n​ ​s​e​t​t​i​n​g​s
+			 */
+			notificationToggleError: string
 		}
 		PersonalDetails: {
 			/**
@@ -10044,6 +10172,54 @@ type RootTranslation = {
 			 * S​h​i​p​p​i​n​g​ ​a​d​d​r​e​s​s
 			 */
 			shippingAddress: string
+			/**
+			 * K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​p​e​n​d​i​n​g
+			 */
+			kycPendingTitle: string
+			/**
+			 * Y​o​u​r​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​i​s​ ​b​e​i​n​g​ ​p​r​o​c​e​s​s​e​d​.​ ​T​h​i​s​ ​m​a​y​ ​t​a​k​e​ ​s​o​m​e​ ​t​i​m​e​.
+			 */
+			kycPendingDescription: string
+			/**
+			 * K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​d​e​c​l​i​n​e​d
+			 */
+			kycDeclinedTitle: string
+			/**
+			 * Y​o​u​r​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​w​a​s​ ​d​e​c​l​i​n​e​d​.​ ​P​l​e​a​s​e​ ​c​o​n​t​a​c​t​ ​s​u​p​p​o​r​t​ ​f​o​r​ ​m​o​r​e​ ​i​n​f​o​r​m​a​t​i​o​n​.
+			 */
+			kycDeclinedDescription: string
+			/**
+			 * C​o​m​p​l​e​t​e​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n
+			 */
+			kycNotStartedTitle: string
+			/**
+			 * C​o​m​p​l​e​t​e​ ​t​h​e​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​p​r​o​c​e​s​s​ ​t​o​ ​u​n​l​o​c​k​ ​a​l​l​ ​c​a​r​d​ ​f​e​a​t​u​r​e​s​.
+			 */
+			kycNotStartedDescription: string
+			/**
+			 * C​o​n​t​i​n​u​e​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n
+			 */
+			kycAwaitingInputTitle: string
+			/**
+			 * A​d​d​i​t​i​o​n​a​l​ ​i​n​f​o​r​m​a​t​i​o​n​ ​i​s​ ​r​e​q​u​i​r​e​d​ ​t​o​ ​c​o​m​p​l​e​t​e​ ​y​o​u​r​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​.
+			 */
+			kycAwaitingInputDescription: string
+			/**
+			 * K​Y​C​ ​u​n​d​e​r​ ​r​e​v​i​e​w
+			 */
+			kycUnderReviewTitle: string
+			/**
+			 * Y​o​u​r​ ​K​Y​C​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​i​s​ ​u​n​d​e​r​ ​m​a​n​u​a​l​ ​r​e​v​i​e​w​.​ ​T​h​i​s​ ​m​a​y​ ​t​a​k​e​ ​s​o​m​e​ ​t​i​m​e​.
+			 */
+			kycUnderReviewDescription: string
+			/**
+			 * V​e​r​i​f​i​c​a​t​i​o​n​ ​e​r​r​o​r
+			 */
+			kycErrorTitle: string
+			/**
+			 * A​n​ ​e​r​r​o​r​ ​o​c​c​u​r​r​e​d​ ​d​u​r​i​n​g​ ​v​e​r​i​f​i​c​a​t​i​o​n​.​ ​P​l​e​a​s​e​ ​t​r​y​ ​a​g​a​i​n​ ​o​r​ ​c​o​n​t​a​c​t​ ​s​u​p​p​o​r​t​.
+			 */
+			kycErrorDescription: string
 		}
 		AddToMobileWallet: {
 			/**
@@ -10125,9 +10301,13 @@ type RootTranslation = {
 			 */
 			title: string
 			/**
-			 * F​u​l​l​ ​n​a​m​e
+			 * F​i​r​s​t​ ​n​a​m​e
 			 */
-			fullName: string
+			firstName: string
+			/**
+			 * L​a​s​t​ ​n​a​m​e
+			 */
+			lastName: string
 			/**
 			 * A​d​d​r​e​s​s​ ​l​i​n​e​ ​1
 			 */
@@ -10901,18 +11081,6 @@ export type TranslationFunctions = {
 		 * Frequent Contacts
 		 */
 		frequentContacts: () => LocalizedString
-		/**
-		 * Do you really want to delete {username} from your contacts?
-		 */
-		deleteContactConfirmation: (arg: { username: string }) => LocalizedString
-		/**
-		 * Cancel
-		 */
-		deleteContactCancel: () => LocalizedString
-		/**
-		 * Yes
-		 */
-		deleteContactConfirm: () => LocalizedString
 	}
 	ContactDetailsScreen: {
 		/**
@@ -19354,6 +19522,14 @@ export type TranslationFunctions = {
 		 */
 		description: () => LocalizedString
 		/**
+		 * Discard
+		 */
+		discard: () => LocalizedString
+		/**
+		 * You have unsaved changes. Are you sure you want to discard them?
+		 */
+		discardChangesMessage: () => LocalizedString
+		/**
 		 * Domain
 		 */
 		domain: () => LocalizedString
@@ -19699,6 +19875,20 @@ export type TranslationFunctions = {
 		 * {type} has been copied to clipboard
 		 */
 		hasBeenCopiedToClipboard: (arg: { type: string }) => LocalizedString
+		validation: {
+			/**
+			 * This field is required
+			 */
+			required: () => LocalizedString
+			/**
+			 * Must be at least {min} characters
+			 */
+			minChars: (arg: { min: number }) => LocalizedString
+			/**
+			 * Invalid postal code
+			 */
+			invalidPostalCode: () => LocalizedString
+		}
 	}
 	errors: {
 		/**
@@ -20227,6 +20417,10 @@ export type TranslationFunctions = {
 		 */
 		validThruLabel: () => LocalizedString
 		/**
+		 * Visa
+		 */
+		networkVisa: () => LocalizedString
+		/**
 		 * Card frozen
 		 */
 		cardFrozenTitle: () => LocalizedString
@@ -20243,6 +20437,14 @@ export type TranslationFunctions = {
 			 * Completed
 			 */
 			completed: () => LocalizedString
+			/**
+			 * Declined
+			 */
+			declined: () => LocalizedString
+			/**
+			 * Reversed
+			 */
+			reversed: () => LocalizedString
 		}
 		CardDashboard: {
 			Actions: {
@@ -20279,6 +20481,18 @@ export type TranslationFunctions = {
 			 * No transactions yet
 			 */
 			emptyTransactions: () => LocalizedString
+			/**
+			 * No cards available
+			 */
+			noCardAvailable: () => LocalizedString
+			/**
+			 * Could not update card status
+			 */
+			cardUpdateError: () => LocalizedString
+			/**
+			 * This card is not currently available for use
+			 */
+			cardNotUsable: () => LocalizedString
 		}
 		CardDetails: {
 			/**
@@ -20325,6 +20539,34 @@ export type TranslationFunctions = {
 			 * Inactive
 			 */
 			statusInactive: () => LocalizedString
+			/**
+			 * Cancelled
+			 */
+			statusCancelled: () => LocalizedString
+			/**
+			 * Not activated
+			 */
+			statusNotActivated: () => LocalizedString
+			/**
+			 * Pending
+			 */
+			statusPending: () => LocalizedString
+			/**
+			 * Failed
+			 */
+			statusFailed: () => LocalizedString
+			/**
+			 * Virtual Visa debit
+			 */
+			cardTypeVirtual: () => LocalizedString
+			/**
+			 * Physical Visa debit
+			 */
+			cardTypePhysical: () => LocalizedString
+			/**
+			 * Authenticate to view card details
+			 */
+			authDescription: () => LocalizedString
 			/**
 			 * Issued
 			 */
@@ -20399,6 +20641,22 @@ export type TranslationFunctions = {
 			 * Maximum ATM withdrawal per month
 			 */
 			monthlyAtmLimitHelper: () => LocalizedString
+			/**
+			 * No limit
+			 */
+			noLimit: () => LocalizedString
+			/**
+			 * Limit updated successfully
+			 */
+			limitUpdateSuccess: () => LocalizedString
+			/**
+			 * Failed to update limit
+			 */
+			limitUpdateError: () => LocalizedString
+			/**
+			 * Limit must be greater than zero
+			 */
+			limitMustBePositive: () => LocalizedString
 			/**
 			 * Transaction types
 			 */
@@ -20569,6 +20827,54 @@ export type TranslationFunctions = {
 			 * Permanently close your Visa card
 			 */
 			closeCardAccountDescription: () => LocalizedString
+			/**
+			 * This action is permanent. Your Visa card will be canceled and cannot be reactivated.
+			 */
+			closeCardWarning: () => LocalizedString
+			/**
+			 * Please type "{close}" to confirm
+			 */
+			closeCardTypeClose: (arg: { close: unknown }) => LocalizedString
+			/**
+			 * close
+			 */
+			closeCardClose: () => LocalizedString
+			/**
+			 * Final Confirmation
+			 */
+			closeCardFinalConfirmTitle: () => LocalizedString
+			/**
+			 * Are you sure you want to close your card account? This cannot be undone.
+			 */
+			closeCardFinalConfirmMessage: () => LocalizedString
+			/**
+			 * You have pending transactions. Please wait until they are settled before closing your card.
+			 */
+			closeCardPendingTransactions: () => LocalizedString
+			/**
+			 * Your card has a balance of {balance}. Please withdraw your funds before closing. Do you want to proceed anyway?
+			 */
+			closeCardBalanceWarning: (arg: { balance: string }) => LocalizedString
+			/**
+			 * Card Account Closed
+			 */
+			closeCardSuccessTitle: () => LocalizedString
+			/**
+			 * Your Visa card has been permanently closed.
+			 */
+			closeCardSuccessSubtitle: () => LocalizedString
+			/**
+			 * Back to Home
+			 */
+			closeCardSuccessButton: () => LocalizedString
+			/**
+			 * Failed to close card account. Please contact support.
+			 */
+			closeCardError: () => LocalizedString
+			/**
+			 * Failed to update notification settings
+			 */
+			notificationToggleError: () => LocalizedString
 		}
 		PersonalDetails: {
 			/**
@@ -20615,6 +20921,54 @@ export type TranslationFunctions = {
 			 * Shipping address
 			 */
 			shippingAddress: () => LocalizedString
+			/**
+			 * KYC verification pending
+			 */
+			kycPendingTitle: () => LocalizedString
+			/**
+			 * Your KYC verification is being processed. This may take some time.
+			 */
+			kycPendingDescription: () => LocalizedString
+			/**
+			 * KYC verification declined
+			 */
+			kycDeclinedTitle: () => LocalizedString
+			/**
+			 * Your KYC verification was declined. Please contact support for more information.
+			 */
+			kycDeclinedDescription: () => LocalizedString
+			/**
+			 * Complete KYC verification
+			 */
+			kycNotStartedTitle: () => LocalizedString
+			/**
+			 * Complete the KYC verification process to unlock all card features.
+			 */
+			kycNotStartedDescription: () => LocalizedString
+			/**
+			 * Continue KYC verification
+			 */
+			kycAwaitingInputTitle: () => LocalizedString
+			/**
+			 * Additional information is required to complete your KYC verification.
+			 */
+			kycAwaitingInputDescription: () => LocalizedString
+			/**
+			 * KYC under review
+			 */
+			kycUnderReviewTitle: () => LocalizedString
+			/**
+			 * Your KYC verification is under manual review. This may take some time.
+			 */
+			kycUnderReviewDescription: () => LocalizedString
+			/**
+			 * Verification error
+			 */
+			kycErrorTitle: () => LocalizedString
+			/**
+			 * An error occurred during verification. Please try again or contact support.
+			 */
+			kycErrorDescription: () => LocalizedString
 		}
 		AddToMobileWallet: {
 			/**
@@ -20696,9 +21050,13 @@ export type TranslationFunctions = {
 			 */
 			title: () => LocalizedString
 			/**
-			 * Full name
+			 * First name
 			 */
-			fullName: () => LocalizedString
+			firstName: () => LocalizedString
+			/**
+			 * Last name
+			 */
+			lastName: () => LocalizedString
 			/**
 			 * Address line 1
 			 */

@@ -2686,6 +2686,8 @@
     "csvExport": "İşlemleri CSV olarak dışa aktar",
     "date": "Tarih",
     "description": "Tanım",
+    "discard": "İptal et",
+    "discardChangesMessage": "Kaydedilmemiş değişiklikleriniz var. Bunları iptal etmek istediğinizden emin misiniz?",
     "domain": "Alan adı",
     "email": "E-posta",
     "error": "Hata",
@@ -2772,7 +2774,12 @@
     "profiles": "Profiller",
     "paste": "Yapıştır",
     "hasBeenCopiedToClipboard": "{type: string} panoya kopyalandı",
-    "save": "Kaydet"
+    "save": "Kaydet",
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "minChars": "En az {min} karakter olmalıdır",
+      "invalidPostalCode": "Geçersiz posta kodu"
+    }
   },
   "errors": {
     "generic": "Bir hata oluştu.\nLütfen daha sonra tekrar deneyin.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Beklemede",
-      "completed": "Tamamlandı"
+      "completed": "Tamamlandı",
+      "declined": "Reddedildi",
+      "reversed": "İptal edildi"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Visa Kartı"
     },
     "validThruLabel": "GEÇERLİLİK",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kart donduruldu",
     "cardFrozenSubtitle": "Kart geçici olarak devre dışı",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Temassız ödemeler",
         "contactlessDescription": "Temassız işlemlere izin ver"
       },
-      "title": "Kart limitleri"
+      "title": "Kart limitleri",
+      "noLimit": "Limit yok",
+      "limitUpdateSuccess": "Limit başarıyla güncellendi",
+      "limitUpdateError": "Limit güncellenemedi",
+      "limitMustBePositive": "Limit sıfırdan büyük olmalıdır"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Kart detayları",
+      "cardNumber": "Kart numarası",
+      "expiryDate": "Son kullanma tarihi",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Kart sahibinin adı",
+      "cardInformation": "Kart bilgileri",
+      "cardType": "Kart türü",
+      "status": "Durum",
+      "statusActive": "Aktif",
+      "statusFrozen": "Dondurulmuş",
+      "statusInactive": "Pasif",
+      "issued": "Düzenlenme tarihi",
+      "network": "Ağ",
+      "keepDetailsSafe": "Bilgilerinizi güvende tutun",
+      "securityWarning": "Kart bilgilerinizi asla kimseyle paylaşmayın. Blink, kart bilgilerinizi asla e-posta veya telefon yoluyla istemez.",
+      "statusCancelled": "İptal edildi",
+      "statusNotActivated": "Etkinleştirilmedi",
+      "statusPending": "Beklemede",
+      "statusFailed": "Başarısız",
+      "cardTypeVirtual": "Sanal Visa banka kartı",
+      "cardTypePhysical": "Fiziksel Visa banka kartı",
+      "authDescription": "Kart ayrıntılarını görmek için kimlik doğrulayın"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Kart gizlilik politikası",
       "closeCardAccount": "Kart hesabını kapat",
       "closeCardAccountDescription": "Visa kartınızı kalıcı olarak kapatın",
-      "addToAppleWallet": "Apple Wallet'a ekle"
+      "addToAppleWallet": "Apple Wallet'a ekle",
+      "notificationToggleError": "Bildirim ayarları güncellenemedi",
+      "closeCardWarning": "Bu işlem kalıcıdır. Visa kartınız iptal edilecek ve yeniden etkinleştirilemez.",
+      "closeCardTypeClose": "Onaylamak için lütfen \"{close}\" yazın",
+      "closeCardClose": "kapat",
+      "closeCardFinalConfirmTitle": "Son Onay",
+      "closeCardFinalConfirmMessage": "Kart hesabınızı kapatmak istediğinizden emin misiniz? Bu geri alınamaz.",
+      "closeCardPendingTransactions": "Bekleyen işlemleriniz var. Kartınızı kapatmadan önce lütfen bunların tamamlanmasını bekleyin.",
+      "closeCardBalanceWarning": "Kartınızda {balance} bakiye var. Lütfen kapatmadan önce paranızı çekin. Yine de devam etmek istiyor musunuz?",
+      "closeCardSuccessTitle": "Kart Hesabı Kapatıldı",
+      "closeCardSuccessSubtitle": "Visa kartınız kalıcı olarak kapatıldı.",
+      "closeCardSuccessButton": "Ana Sayfaya Dön",
+      "closeCardError": "Kart hesabı kapatılamadı. Lütfen destek ile iletişime geçin."
     },
     "TransactionDetails": {
       "title": "İşlem detayları",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Doğum tarihi",
       "contactInformation": "İletişim bilgileri",
       "registeredAddress": "Kayıtlı adres",
-      "shippingAddress": "Teslimat adresi"
+      "shippingAddress": "Teslimat adresi",
+      "kycPendingTitle": "KYC doğrulaması beklemede",
+      "kycPendingDescription": "KYC doğrulamanız işleniyor. Bu biraz zaman alabilir.",
+      "kycDeclinedTitle": "KYC doğrulaması reddedildi",
+      "kycDeclinedDescription": "KYC doğrulamanız reddedildi. Daha fazla bilgi için lütfen destek ile iletişime geçin.",
+      "kycNotStartedTitle": "KYC doğrulamasını tamamlayın",
+      "kycNotStartedDescription": "Tüm kart özelliklerinin kilidini açmak için KYC doğrulama sürecini tamamlayın.",
+      "kycAwaitingInputTitle": "KYC doğrulamasına devam edin",
+      "kycAwaitingInputDescription": "KYC doğrulamanızı tamamlamak için ek bilgiler gereklidir.",
+      "kycErrorTitle": "Doğrulama hatası",
+      "kycErrorDescription": "Doğrulama sırasında bir hata oluştu. Lütfen tekrar deneyin veya destek ile iletişime geçin.",
+      "kycUnderReviewTitle": "KYC inceleme altında",
+      "kycUnderReviewDescription": "KYC doğrulamanız manuel inceleme altındadır. Bu biraz zaman alabilir."
     },
     "AddToMobileWallet": {
       "title": "Mobil cuzdana ekle",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Teslimat adresi",
-      "fullName": "Tam ad",
+      "firstName": "Ad",
+      "lastName": "Soyad",
       "addressLine1": "Adres satırı 1",
       "addressLine2": "Adres satırı 2",
       "city": "Şehir",

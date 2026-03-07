@@ -74,3 +74,21 @@ export const maskDigits = (
     maskChar?: string
   },
 ) => maskString(value, { ...options, maskPattern: /\d/ })
+
+export const formatCardDisplayNumber = (
+  cardNumber: string,
+  showDetails: boolean,
+  { totalDigits = 16, groupSize = 4, visibleDigits = 4 } = {},
+): string => {
+  const digits = cardNumber.replaceAll(" ", "")
+  const padded = digits.padStart(totalDigits, MASK_CHAR)
+  const masked = showDetails
+    ? padded
+    : maskString(padded, { visibleRight: visibleDigits })
+  return (masked.match(new RegExp(`.{1,${groupSize}}`, "g")) ?? [masked]).join(" ")
+}
+
+export const toMinorUnit = (dollars: string): number =>
+  Math.round(parseFloat(dollars) * 100)
+
+export const toMajorUnit = (cents: number): number => cents / 100

@@ -2686,6 +2686,8 @@
     "csvExport": "Exportovať transakcie do CSV",
     "date": "Dátum",
     "description": "Popis",
+    "discard": "Zahodiť",
+    "discardChangesMessage": "Máte neuložené zmeny. Ste si istí, že ich chcete zahodiť?",
     "domain": "Doména",
     "email": "E-mail",
     "error": "Chyba",
@@ -2772,7 +2774,12 @@
     "profiles": "Profily",
     "paste": "Prilepiť",
     "hasBeenCopiedToClipboard": "{type: string} bol skopírovaný do schránky",
-    "save": "Uložiť"
+    "save": "Uložiť",
+    "validation": {
+      "required": "Toto pole je povinné",
+      "minChars": "Musí obsahovať aspoň {min} znakov",
+      "invalidPostalCode": "Neplatné PSČ"
+    }
   },
   "errors": {
     "generic": "Vyskytla sa chyba.\nSkúste to prosím neskôr.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Čaká",
-      "completed": "Dokončené"
+      "completed": "Dokončené",
+      "declined": "Zamietnutá",
+      "reversed": "Stornovaná"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Karta Visa"
     },
     "validThruLabel": "PLATNÉ DO",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Karta zmrazená",
     "cardFrozenSubtitle": "Karta je dočasne deaktivovaná",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Bezkontaktné platby",
         "contactlessDescription": "Povoliť bezkontaktné transakcie"
       },
-      "title": "Limity karty"
+      "title": "Limity karty",
+      "noLimit": "Bez limitu",
+      "limitUpdateSuccess": "Limit bol úspešne aktualizovaný",
+      "limitUpdateError": "Nepodarilo sa aktualizovať limit",
+      "limitMustBePositive": "Limit musí byť väčší ako nula"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Detaily karty",
+      "cardNumber": "Číslo karty",
+      "expiryDate": "Dátum expirácie",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Meno držiteľa karty",
+      "cardInformation": "Informácie o karte",
+      "cardType": "Typ karty",
+      "status": "Stav",
+      "statusActive": "Aktívna",
+      "statusFrozen": "Zmrazená",
+      "statusInactive": "Neaktívna",
+      "issued": "Vydaná",
+      "network": "Sieť",
+      "keepDetailsSafe": "Udržujte svoje údaje v bezpečí",
+      "securityWarning": "Nikdy nezdieľajte údaje o svojej karte s nikým. Blink nikdy nebude požadovať informácie o vašej karte prostredníctvom e-mailu alebo telefónu.",
+      "statusCancelled": "Zrušená",
+      "statusNotActivated": "Neaktivovaná",
+      "statusPending": "Čaká na spracovanie",
+      "statusFailed": "Zlyhala",
+      "cardTypeVirtual": "Virtuálna Visa debetná",
+      "cardTypePhysical": "Fyzická Visa debetná",
+      "authDescription": "Overte sa pre zobrazenie údajov karty"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Zásady ochrany osobných údajov karty",
       "closeCardAccount": "Zrušiť účet karty",
       "closeCardAccountDescription": "Trvalo zrušte svoju kartu Visa",
-      "addToAppleWallet": "Pridat do Apple Wallet"
+      "addToAppleWallet": "Pridat do Apple Wallet",
+      "notificationToggleError": "Nepodarilo sa aktualizovať nastavenia oznámení",
+      "closeCardWarning": "Táto akcia je trvalá. Vaša karta Visa bude zrušená a nemôže byť znovu aktivovaná.",
+      "closeCardTypeClose": "Prosím, zadajte \"{close}\" na potvrdenie",
+      "closeCardClose": "zavrieť",
+      "closeCardFinalConfirmTitle": "Záverečné Potvrdenie",
+      "closeCardFinalConfirmMessage": "Ste si istí, že chcete zavrieť svoj kartový účet? Toto sa nedá vrátiť.",
+      "closeCardPendingTransactions": "Máte nevybavené transakcie. Prosím, počkajte, kým budú vybavené, než kartu zavriete.",
+      "closeCardBalanceWarning": "Vaša karta má zostatok {balance}. Prosím, vyberte si prostriedky pred zatvorením. Chcete napriek tomu pokračovať?",
+      "closeCardSuccessTitle": "Kartový Účet Zatvorený",
+      "closeCardSuccessSubtitle": "Vaša karta Visa bola trvalo zatvorená.",
+      "closeCardSuccessButton": "Späť na Úvodnú Stránku",
+      "closeCardError": "Nepodarilo sa zavrieť kartový účet. Prosím, kontaktujte podporu."
     },
     "TransactionDetails": {
       "title": "Podrobnosti transakcie",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Dátum narodenia",
       "contactInformation": "Kontaktné informácie",
       "registeredAddress": "Registrovaná adresa",
-      "shippingAddress": "Dodacia adresa"
+      "shippingAddress": "Dodacia adresa",
+      "kycPendingTitle": "Overenie KYC čaká na spracovanie",
+      "kycPendingDescription": "Vaše overenie KYC sa spracúva. Môže to chvíľu trvať.",
+      "kycDeclinedTitle": "Overenie KYC zamietnuté",
+      "kycDeclinedDescription": "Vaše overenie KYC bolo zamietnuté. Pre viac informácií kontaktujte podporu.",
+      "kycNotStartedTitle": "Dokončite overenie KYC",
+      "kycNotStartedDescription": "Dokončite proces overenia KYC na odomknutie všetkých funkcií karty.",
+      "kycAwaitingInputTitle": "Pokračujte v overení KYC",
+      "kycAwaitingInputDescription": "Na dokončenie overenia KYC sú potrebné ďalšie informácie.",
+      "kycErrorTitle": "Chyba overenia",
+      "kycErrorDescription": "Počas overenia sa vyskytla chyba. Skúste to znova alebo kontaktujte podporu.",
+      "kycUnderReviewTitle": "KYC v preskúmaní",
+      "kycUnderReviewDescription": "Vaše overenie KYC je v manuálnom preskúmaní. Môže to chvíľu trvať."
     },
     "AddToMobileWallet": {
       "title": "Pridat do mobilnej penazenky",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Doručovacia adresa",
-      "fullName": "Celé meno",
+      "firstName": "Meno",
+      "lastName": "Priezvisko",
       "addressLine1": "Adresa riadok 1",
       "addressLine2": "Adresa riadok 2",
       "city": "Mesto",

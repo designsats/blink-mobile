@@ -54,7 +54,6 @@ import User from "@app/assets/icons-redesign/user.svg"
 import Video from "@app/assets/icons-redesign/video.svg"
 import WarningWithBackground from "@app/assets/icons-redesign/warning-with-background.svg"
 import Warning from "@app/assets/icons-redesign/warning.svg"
-import Trash from "@app/assets/icons-redesign/trash.svg"
 import Telegram from "@app/assets/icons/telegram.svg"
 import TelegramSimple from "@app/assets/icons-redesign/telegram-simple.svg"
 import Note from "@app/assets/icons/note.svg"
@@ -77,6 +76,7 @@ import VisaPlatinum from "@app/assets/icons-redesign/visa-platinum.svg"
 import BlinkIcon from "@app/assets/icons-redesign/blink-icon.svg"
 import PhysicalCard from "@app/assets/icons-redesign/physical-card.svg"
 import PrivacyPolicy from "@app/assets/icons-redesign/privacy-policy.svg"
+import Trash from "@app/assets/icons-redesign/trash.svg"
 import GooglePay from "@app/assets/icons/google-pay.svg"
 import ApplePay from "@app/assets/icons/apple-pay.svg"
 import Approved from "@app/assets/icons-redesign/approved.svg"
@@ -143,7 +143,6 @@ export const icons = {
   "payment-error": PaymentError,
   "bell": Bell,
   "refresh": Refresh,
-  "trash": Trash,
   "telegram": Telegram,
   "telegram-simple": TelegramSimple,
   "upgrade": Upgrade,
@@ -162,6 +161,7 @@ export const icons = {
   "blink-icon": BlinkIcon,
   "physical-card": PhysicalCard,
   "privacy-policy": PrivacyPolicy,
+  "trash": Trash,
   "google-pay": GooglePay,
   "apple-pay": ApplePay,
   "approved": Approved,

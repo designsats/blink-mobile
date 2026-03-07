@@ -2703,6 +2703,8 @@
     "csvExport": "ดาวน์โหลดประวัติธุรกรรมเป็นไฟล์ CSV",
     "date": "วันที่",
     "description": "คำอธิบาย",
+    "discard": "ละทิ้ง",
+    "discardChangesMessage": "คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก คุณแน่ใจหรือไม่ว่าต้องการละทิ้ง?",
     "domain": "โดเมน",
     "email": "อีเมล",
     "error": "ผิดพลาด",
@@ -2789,7 +2791,12 @@
     "profiles": "โปรไฟล์",
     "paste": "วาง",
     "hasBeenCopiedToClipboard": "คัดลอก {type: string} ไปยังคลิปบอร์ดแล้ว",
-    "save": "บันทึก"
+    "save": "บันทึก",
+    "validation": {
+      "required": "จำเป็นต้องกรอกข้อมูลนี้",
+      "minChars": "ต้องมีอย่างน้อย {min} ตัวอักษร",
+      "invalidPostalCode": "รหัสไปรษณีย์ไม่ถูกต้อง"
+    }
   },
   "errors": {
     "generic": "มีขความผิดพลาดเกิดขึ้น\nโปรดลองอีกครั้งในภายหลัง",
@@ -2965,7 +2972,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "รอดำเนินการ",
-      "completed": "เสร็จสิ้น"
+      "completed": "เสร็จสิ้น",
+      "declined": "ถูกปฏิเสธ",
+      "reversed": "ถูกย้อนกลับ"
     },
     "CardDashboard": {
       "Actions": {
@@ -2980,6 +2989,7 @@
       "title": "บัตร Visa"
     },
     "validThruLabel": "ใช้ได้ถึง",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "บัตรถูกระงับ",
     "cardFrozenSubtitle": "บัตรถูกปิดใช้งานชั่วคราว",
     "CardLimits": {
@@ -3005,24 +3015,35 @@
         "contactless": "การชำระเงินแบบไร้สัมผัส",
         "contactlessDescription": "อนุญาตธุรกรรมแบบไร้สัมผัส"
       },
-      "title": "วงเงินบัตร"
+      "title": "วงเงินบัตร",
+      "noLimit": "ไม่มีขีดจำกัด",
+      "limitUpdateSuccess": "อัปเดตขีดจำกัดสำเร็จ",
+      "limitUpdateError": "ไม่สามารถอัปเดตขีดจำกัดได้",
+      "limitMustBePositive": "ขีดจำกัดต้องมากกว่าศูนย์"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "รายละเอียดบัตร",
+      "cardNumber": "หมายเลขบัตร",
+      "expiryDate": "วันหมดอายุ",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "ชื่อผู้ถือบัตร",
+      "cardInformation": "ข้อมูลบัตร",
+      "cardType": "ประเภทบัตร",
+      "status": "สถานะ",
+      "statusActive": "ใช้งานได้",
+      "statusFrozen": "ถูกอายัด",
+      "statusInactive": "ไม่ได้ใช้งาน",
+      "issued": "ออกเมื่อ",
+      "network": "เครือข่าย",
+      "keepDetailsSafe": "เก็บรักษาข้อมูลของคุณให้ปลอดภัย",
+      "securityWarning": "อย่าแบ่งปันรายละเอียดบัตรของคุณกับใคร Blink จะไม่ขอข้อมูลบัตรของคุณทางอีเมลหรือโทรศัพท์",
+      "statusCancelled": "ยกเลิกแล้ว",
+      "statusNotActivated": "ยังไม่เปิดใช้งาน",
+      "statusPending": "รอดำเนินการ",
+      "statusFailed": "ล้มเหลว",
+      "cardTypeVirtual": "บัตรเดบิต Visa เสมือน",
+      "cardTypePhysical": "บัตรเดบิต Visa จริง",
+      "authDescription": "ยืนยันตัวตนเพื่อดูรายละเอียดบัตร"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3060,7 +3081,19 @@
       "privacyPolicy": "นโยบายความเป็นส่วนตัวของบัตร",
       "closeCardAccount": "ปิดบัญชีบัตร",
       "closeCardAccountDescription": "ปิดบัตร Visa ของคุณอย่างถาวร",
-      "addToAppleWallet": "เพิ่มไปยัง Apple Wallet"
+      "addToAppleWallet": "เพิ่มไปยัง Apple Wallet",
+      "notificationToggleError": "ไม่สามารถอัปเดตการตั้งค่าการแจ้งเตือนได้",
+      "closeCardWarning": "การดำเนินการนี้ถาวร บัตร Visa ของคุณจะถูกยกเลิกและไม่สามารถเปิดใช้งานใหม่ได้",
+      "closeCardTypeClose": "กรุณาพิมพ์ \"{close}\" เพื่อยืนยัน",
+      "closeCardClose": "ปิด",
+      "closeCardFinalConfirmTitle": "การยืนยันขั้นสุดท้าย",
+      "closeCardFinalConfirmMessage": "คุณแน่ใจหรือไม่ว่าต้องการปิดบัญชีบัตรของคุณ? การดำเนินการนี้ไม่สามารถย้อนกลับได้",
+      "closeCardPendingTransactions": "คุณมีธุรกรรมที่รอดำเนินการ กรุณารอจนกว่าจะเสร็จสิ้นก่อนปิดบัตรของคุณ",
+      "closeCardBalanceWarning": "บัตรของคุณมียอดคงเหลือ {balance} กรุณาถอนเงินก่อนปิด คุณต้องการดำเนินการต่อหรือไม่?",
+      "closeCardSuccessTitle": "ปิดบัญชีบัตรแล้ว",
+      "closeCardSuccessSubtitle": "บัตร Visa ของคุณถูกปิดอย่างถาวรแล้ว",
+      "closeCardSuccessButton": "กลับสู่หน้าหลัก",
+      "closeCardError": "ไม่สามารถปิดบัญชีบัตรได้ กรุณาติดต่อฝ่ายสนับสนุน"
     },
     "TransactionDetails": {
       "title": "รายละเอียดธุรกรรม",
@@ -3098,7 +3131,19 @@
       "dateOfBirth": "วันเกิด",
       "contactInformation": "ข้อมูลติดต่อ",
       "registeredAddress": "ที่อยู่ที่ลงทะเบียน",
-      "shippingAddress": "ที่อยู่จัดส่ง"
+      "shippingAddress": "ที่อยู่จัดส่ง",
+      "kycPendingTitle": "การยืนยัน KYC อยู่ระหว่างดำเนินการ",
+      "kycPendingDescription": "การยืนยัน KYC ของคุณกำลังดำเนินการ อาจใช้เวลาสักครู่",
+      "kycDeclinedTitle": "การยืนยัน KYC ถูกปฏิเสธ",
+      "kycDeclinedDescription": "การยืนยัน KYC ของคุณถูกปฏิเสธ กรุณาติดต่อฝ่ายสนับสนุนเพื่อขอข้อมูลเพิ่มเติม",
+      "kycNotStartedTitle": "ดำเนินการยืนยัน KYC ให้เสร็จสมบูรณ์",
+      "kycNotStartedDescription": "ดำเนินการยืนยัน KYC ให้เสร็จสมบูรณ์เพื่อปลดล็อกคุณสมบัติบัตรทั้งหมด",
+      "kycAwaitingInputTitle": "ดำเนินการยืนยัน KYC ต่อ",
+      "kycAwaitingInputDescription": "ต้องการข้อมูลเพิ่มเติมเพื่อดำเนินการยืนยัน KYC ของคุณให้เสร็จสมบูรณ์",
+      "kycErrorTitle": "ข้อผิดพลาดในการยืนยัน",
+      "kycErrorDescription": "เกิดข้อผิดพลาดระหว่างการยืนยัน กรุณาลองอีกครั้งหรือติดต่อฝ่ายสนับสนุน",
+      "kycUnderReviewTitle": "KYC อยู่ระหว่างการตรวจสอบ",
+      "kycUnderReviewDescription": "การยืนยัน KYC ของคุณอยู่ระหว่างการตรวจสอบด้วยตนเอง อาจใช้เวลาสักครู่"
     },
     "AddToMobileWallet": {
       "title": "เพิ่มไปยังกระเป๋าเงินมือถือ",
@@ -3128,7 +3173,8 @@
     },
     "ShippingAddress": {
       "title": "ที่อยู่จัดส่ง",
-      "fullName": "ชื่อเต็ม",
+      "firstName": "ชื่อ",
+      "lastName": "นามสกุล",
       "addressLine1": "ที่อยู่บรรทัดที่ 1",
       "addressLine2": "ที่อยู่บรรทัดที่ 2",
       "city": "เมือง",

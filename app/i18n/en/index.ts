@@ -64,10 +64,6 @@ const en: BaseTranslation = {
     allContacts: "All Contacts",
     viewAllContacts: "View all contacts",
     frequentContacts: "Frequent Contacts",
-    deleteContactConfirmation:
-      "Do you really want to delete {username: string} from your contacts?",
-    deleteContactCancel: "Cancel",
-    deleteContactConfirm: "Yes",
   },
   ContactDetailsScreen: {
     title: "Transactions with {username: string}",
@@ -2790,6 +2786,8 @@ const en: BaseTranslation = {
     csvExport: "Export all transactions",
     date: "Date",
     description: "Description",
+    discard: "Discard",
+    discardChangesMessage: "You have unsaved changes. Are you sure you want to discard them?",
     domain: "Domain",
     email: "Email",
     error: "Error",
@@ -2879,6 +2877,11 @@ const en: BaseTranslation = {
     paste: "Paste",
     copied: "Copied to clipboard",
     hasBeenCopiedToClipboard: "{type: string} has been copied to clipboard",
+    validation: {
+      required: "This field is required",
+      minChars: "Must be at least {min:number} characters",
+      invalidPostalCode: "Invalid postal code",
+    },
   },
   errors: {
     generic: "There was an error.\nPlease try again later.",
@@ -3051,11 +3054,14 @@ const en: BaseTranslation = {
   },
   CardFlow: {
     validThruLabel: "VALID THRU",
+    networkVisa: "Visa",
     cardFrozenTitle: "Card frozen",
     cardFrozenSubtitle: "Card is temporarily disabled",
     TransactionStatus: {
       pending: "Pending",
       completed: "Completed",
+      declined: "Declined",
+      reversed: "Reversed",
     },
     CardDashboard: {
       Actions: {
@@ -3068,6 +3074,9 @@ const en: BaseTranslation = {
       addFunds: "Add funds",
       transactionsTitle: "Transactions",
       emptyTransactions: "No transactions yet",
+      noCardAvailable: "No cards available",
+      cardUpdateError: "Could not update card status",
+      cardNotUsable: "This card is not currently available for use",
     },
     CardDetails: {
       title: "Card details",
@@ -3081,6 +3090,13 @@ const en: BaseTranslation = {
       statusActive: "Active",
       statusFrozen: "Frozen",
       statusInactive: "Inactive",
+      statusCancelled: "Cancelled",
+      statusNotActivated: "Not activated",
+      statusPending: "Pending",
+      statusFailed: "Failed",
+      cardTypeVirtual: "Virtual Visa debit",
+      cardTypePhysical: "Physical Visa debit",
+      authDescription: "Authenticate to view card details",
       issued: "Issued",
       network: "Network",
       keepDetailsSafe: "Keep your details safe",
@@ -3102,6 +3118,10 @@ const en: BaseTranslation = {
       dailyAtmLimitHelper: "Maximum ATM withdrawal per day",
       monthlyAtmLimit: "Monthly ATM limit",
       monthlyAtmLimitHelper: "Maximum ATM withdrawal per month",
+      noLimit: "No limit",
+      limitUpdateSuccess: "Limit updated successfully",
+      limitUpdateError: "Failed to update limit",
+      limitMustBePositive: "Limit must be greater than zero",
       transactionTypesTitle: "Transaction types",
       TransactionTypes: {
         ecommerce: "Online purchases",
@@ -3149,6 +3169,22 @@ const en: BaseTranslation = {
       privacyPolicy: "Card Privacy Policy",
       closeCardAccount: "Close card account",
       closeCardAccountDescription: "Permanently close your Visa card",
+      closeCardWarning:
+        "This action is permanent. Your Visa card will be canceled and cannot be reactivated.",
+      closeCardTypeClose: 'Please type "{close}" to confirm',
+      closeCardClose: "close",
+      closeCardFinalConfirmTitle: "Final Confirmation",
+      closeCardFinalConfirmMessage:
+        "Are you sure you want to close your card account? This cannot be undone.",
+      closeCardPendingTransactions:
+        "You have pending transactions. Please wait until they are settled before closing your card.",
+      closeCardBalanceWarning:
+        "Your card has a balance of {balance: string}. Please withdraw your funds before closing. Do you want to proceed anyway?",
+      closeCardSuccessTitle: "Card Account Closed",
+      closeCardSuccessSubtitle: "Your Visa card has been permanently closed.",
+      closeCardSuccessButton: "Back to Home",
+      closeCardError: "Failed to close card account. Please contact support.",
+      notificationToggleError: "Failed to update notification settings",
     },
     PersonalDetails: {
       title: "Personal details",
@@ -3163,6 +3199,24 @@ const en: BaseTranslation = {
       contactInformation: "Contact information",
       registeredAddress: "Registered address",
       shippingAddress: "Shipping address",
+      kycPendingTitle: "KYC verification pending",
+      kycPendingDescription:
+        "Your KYC verification is being processed. This may take some time.",
+      kycDeclinedTitle: "KYC verification declined",
+      kycDeclinedDescription:
+        "Your KYC verification was declined. Please contact support for more information.",
+      kycNotStartedTitle: "Complete KYC verification",
+      kycNotStartedDescription:
+        "Complete the KYC verification process to unlock all card features.",
+      kycAwaitingInputTitle: "Continue KYC verification",
+      kycAwaitingInputDescription:
+        "Additional information is required to complete your KYC verification.",
+      kycUnderReviewTitle: "KYC under review",
+      kycUnderReviewDescription:
+        "Your KYC verification is under manual review. This may take some time.",
+      kycErrorTitle: "Verification error",
+      kycErrorDescription:
+        "An error occurred during verification. Please try again or contact support.",
     },
     AddToMobileWallet: {
       title: "Add to mobile wallet",
@@ -3193,7 +3247,8 @@ const en: BaseTranslation = {
     },
     ShippingAddress: {
       title: "Shipping address",
-      fullName: "Full name",
+      firstName: "First name",
+      lastName: "Last name",
       addressLine1: "Address line 1",
       addressLine2: "Address line 2",
       city: "City",

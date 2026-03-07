@@ -5,7 +5,7 @@ import { LinearGradient } from "react-native-linear-gradient"
 import { Text, makeStyles, useTheme } from "@rn-vui/themed"
 
 import { GaloyIcon } from "@app/components/atomic/galoy-icon/galoy-icon"
-import { maskString } from "@app/utils/helper"
+import { formatCardDisplayNumber } from "@app/utils/helper"
 import { formatCardValidThruDisplay } from "@app/utils/date"
 import { useI18nContext } from "@app/i18n/i18n-react"
 
@@ -15,7 +15,7 @@ const CARD_HORIZONTAL_MARGIN = 40
 
 type BlinkCardProps = {
   cardNumber: string
-  holderName: string
+  holderName?: string
   validThruDate: string | Date
   isFrozen: boolean
   showCardDetails?: boolean
@@ -38,12 +38,7 @@ export const BlinkCard: React.FC<BlinkCardProps> = ({
   } = useTheme()
   const { LL } = useI18nContext()
 
-  const maskedCardNumber = showCardDetails
-    ? cardNumber
-    : maskString(cardNumber, {
-        visibleRight: 4,
-        maskPattern: /\d/,
-      })
+  const maskedCardNumber = formatCardDisplayNumber(cardNumber, showCardDetails)
 
   const maskedValidThru = formatCardValidThruDisplay(validThruDate, showCardDetails)
 

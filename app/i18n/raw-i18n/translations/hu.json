@@ -2686,6 +2686,8 @@
     "csvExport": "Tranzakciók exportálása CSV formátumban",
     "date": "Dátum",
     "description": "Leírás",
+    "discard": "Elvetés",
+    "discardChangesMessage": "Mentetlen módosításai vannak. Biztosan el szeretné vetni őket?",
     "domain": "Domain",
     "email": "Email",
     "error": "Hiba",
@@ -2772,7 +2774,12 @@
     "profiles": "Profilok",
     "paste": "Beillesztés",
     "hasBeenCopiedToClipboard": "{type: string} a vágólapra másolva",
-    "save": "Mentés"
+    "save": "Mentés",
+    "validation": {
+      "required": "Ez a mező kötelező",
+      "minChars": "Legalább {min} karakter szükséges",
+      "invalidPostalCode": "Érvénytelen irányítószám"
+    }
   },
   "errors": {
     "generic": "Hiba történt.\nKérjük, próbáld újra később.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Függőben",
-      "completed": "Teljesítve"
+      "completed": "Teljesítve",
+      "declined": "Elutasítva",
+      "reversed": "Visszafordítva"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Visa kártya"
     },
     "validThruLabel": "ÉRVÉNYES",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kártya befagyasztva",
     "cardFrozenSubtitle": "A kártya ideiglenesen letiltva",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Érintésmentes fizetések",
         "contactlessDescription": "Érintésmentes tranzakciók engedélyezése"
       },
-      "title": "Kártyakorlátok"
+      "title": "Kártyakorlátok",
+      "noLimit": "Nincs korlát",
+      "limitUpdateSuccess": "Korlát sikeresen frissítve",
+      "limitUpdateError": "Nem sikerült frissíteni a korlátot",
+      "limitMustBePositive": "A korlátnak nullánál nagyobbnak kell lennie"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Kártya részletei",
+      "cardNumber": "Kártyaszám",
+      "expiryDate": "Lejárati dátum",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Kártyabirtokos neve",
+      "cardInformation": "Kártyainformációk",
+      "cardType": "Kártyatípus",
+      "status": "Állapot",
+      "statusActive": "Aktív",
+      "statusFrozen": "Befagyasztva",
+      "statusInactive": "Inaktív",
+      "issued": "Kibocsátva",
+      "network": "Hálózat",
+      "keepDetailsSafe": "Tartsa biztonságban adatait",
+      "securityWarning": "Soha ne ossza meg kártyaadatait senkivel. A Blink soha nem kéri kártyainformációit e-mailben vagy telefonon.",
+      "statusCancelled": "Visszavonva",
+      "statusNotActivated": "Nincs aktiválva",
+      "statusPending": "Függőben",
+      "statusFailed": "Sikertelen",
+      "cardTypeVirtual": "Virtuális Visa betéti",
+      "cardTypePhysical": "Fizikai Visa betéti",
+      "authDescription": "Hitelesítés a kártyaadatok megtekintéséhez"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Kártya adatvédelmi szabályzat",
       "closeCardAccount": "Kártyaszámla bezárása",
       "closeCardAccountDescription": "Véglegesen zárja be Visa kártyáját",
-      "addToAppleWallet": "Hozzaadas az Apple Wallethoz"
+      "addToAppleWallet": "Hozzaadas az Apple Wallethoz",
+      "notificationToggleError": "Nem sikerült frissíteni az értesítési beállításokat",
+      "closeCardWarning": "Ez a művelet végleges. A Visa kártyád törlésre kerül, és nem aktiválható újra.",
+      "closeCardTypeClose": "Kérjük, írd be a \"{close}\" szót a megerősítéshez",
+      "closeCardClose": "bezár",
+      "closeCardFinalConfirmTitle": "Végső Megerősítés",
+      "closeCardFinalConfirmMessage": "Biztosan be akarod zárni a kártyaszámládat? Ez nem vonható vissza.",
+      "closeCardPendingTransactions": "Függőben lévő tranzakcióid vannak. Kérjük, várd meg, amíg teljesülnek, mielőtt bezárnád a kártyádat.",
+      "closeCardBalanceWarning": "A kártyádon {balance} egyenleg van. Kérjük, vedd fel a pénzed a bezárás előtt. Mindenképpen folytatod?",
+      "closeCardSuccessTitle": "Kártyaszámla Bezárva",
+      "closeCardSuccessSubtitle": "A Visa kártyád véglegesen bezárásra került.",
+      "closeCardSuccessButton": "Vissza a Kezdőlapra",
+      "closeCardError": "Nem sikerült bezárni a kártyaszámlát. Kérjük, lépj kapcsolatba az ügyfélszolgálattal."
     },
     "TransactionDetails": {
       "title": "Tranzakció részletei",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Születési dátum",
       "contactInformation": "Kapcsolattartási adatok",
       "registeredAddress": "Regisztrált cím",
-      "shippingAddress": "Szállítási cím"
+      "shippingAddress": "Szállítási cím",
+      "kycPendingTitle": "KYC ellenőrzés folyamatban",
+      "kycPendingDescription": "A KYC ellenőrzése feldolgozás alatt áll. Ez eltarthat egy ideig.",
+      "kycDeclinedTitle": "KYC ellenőrzés elutasítva",
+      "kycDeclinedDescription": "A KYC ellenőrzése elutasításra került. Kérjük, forduljon az ügyfélszolgálathoz további információkért.",
+      "kycNotStartedTitle": "KYC ellenőrzés befejezése",
+      "kycNotStartedDescription": "Fejezze be a KYC ellenőrzési folyamatot az összes kártyafunkció feloldásához.",
+      "kycAwaitingInputTitle": "KYC ellenőrzés folytatása",
+      "kycAwaitingInputDescription": "További információkra van szükség a KYC ellenőrzés befejezéséhez.",
+      "kycErrorTitle": "Ellenőrzési hiba",
+      "kycErrorDescription": "Hiba történt az ellenőrzés során. Kérjük, próbálja újra, vagy forduljon az ügyfélszolgálathoz.",
+      "kycUnderReviewTitle": "KYC felülvizsgálat alatt",
+      "kycUnderReviewDescription": "A KYC ellenőrzése manuális felülvizsgálat alatt áll. Ez eltarthat egy ideig."
     },
     "AddToMobileWallet": {
       "title": "Hozzaadas a mobil tarcahoz",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Szállítási cím",
-      "fullName": "Teljes név",
+      "firstName": "Keresztnév",
+      "lastName": "Vezetéknév",
       "addressLine1": "Cím 1. sor",
       "addressLine2": "Cím 2. sor",
       "city": "Város",

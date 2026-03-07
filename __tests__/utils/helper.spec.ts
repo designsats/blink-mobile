@@ -1,5 +1,8 @@
 import {
+  toMajorUnit,
+  toMinorUnit,
   ellipsizeMiddle,
+  formatCardDisplayNumber,
   maskDigits,
   maskString,
   normalizeString,
@@ -105,5 +108,109 @@ describe("maskDigits", () => {
 
   it("uses the provided maskChar", () => {
     expect(maskDigits("9999", { visibleRight: 1, maskChar: "X" })).toBe("XXX9")
+  })
+})
+
+describe("toMinorUnit", () => {
+  it("converts whole major units to minor units", () => {
+    expect(toMinorUnit("10")).toBe(1000)
+  })
+
+  it("converts major units with decimals to minor units", () => {
+    expect(toMinorUnit("10.50")).toBe(1050)
+  })
+
+  it("rounds fractional minor units", () => {
+    expect(toMinorUnit("10.555")).toBe(1056)
+  })
+
+  it("converts zero", () => {
+    expect(toMinorUnit("0")).toBe(0)
+  })
+
+  it("handles large amounts", () => {
+    expect(toMinorUnit("99999")).toBe(9999900)
+  })
+
+  it("returns NaN for non-numeric input", () => {
+    expect(toMinorUnit("abc")).toBeNaN()
+  })
+})
+
+describe("toMajorUnit", () => {
+  it("converts minor units to major units", () => {
+    expect(toMajorUnit(1000)).toBe(10)
+  })
+
+  it("converts minor units with remainder", () => {
+    expect(toMajorUnit(1050)).toBe(10.5)
+  })
+
+  it("converts zero", () => {
+    expect(toMajorUnit(0)).toBe(0)
+  })
+
+  it("handles single minor unit", () => {
+    expect(toMajorUnit(1)).toBe(0.01)
+  })
+
+  it("handles large amounts", () => {
+    expect(toMajorUnit(9999900)).toBe(99999)
+  })
+})
+
+describe("formatCardDisplayNumber", () => {
+  it("masks all but last four when showDetails is false", () => {
+    expect(formatCardDisplayNumber("4242", false)).toBe("•••• •••• •••• 4242")
+  })
+
+  it("pads and shows all digits when showDetails is true", () => {
+    expect(formatCardDisplayNumber("4242", true)).toBe("•••• •••• •••• 4242")
+  })
+
+  it("shows full 16-digit number when showDetails is true", () => {
+    expect(formatCardDisplayNumber("4111111111111111", true)).toBe("4111 1111 1111 1111")
+  })
+
+  it("masks full 16-digit number when showDetails is false", () => {
+    expect(formatCardDisplayNumber("4111111111111111", false)).toBe("•••• •••• •••• 1111")
+  })
+
+  it("strips spaces before processing", () => {
+    expect(formatCardDisplayNumber("4111 1111 1111 1111", false)).toBe(
+      "•••• •••• •••• 1111",
+    )
+  })
+
+  it("handles empty string", () => {
+    expect(formatCardDisplayNumber("", false)).toBe("•••• •••• •••• ••••")
+  })
+
+  it("handles empty string with showDetails true", () => {
+    expect(formatCardDisplayNumber("", true)).toBe("•••• •••• •••• ••••")
+  })
+
+  it("respects custom totalDigits and groupSize", () => {
+    expect(formatCardDisplayNumber("1234", true, { totalDigits: 8, groupSize: 4 })).toBe(
+      "•••• 1234",
+    )
+  })
+
+  it("respects custom visibleDigits", () => {
+    expect(formatCardDisplayNumber("123456", false, { visibleDigits: 2 })).toBe(
+      "•••• •••• •••• ••56",
+    )
+  })
+
+  it("handles totalDigits not divisible by groupSize", () => {
+    expect(formatCardDisplayNumber("12345", true, { totalDigits: 5, groupSize: 2 })).toBe(
+      "12 34 5",
+    )
+  })
+
+  it("handles totalDigits smaller than groupSize without crashing", () => {
+    expect(formatCardDisplayNumber("12", true, { totalDigits: 2, groupSize: 4 })).toBe(
+      "12",
+    )
   })
 })

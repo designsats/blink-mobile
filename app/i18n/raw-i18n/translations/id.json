@@ -2686,6 +2686,8 @@
     "csvExport": "Ekspor transaksi sebagai CSV",
     "date": "Tanggal",
     "description": "Deskripsi",
+    "discard": "Buang",
+    "discardChangesMessage": "Anda memiliki perubahan yang belum disimpan. Apakah Anda yakin ingin membuangnya?",
     "domain": "Domain",
     "email": "Email",
     "error": "Kesalahan",
@@ -2772,7 +2774,12 @@
     "profiles": "Profil",
     "paste": "Tempel",
     "hasBeenCopiedToClipboard": "{type: string} telah disalin ke papan klip",
-    "save": "Simpan"
+    "save": "Simpan",
+    "validation": {
+      "required": "Bidang ini wajib diisi",
+      "minChars": "Harus minimal {min} karakter",
+      "invalidPostalCode": "Kode pos tidak valid"
+    }
   },
   "errors": {
     "generic": "Terjadi kesalahan.\nSilakan coba lagi nanti.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Tertunda",
-      "completed": "Selesai"
+      "completed": "Selesai",
+      "declined": "Ditolak",
+      "reversed": "Dibalik"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Kartu Visa"
     },
     "validThruLabel": "BERLAKU HINGGA",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kartu dibekukan",
     "cardFrozenSubtitle": "Kartu dinonaktifkan sementara",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Pembayaran tanpa kontak",
         "contactlessDescription": "Izinkan transaksi tanpa kontak"
       },
-      "title": "Batas kartu"
+      "title": "Batas kartu",
+      "noLimit": "Tanpa batas",
+      "limitUpdateSuccess": "Batas berhasil diperbarui",
+      "limitUpdateError": "Gagal memperbarui batas",
+      "limitMustBePositive": "Batas harus lebih besar dari nol"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Detail kartu",
+      "cardNumber": "Nomor kartu",
+      "expiryDate": "Tanggal kedaluwarsa",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
+      "cardholderName": "Nama pemegang kartu",
+      "cardInformation": "Informasi kartu",
+      "cardType": "Jenis kartu",
       "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "statusActive": "Aktif",
+      "statusFrozen": "Dibekukan",
+      "statusInactive": "Tidak aktif",
+      "issued": "Diterbitkan",
+      "network": "Jaringan",
+      "keepDetailsSafe": "Jaga keamanan data Anda",
+      "securityWarning": "Jangan pernah membagikan detail kartu Anda kepada siapa pun. Blink tidak akan pernah meminta informasi kartu Anda melalui email atau telepon.",
+      "statusCancelled": "Dibatalkan",
+      "statusNotActivated": "Belum diaktifkan",
+      "statusPending": "Tertunda",
+      "statusFailed": "Gagal",
+      "cardTypeVirtual": "Debit Visa virtual",
+      "cardTypePhysical": "Debit Visa fisik",
+      "authDescription": "Autentikasi untuk melihat detail kartu"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Kebijakan privasi kartu",
       "closeCardAccount": "Tutup akun kartu",
       "closeCardAccountDescription": "Tutup kartu Visa Anda secara permanen",
-      "addToAppleWallet": "Tambahkan ke Apple Wallet"
+      "addToAppleWallet": "Tambahkan ke Apple Wallet",
+      "notificationToggleError": "Gagal memperbarui pengaturan notifikasi",
+      "closeCardWarning": "Tindakan ini bersifat permanen. Kartu Visa Anda akan dibatalkan dan tidak dapat diaktifkan kembali.",
+      "closeCardTypeClose": "Silakan ketik \"{close}\" untuk mengonfirmasi",
+      "closeCardClose": "tutup",
+      "closeCardFinalConfirmTitle": "Konfirmasi Akhir",
+      "closeCardFinalConfirmMessage": "Apakah Anda yakin ingin menutup akun kartu Anda? Ini tidak dapat dibatalkan.",
+      "closeCardPendingTransactions": "Anda memiliki transaksi tertunda. Harap tunggu sampai diselesaikan sebelum menutup kartu Anda.",
+      "closeCardBalanceWarning": "Kartu Anda memiliki saldo {balance}. Harap tarik dana Anda sebelum menutup. Apakah Anda ingin melanjutkan?",
+      "closeCardSuccessTitle": "Akun Kartu Ditutup",
+      "closeCardSuccessSubtitle": "Kartu Visa Anda telah ditutup secara permanen.",
+      "closeCardSuccessButton": "Kembali ke Beranda",
+      "closeCardError": "Gagal menutup akun kartu. Silakan hubungi dukungan."
     },
     "TransactionDetails": {
       "title": "Detail transaksi",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Tanggal lahir",
       "contactInformation": "Informasi kontak",
       "registeredAddress": "Alamat terdaftar",
-      "shippingAddress": "Alamat pengiriman"
+      "shippingAddress": "Alamat pengiriman",
+      "kycPendingTitle": "Verifikasi KYC tertunda",
+      "kycPendingDescription": "Verifikasi KYC Anda sedang diproses. Ini mungkin memerlukan waktu.",
+      "kycDeclinedTitle": "Verifikasi KYC ditolak",
+      "kycDeclinedDescription": "Verifikasi KYC Anda ditolak. Silakan hubungi dukungan untuk informasi lebih lanjut.",
+      "kycNotStartedTitle": "Selesaikan verifikasi KYC",
+      "kycNotStartedDescription": "Selesaikan proses verifikasi KYC untuk membuka semua fitur kartu.",
+      "kycAwaitingInputTitle": "Lanjutkan verifikasi KYC",
+      "kycAwaitingInputDescription": "Informasi tambahan diperlukan untuk menyelesaikan verifikasi KYC Anda.",
+      "kycErrorTitle": "Kesalahan verifikasi",
+      "kycErrorDescription": "Terjadi kesalahan saat verifikasi. Silakan coba lagi atau hubungi dukungan.",
+      "kycUnderReviewTitle": "KYC dalam peninjauan",
+      "kycUnderReviewDescription": "Verifikasi KYC Anda sedang dalam peninjauan manual. Ini mungkin memerlukan waktu."
     },
     "AddToMobileWallet": {
       "title": "Tambahkan ke dompet seluler",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Alamat pengiriman",
-      "fullName": "Nama lengkap",
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
       "addressLine1": "Alamat baris 1",
       "addressLine2": "Alamat baris 2",
       "city": "Kota",

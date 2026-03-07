@@ -2703,6 +2703,8 @@
     "csvExport": "Eksport transaksi kepada fail csv",
     "date": "Tarikh",
     "description": "Penerangan",
+    "discard": "Buang",
+    "discardChangesMessage": "Anda mempunyai perubahan yang belum disimpan. Adakah anda pasti mahu membuangnya?",
     "domain": "Domain",
     "email": "Emel",
     "error": "Masalah",
@@ -2789,7 +2791,12 @@
     "profiles": "Profil",
     "paste": "Tampal",
     "hasBeenCopiedToClipboard": "{type: string} telah disalin ke clipboard",
-    "save": "Simpan"
+    "save": "Simpan",
+    "validation": {
+      "required": "Medan ini diperlukan",
+      "minChars": "Mesti sekurang-kurangnya {min} aksara",
+      "invalidPostalCode": "Poskod tidak sah"
+    }
   },
   "errors": {
     "generic": "Ada masalah timbul\nSila cuba lagi",
@@ -2968,7 +2975,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Menunggu",
-      "completed": "Selesai"
+      "completed": "Selesai",
+      "declined": "Ditolak",
+      "reversed": "Diterbalikkan"
     },
     "CardDashboard": {
       "Actions": {
@@ -2983,6 +2992,7 @@
       "title": "Kad Visa"
     },
     "validThruLabel": "SAH SEHINGGA",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kad dibekukan",
     "cardFrozenSubtitle": "Kad dinyahaktifkan sementara",
     "CardLimits": {
@@ -3008,24 +3018,35 @@
         "contactless": "Pembayaran tanpa sentuh",
         "contactlessDescription": "Benarkan transaksi tanpa sentuh"
       },
-      "title": "Had kad"
+      "title": "Had kad",
+      "noLimit": "Tiada had",
+      "limitUpdateSuccess": "Had berjaya dikemas kini",
+      "limitUpdateError": "Gagal mengemas kini had",
+      "limitMustBePositive": "Had mestilah lebih besar daripada sifar"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Butiran kad",
+      "cardNumber": "Nombor kad",
+      "expiryDate": "Tarikh luput",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
+      "cardholderName": "Nama pemegang kad",
+      "cardInformation": "Maklumat kad",
+      "cardType": "Jenis kad",
       "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "statusActive": "Aktif",
+      "statusFrozen": "Dibekukan",
+      "statusInactive": "Tidak aktif",
+      "issued": "Dikeluarkan",
+      "network": "Rangkaian",
+      "keepDetailsSafe": "Pastikan butiran anda selamat",
+      "securityWarning": "Jangan sekali-kali berkongsi butiran kad anda dengan sesiapa. Blink tidak akan meminta maklumat kad anda melalui e-mel atau telefon.",
+      "statusCancelled": "Dibatalkan",
+      "statusNotActivated": "Belum diaktifkan",
+      "statusPending": "Menunggu",
+      "statusFailed": "Gagal",
+      "cardTypeVirtual": "Debit Visa maya",
+      "cardTypePhysical": "Debit Visa fizikal",
+      "authDescription": "Sahkan untuk melihat butiran kad"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3063,7 +3084,19 @@
       "privacyPolicy": "Dasar privasi kad",
       "closeCardAccount": "Tutup akaun kad",
       "closeCardAccountDescription": "Tutup kad Visa anda secara kekal",
-      "addToAppleWallet": "Tambah ke Apple Wallet"
+      "addToAppleWallet": "Tambah ke Apple Wallet",
+      "notificationToggleError": "Gagal mengemas kini tetapan pemberitahuan",
+      "closeCardWarning": "Tindakan ini kekal. Kad Visa anda akan dibatalkan dan tidak boleh diaktifkan semula.",
+      "closeCardTypeClose": "Sila taip \"{close}\" untuk mengesahkan",
+      "closeCardClose": "tutup",
+      "closeCardFinalConfirmTitle": "Pengesahan Akhir",
+      "closeCardFinalConfirmMessage": "Adakah anda pasti mahu menutup akaun kad anda? Ini tidak boleh dibatalkan.",
+      "closeCardPendingTransactions": "Anda mempunyai transaksi tertangguh. Sila tunggu sehingga ia diselesaikan sebelum menutup kad anda.",
+      "closeCardBalanceWarning": "Kad anda mempunyai baki {balance}. Sila keluarkan dana anda sebelum menutup. Adakah anda mahu teruskan?",
+      "closeCardSuccessTitle": "Akaun Kad Ditutup",
+      "closeCardSuccessSubtitle": "Kad Visa anda telah ditutup secara kekal.",
+      "closeCardSuccessButton": "Kembali ke Laman Utama",
+      "closeCardError": "Gagal menutup akaun kad. Sila hubungi sokongan."
     },
     "TransactionDetails": {
       "title": "Butiran transaksi",
@@ -3101,7 +3134,19 @@
       "dateOfBirth": "Tarikh lahir",
       "contactInformation": "Maklumat hubungan",
       "registeredAddress": "Alamat berdaftar",
-      "shippingAddress": "Alamat penghantaran"
+      "shippingAddress": "Alamat penghantaran",
+      "kycPendingTitle": "Pengesahan KYC dalam proses",
+      "kycPendingDescription": "Pengesahan KYC anda sedang diproses. Ini mungkin mengambil sedikit masa.",
+      "kycDeclinedTitle": "Pengesahan KYC ditolak",
+      "kycDeclinedDescription": "Pengesahan KYC anda telah ditolak. Sila hubungi sokongan untuk maklumat lanjut.",
+      "kycNotStartedTitle": "Lengkapkan pengesahan KYC",
+      "kycNotStartedDescription": "Lengkapkan proses pengesahan KYC untuk membuka semua ciri kad.",
+      "kycAwaitingInputTitle": "Teruskan pengesahan KYC",
+      "kycAwaitingInputDescription": "Maklumat tambahan diperlukan untuk melengkapkan pengesahan KYC anda.",
+      "kycErrorTitle": "Ralat pengesahan",
+      "kycErrorDescription": "Ralat berlaku semasa pengesahan. Sila cuba lagi atau hubungi sokongan.",
+      "kycUnderReviewTitle": "KYC dalam semakan",
+      "kycUnderReviewDescription": "Pengesahan KYC anda sedang dalam semakan manual. Ini mungkin mengambil sedikit masa."
     },
     "AddToMobileWallet": {
       "title": "Tambah ke dompet mudah alih",
@@ -3131,7 +3176,8 @@
     },
     "ShippingAddress": {
       "title": "Alamat penghantaran",
-      "fullName": "Nama penuh",
+      "firstName": "Nama pertama",
+      "lastName": "Nama keluarga",
       "addressLine1": "Alamat baris 1",
       "addressLine2": "Alamat baris 2",
       "city": "Bandar",

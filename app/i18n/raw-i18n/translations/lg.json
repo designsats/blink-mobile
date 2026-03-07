@@ -2686,6 +2686,8 @@
     "csvExport": "Ggyayo empanyisiganya nga CSV",
     "date": "Olunaku olw'omweezi",
     "description": "Okunnyonnyola",
+    "discard": "Suula",
+    "discardChangesMessage": "Olina enkyukakyuka ezitaasaavudde. Oli mukakafu nti oyagala okuzisaanyaawo?",
     "domain": "Amatwale",
     "email": "Email",
     "error": "Ekyonoono",
@@ -2772,7 +2774,12 @@
     "profiles": "Profayiro",
     "paste": "Teeka",
     "hasBeenCopiedToClipboard": "{type: string} ekoppoleddwa ku lutimbe",
-    "save": "Save"
+    "save": "Save",
+    "validation": {
+      "required": "Ekisenge kino kyetaagibwa",
+      "minChars": "Kiteekwa okuba n'ennukuta {min} oba okusingawo",
+      "invalidPostalCode": "Koodi y'eposta si nnungi"
+    }
   },
   "errors": {
     "generic": "Wabaddewo ensobi.\nTukusaba oddemu ogezeeko oluvannyuma.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Kikyali mu kutegeerwa",
-      "completed": "Kiwedde"
+      "completed": "Kiwedde",
+      "declined": "Kigaaniddwa",
+      "reversed": "Kiddizuddwa"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Kaadi ya Visa"
     },
     "validThruLabel": "KIKWATA OKUTUUSA",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kaadi ekkuziddwa",
     "cardFrozenSubtitle": "Kaadi eddiriddwa okukola okumala akaseera",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Okusasula awatali kukwatagana",
         "contactlessDescription": "Okukkiriza okutunda awatali kukwatagana"
       },
-      "title": "Ensalo z'ekkaadi"
+      "title": "Ensalo z'ekkaadi",
+      "noLimit": "Tewali kkomo",
+      "limitUpdateSuccess": "Kkomo ekyusiddwa obulungi",
+      "limitUpdateError": "Kkomo tesobodde kukyusibwa",
+      "limitMustBePositive": "Kkomo erina okusinga zeero"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Ebikwata ku kaadi",
+      "cardNumber": "Ennamba ya kaadi",
+      "expiryDate": "Ennaku lw'okuggwa",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Erinnya ly'annanyi wa kaadi",
+      "cardInformation": "Amawulire ga kaadi",
+      "cardType": "Ekika kya kaadi",
+      "status": "Embeera",
+      "statusActive": "Eri ku mulimu",
+      "statusFrozen": "Efuddiddwa",
+      "statusInactive": "Teeri ku mulimu",
+      "issued": "Yaweebwa",
+      "network": "Omutimbagano",
+      "keepDetailsSafe": "Kuuma ebikwata ku kaadi yo",
+      "securityWarning": "Togabana bikwata ku kaadi yo na muntu yenna. Blink terijja kukubuuza bimenyeeko ku kaadi yo ku email oba ku ssimu.",
+      "statusCancelled": "Esazidwayo",
+      "statusNotActivated": "Teyatandikiddwa",
+      "statusPending": "Ekyalindirira",
+      "statusFailed": "Yelemeddwa",
+      "cardTypeVirtual": "Kaadi ya Visa eya ku kompyuta",
+      "cardTypePhysical": "Kaadi ya Visa ey'engalo",
+      "authDescription": "Kakasa okwekennyezza okulaba ebikwata ku kaadi"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Enkola y ekyama ey ekkaadi",
       "closeCardAccount": "Ggala akawunti y ekkaadi",
       "closeCardAccountDescription": "Ggala ekkaadi yo eya Visa emirembe gyonna",
-      "addToAppleWallet": "Yongera ku Apple Wallet"
+      "addToAppleWallet": "Yongera ku Apple Wallet",
+      "notificationToggleError": "Ensobi okukyusa entegeka z'obubaka",
+      "closeCardWarning": "Ekikolwa kino kya bwereere. Kaadi yo eya Visa ejja kusazibwamu era tesobola kuddamu kugikozeesa.",
+      "closeCardTypeClose": "Wandiika \"{close}\" okukakasa",
+      "closeCardClose": "ggala",
+      "closeCardFinalConfirmTitle": "Okukakasa Okusembayo",
+      "closeCardFinalConfirmMessage": "Oli mukakafu nti oyagala okuggala akawunti ya kaadi yo? Kino tekisobola kuddibwamu.",
+      "closeCardPendingTransactions": "Olina eby'enfuna ebyali bitannatuukirizibwa. Linda okutuukiririzibwa nga tonnaba kuggala kaadi yo.",
+      "closeCardBalanceWarning": "Kaadi yo erina ebbikka eby'obuwuuzi {balance}. Ggyamu ssente zo nga tonnaba kuggala. Oyagala okweyongera?",
+      "closeCardSuccessTitle": "Akawunti ya Kaadi Eggadde",
+      "closeCardSuccessSubtitle": "Kaadi yo eya Visa eggaddwa bwereere.",
+      "closeCardSuccessButton": "Ddayo ku Maka",
+      "closeCardError": "Tewaasobodde kuggala akawunti ya kaadi. Tuukiriza obuyambi."
     },
     "TransactionDetails": {
       "title": "Ebikwata ku ntuzaanya",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Ennaku z'okuzaalibwa",
       "contactInformation": "Ebikwata ku kutuukirira",
       "registeredAddress": "Endagiriro ewandiisiddwa",
-      "shippingAddress": "Endagiriro y'okutumira"
+      "shippingAddress": "Endagiriro y'okutumira",
+      "kycPendingTitle": "Okukakasa KYC kulindiriddwa",
+      "kycPendingDescription": "Okukakasa kwo KYC kukolebwa. Kino kiyinza okumala akaseera.",
+      "kycDeclinedTitle": "Okukakasa KYC kugaaniddwa",
+      "kycDeclinedDescription": "Okukakasa kwo KYC kugaaniddwa. Tuukiriza okutuukirira obuyambi okumanya ebisingawo.",
+      "kycNotStartedTitle": "Mala okukakasa KYC",
+      "kycNotStartedDescription": "Mala enkola y'okukakasa KYC okuggulawo ebikozesebwa byonna eby'akaadi.",
+      "kycAwaitingInputTitle": "Weyongere n'okukakasa KYC",
+      "kycAwaitingInputDescription": "Ebimanyiddwa ebisingawo byetaagisa okumala okukakasa KYC.",
+      "kycErrorTitle": "Ensobi mu kukakasa",
+      "kycErrorDescription": "Wabadewo ensobi mu kukakasa. Gezaako nate oba otuukirire obuyambi.",
+      "kycUnderReviewTitle": "KYC erambibwa",
+      "kycUnderReviewDescription": "Okukakasibwa kwo KYC kurambibwa mu ngalo. Kino kiyinza okutwala akaseera."
     },
     "AddToMobileWallet": {
       "title": "Yongera ku ssaamu ya simu",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Shipping address",
-      "fullName": "Full name",
+      "firstName": "Erinnya ery'omu maaso",
+      "lastName": "Erinnya ery'oku nkomerero",
       "addressLine1": "Address line 1",
       "addressLine2": "Address line 2",
       "city": "City",

@@ -2727,6 +2727,8 @@
     "csvExport": "Export transactions as CSV",
     "date": "Date",
     "description": "Description",
+    "discard": "Lahla",
+    "discardChangesMessage": "Unezinguquko ezingagcinwanga. Uqinisekile ukuba ufuna ukuzilahla?",
     "domain": "Domain",
     "email": "Email",
     "error": "Error",
@@ -2813,7 +2815,12 @@
     "profiles": "Iiprofayili",
     "paste": "Ncamathisela",
     "hasBeenCopiedToClipboard": "{type: string} ikopishwe kwibhodi eqhotyoshwayo",
-    "save": "Save"
+    "save": "Save",
+    "validation": {
+      "required": "Le ndawo iyafuneka",
+      "minChars": "Kufuneka ibe nobuncinane {min} oonobumba",
+      "invalidPostalCode": "Ikhowudi yeposi engekho mthethweni"
+    }
   },
   "errors": {
     "generic": "There was an error.\nPlease try again later.",
@@ -2974,7 +2981,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Kulindile",
-      "completed": "Kugqityiwe"
+      "completed": "Kugqityiwe",
+      "declined": "Yaliwe",
+      "reversed": "Ibuyiselwe"
     },
     "CardDashboard": {
       "Actions": {
@@ -2989,6 +2998,7 @@
       "title": "Ikhadi le-Visa"
     },
     "validThruLabel": "ISEBENZA DE KUPHELA",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Ikhadi libandisiwe",
     "cardFrozenSubtitle": "Ikhadi limisiwe okwethutyana",
     "CardLimits": {
@@ -3014,24 +3024,35 @@
         "contactless": "Ukuhlawula ngaphandle kochukumiso",
         "contactlessDescription": "Vumela imisebenzi ngaphandle kochukumiso"
       },
-      "title": "Imida yekhadi"
+      "title": "Imida yekhadi",
+      "noLimit": "Akukho mda",
+      "limitUpdateSuccess": "Umda uhlaziywe ngempumelelo",
+      "limitUpdateError": "Ayiphumelelanga ukuhlaziya umda",
+      "limitMustBePositive": "Umda kufuneka ube ngaphezu kwezero"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Iinkcukacha zekhadi",
+      "cardNumber": "Inombolo yekhadi",
+      "expiryDate": "Umhla wokuphelelwa",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Igama lomnikazi wekhadi",
+      "cardInformation": "Ulwazi lwekhadi",
+      "cardType": "Uhlobo lwekhadi",
+      "status": "Isimo",
+      "statusActive": "Iyasebenza",
+      "statusFrozen": "Ikhandiwe",
+      "statusInactive": "Ayisebenzi",
+      "issued": "Ikhutshiwe",
+      "network": "Uthungelwano",
+      "keepDetailsSafe": "Gcina iinkcukacha zakho zikhuselekile",
+      "securityWarning": "Ungaze wabelane ngeenkcukacha zekhadi yakho nabanye. IBlink ayisoze ikucele ulwazi lwekhadi yakho nge-imeyili okanye ngefowuni.",
+      "statusCancelled": "Irhoxisiwe",
+      "statusNotActivated": "Ayivulwanga",
+      "statusPending": "Ilindile",
+      "statusFailed": "Ayiphumelelanga",
+      "cardTypeVirtual": "Ikhadi le-Visa lokukhupha imali engazange libonwe",
+      "cardTypePhysical": "Ikhadi le-Visa lokukhupha imali elingokoqobo",
+      "authDescription": "Qinisekisa ukubona iinkcukacha zekhadi"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3069,7 +3090,19 @@
       "privacyPolicy": "Umgaqo-nkqubo wobumfihlo bekhadi",
       "closeCardAccount": "Vala iakhawunti yekhadi",
       "closeCardAccountDescription": "Vala ikhadi lakho le-Visa ngokusisigxina",
-      "addToAppleWallet": "Yongeza ku-Apple Wallet"
+      "addToAppleWallet": "Yongeza ku-Apple Wallet",
+      "notificationToggleError": "Ayiphumelelanga ukuhlaziya izicwangciso zezaziso",
+      "closeCardWarning": "Esi senzo sisigxina. Ikhadi lakho le-Visa liya kurhoxiswa kwaye alinakuhlaziywa kwakhona.",
+      "closeCardTypeClose": "Nceda uchwetheze \"{close}\" ukuqinisekisa",
+      "closeCardClose": "vala",
+      "closeCardFinalConfirmTitle": "Ukuqinisekisa Kokugqibela",
+      "closeCardFinalConfirmMessage": "Uqinisekile ukuba ufuna ukuvala iakhawunti yakho yekhadi? Oku akunakubuyiselwa.",
+      "closeCardPendingTransactions": "Uneetransekshini ezilindileyo. Nceda ulinde zide zigqitywe phambi kokuvala ikhadi lakho.",
+      "closeCardBalanceWarning": "Ikhadi lakho linebhalansi ye-{balance}. Nceda utsale imali yakho phambi kokuvala. Ngaba ufuna ukuqhubeka?",
+      "closeCardSuccessTitle": "Iakhawunti Yekhadi Ivaliwe",
+      "closeCardSuccessSubtitle": "Ikhadi lakho le-Visa livaliwe ngokusisigxina.",
+      "closeCardSuccessButton": "Buyela eKhaya",
+      "closeCardError": "Koyekile ukuvala iakhawunti yekhadi. Nceda uqhagamshelane nenkxaso."
     },
     "TransactionDetails": {
       "title": "Iinkcukacha zotshintshiselwano",
@@ -3107,7 +3140,19 @@
       "dateOfBirth": "Umhla wokuzalwa",
       "contactInformation": "Ulwazi loqhagamshelwano",
       "registeredAddress": "Idilesi ebhalisiweyo",
-      "shippingAddress": "Idilesi yokuthumela"
+      "shippingAddress": "Idilesi yokuthumela",
+      "kycPendingTitle": "Uqinisekiso lwe-KYC luyalindile",
+      "kycPendingDescription": "Uqinisekiso lwakho lwe-KYC luyenziwa. Oku kunokuthatha ixesha.",
+      "kycDeclinedTitle": "Uqinisekiso lwe-KYC lwalelwa",
+      "kycDeclinedDescription": "Uqinisekiso lwakho lwe-KYC lwalelwa. Nceda uqhagamshelane nenkxaso ukuze ufumane inkcazelo engakumbi.",
+      "kycNotStartedTitle": "Gqibezela uqinisekiso lwe-KYC",
+      "kycNotStartedDescription": "Gqibezela inkqubo yoqinisekiso lwe-KYC ukuvula zonke iimpawu zekhadi.",
+      "kycAwaitingInputTitle": "Qhubeka noqinisekiso lwe-KYC",
+      "kycAwaitingInputDescription": "Kudingeka ulwazi olongezelelweyo ukugqibezela uqinisekiso lwakho lwe-KYC.",
+      "kycErrorTitle": "Impazamo yoqinisekiso",
+      "kycErrorDescription": "Kwenzeke impazamo ngexesha loqinisekiso. Nceda uzame kwakhona okanye uqhagamshelane nenkxaso.",
+      "kycUnderReviewTitle": "KYC iyahlolwa",
+      "kycUnderReviewDescription": "Ukuqinisekiswa kwakho kwe-KYC kuhlolwa ngesandla. Oku kunokuthatha ixesha."
     },
     "AddToMobileWallet": {
       "title": "Yongeza kwisipaji sefowuni",
@@ -3137,7 +3182,8 @@
     },
     "ShippingAddress": {
       "title": "Shipping address",
-      "fullName": "Full name",
+      "firstName": "Igama lokuqala",
+      "lastName": "Ifani",
       "addressLine1": "Address line 1",
       "addressLine2": "Address line 2",
       "city": "City",

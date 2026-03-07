@@ -2703,6 +2703,8 @@
     "csvExport": "Kawsayniyta CSV tukuykunawan kaniy",
     "date": "P'anqa",
     "description": "Riqsichiy",
+    "discard": "Wikchuy",
+    "discardChangesMessage": "Mana waqaychisqa tikraykunayuqmi kanki. ¿Chiqaqtachu wikchuyta munanki?",
     "domain": "Kawsayninchik",
     "email": "Chaskiwillana",
     "error": "Llimphi",
@@ -2789,7 +2791,12 @@
     "profiles": "Perfilkuna",
     "paste": "P'itiy",
     "hasBeenCopiedToClipboard": "{type: string} clipboard nisqaman churasqa kachkan",
-    "save": "Save"
+    "save": "Save",
+    "validation": {
+      "required": "Kay qillqana kiti rurananchikpaqmi",
+      "minChars": "{min} sanampakama kanan",
+      "invalidPostalCode": "Mana allin código postal"
+    }
   },
   "errors": {
     "generic": "Kanqaqa ñuqaqa kani.\nImaynalla rikuchiy.",
@@ -2965,7 +2972,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Pendiente",
-      "completed": "Completado"
+      "completed": "Completado",
+      "declined": "Rechazada",
+      "reversed": "Revertida"
     },
     "CardDashboard": {
       "Actions": {
@@ -2980,6 +2989,7 @@
       "title": "Tarjeta Visa"
     },
     "validThruLabel": "VÁLIDO HASTA",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Tarjeta congelada",
     "cardFrozenSubtitle": "La tarjeta está temporalmente deshabilitada",
     "CardLimits": {
@@ -3005,24 +3015,35 @@
         "contactless": "Mana llamk'ay pagokuna",
         "contactlessDescription": "Mana llamk'ay transaccionkunata saqiy"
       },
-      "title": "Tarjeta limitkuna"
+      "title": "Tarjeta limitkuna",
+      "noLimit": "Mana limitayuq",
+      "limitUpdateSuccess": "Limite allinlla musuqyachisqa",
+      "limitUpdateError": "Mana atikurqanchu limite musuqyachiyta",
+      "limitMustBePositive": "Limite nisqaqa cero nisqamanta hatunraq kanan"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Tarjeta willayninkunap detallenkunan",
+      "cardNumber": "Tarjeta yupaynin",
+      "expiryDate": "Tukukuy p'unchay",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Tarjeta hap'iqpa sutin",
+      "cardInformation": "Tarjeta willayninkuna",
+      "cardType": "Tarjeta laya",
+      "status": "Kayninpi",
+      "statusActive": "Llamk'achkanmi",
+      "statusFrozen": "Chiriyachisqa",
+      "statusInactive": "Mana llamk'achkanchu",
+      "issued": "Qusqa",
+      "network": "Llika",
+      "keepDetailsSafe": "Willayniykikunata allinta waqaychay",
+      "securityWarning": "Ama pipas tarjeta willayniykikunata quychu. Blink mana hayk'aqpas tarjeta willayniykikunata mañanqachu correo electrónico utaq teléfono kaqwan.",
+      "statusCancelled": "Cancelasqa",
+      "statusNotActivated": "Mana activasqachu",
+      "statusPending": "Suyachkan",
+      "statusFailed": "Mana atikunchu",
+      "cardTypeVirtual": "Virtual Visa débito",
+      "cardTypePhysical": "Físico Visa débito",
+      "authDescription": "Kikillaykita tarichiy tarjeta willakunata qhawanaykipaq"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3060,7 +3081,19 @@
       "privacyPolicy": "Tarjeta pakasqa kamachiy",
       "closeCardAccount": "Tarjeta kuntata wisqay",
       "closeCardAccountDescription": "Visa tarjetaykita wiñaypaq wisqay",
-      "addToAppleWallet": "Yapaykuy Apple Wallet nisqaman"
+      "addToAppleWallet": "Yapaykuy Apple Wallet nisqaman",
+      "notificationToggleError": "Mana atikurqachu willanakuy churanakuykunata",
+      "closeCardWarning": "Kay ruwayqa wiñaypaqmi. Visa tarjetaykiqa chinkachisqa kanqa, manam kutichiyta atikunkichu.",
+      "closeCardTypeClose": "Ama hina kaspa \"{close}\" nispa qillqay takyachinapaq",
+      "closeCardClose": "wisq'ay",
+      "closeCardFinalConfirmTitle": "Qhipa Takyachiy",
+      "closeCardFinalConfirmMessage": "¿Chiqaqtachu tarjeta cuentaykita wisq'ayta munanki? Kayqa manam kutichiy atikun.",
+      "closeCardPendingTransactions": "Suyachkaq ruwanakuna kapusunki. Ama hina kaspa suyay chaykunata tukurunankama tarjetaykita wisq'anaykipaq.",
+      "closeCardBalanceWarning": "Tarjetaykipi {balance} saldo kachkan. Ama hina kaspa qullqiykita hurquy wisq'anaykipaq. ¿Ñawpaqman riyta munankichu?",
+      "closeCardSuccessTitle": "Tarjeta Cuenta Wisq'asqa",
+      "closeCardSuccessSubtitle": "Visa tarjetaykiqa wiñaypaq wisq'asqa.",
+      "closeCardSuccessButton": "Qallariy panaman kutiy",
+      "closeCardError": "Manam atikurqachu tarjeta cuentata wisq'ayta. Ama hina kaspa yanapakuqwan rimanakuy."
     },
     "TransactionDetails": {
       "title": "Transacción willaykunakuna",
@@ -3098,7 +3131,19 @@
       "dateOfBirth": "Paqarisqa p'unchay",
       "contactInformation": "Tinkuy willakuykuna",
       "registeredAddress": "Qillqasqa tiyana",
-      "shippingAddress": "Apachina tiyana"
+      "shippingAddress": "Apachina tiyana",
+      "kycPendingTitle": "KYC taripay suyachkan",
+      "kycPendingDescription": "KYC taripayki ruwakuchkan. Kayqa pachata hap'inman.",
+      "kycDeclinedTitle": "KYC taripay qhipachisqa",
+      "kycDeclinedDescription": "KYC taripayki qhipachisqa karqa. Yanapakuqwan rimanakuy astawan yachanaykipaq.",
+      "kycNotStartedTitle": "KYC taripayta tukuchiy",
+      "kycNotStartedDescription": "KYC taripay ñanta tukuchiy tukuy tarjeta ruwanakunata kichanaykipaq.",
+      "kycAwaitingInputTitle": "KYC taripayta qatiy",
+      "kycAwaitingInputDescription": "Astawan willakuykuna necesitakun KYC taripayta tukuchinaykipaq.",
+      "kycErrorTitle": "Taripay pantay",
+      "kycErrorDescription": "Huk pantay karqa taripay pachapi. Watiqmanta ruway utaq yanapakuqwan rimanakuy.",
+      "kycUnderReviewTitle": "KYC qhawasqa kachkan",
+      "kycUnderReviewDescription": "KYC chiqapchayniyqi makiwan qhawasqa kachkan. Kayqa tumpa pachata hap'inman."
     },
     "AddToMobileWallet": {
       "title": "Yapaykuy qullqi walitaman",
@@ -3128,7 +3173,8 @@
     },
     "ShippingAddress": {
       "title": "Shipping address",
-      "fullName": "Full name",
+      "firstName": "Ñawpaq suti",
+      "lastName": "Ayllu suti",
       "addressLine1": "Address line 1",
       "addressLine2": "Address line 2",
       "city": "City",

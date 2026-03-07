@@ -2686,6 +2686,8 @@
     "csvExport": "Exporta les transaccions com a CSV",
     "date": "Data",
     "description": "Descripció",
+    "discard": "Descartar",
+    "discardChangesMessage": "Tens canvis sense desar. Estàs segur que vols descartar-los?",
     "domain": "Domini",
     "email": "Correu electrònic",
     "error": "Error",
@@ -2772,7 +2774,12 @@
     "profiles": "Perfils",
     "paste": "Enganxa",
     "hasBeenCopiedToClipboard": "{type: string} s'ha copiat al porta-retalls",
-    "save": "Desa"
+    "save": "Desa",
+    "validation": {
+      "required": "Aquest camp és obligatori",
+      "minChars": "Ha de tenir almenys {min} caràcters",
+      "invalidPostalCode": "Codi postal no vàlid"
+    }
   },
   "errors": {
     "generic": "Hi ha hagut un error.\nSi us plau intenta-ho més tard.",
@@ -2927,7 +2934,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Pendent",
-      "completed": "Completat"
+      "completed": "Completat",
+      "declined": "Rebutjada",
+      "reversed": "Revertida"
     },
     "CardDashboard": {
       "Actions": {
@@ -2942,6 +2951,7 @@
       "title": "Targeta Visa"
     },
     "validThruLabel": "VÀLIDA FINS",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Targeta congelada",
     "cardFrozenSubtitle": "La targeta està temporalment desactivada",
     "CardLimits": {
@@ -2967,24 +2977,35 @@
         "contactless": "Pagaments sense contacte",
         "contactlessDescription": "Permet transaccions sense contacte"
       },
-      "title": "Límits de la targeta"
+      "title": "Límits de la targeta",
+      "noLimit": "Sense límit",
+      "limitUpdateSuccess": "Límit actualitzat correctament",
+      "limitUpdateError": "No s'ha pogut actualitzar el límit",
+      "limitMustBePositive": "El límit ha de ser superior a zero"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Detalls de la targeta",
+      "cardNumber": "Número de targeta",
+      "expiryDate": "Data de caducitat",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
-      "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "cardholderName": "Nom del titular",
+      "cardInformation": "Informació de la targeta",
+      "cardType": "Tipus de targeta",
+      "status": "Estat",
+      "statusActive": "Activa",
+      "statusFrozen": "Congelada",
+      "statusInactive": "Inactiva",
+      "issued": "Emesa",
+      "network": "Xarxa",
+      "keepDetailsSafe": "Mantingueu les vostres dades segures",
+      "securityWarning": "No compartiu mai els detalls de la vostra targeta amb ningú. Blink no us demanarà mai la informació de la targeta per correu electrònic o telèfon.",
+      "statusCancelled": "Cancel·lada",
+      "statusNotActivated": "No activada",
+      "statusPending": "Pendent",
+      "statusFailed": "Fallida",
+      "cardTypeVirtual": "Dèbit Visa virtual",
+      "cardTypePhysical": "Dèbit Visa física",
+      "authDescription": "Autentiqueu-vos per veure els detalls de la targeta"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3022,7 +3043,19 @@
       "privacyPolicy": "Política de privacitat de la targeta",
       "closeCardAccount": "Tancar compte de targeta",
       "closeCardAccountDescription": "Tanca permanentment la teva targeta Visa",
-      "addToAppleWallet": "Afegir a Apple Wallet"
+      "addToAppleWallet": "Afegir a Apple Wallet",
+      "notificationToggleError": "No s'han pogut actualitzar les preferències de notificació",
+      "closeCardWarning": "Aquesta acció és permanent. La teva targeta Visa serà cancel·lada i no es podrà reactivar.",
+      "closeCardTypeClose": "Si us plau, escriu \"{close}\" per confirmar",
+      "closeCardClose": "tancar",
+      "closeCardFinalConfirmTitle": "Confirmació Final",
+      "closeCardFinalConfirmMessage": "Estàs segur que vols tancar el teu compte de targeta? Això no es pot desfer.",
+      "closeCardPendingTransactions": "Tens transaccions pendents. Si us plau, espera fins que es liquidin abans de tancar la teva targeta.",
+      "closeCardBalanceWarning": "La teva targeta té un saldo de {balance}. Si us plau, retira els teus fons abans de tancar. Vols continuar igualment?",
+      "closeCardSuccessTitle": "Compte de Targeta Tancat",
+      "closeCardSuccessSubtitle": "La teva targeta Visa ha estat tancada permanentment.",
+      "closeCardSuccessButton": "Tornar a l'Inici",
+      "closeCardError": "No s'ha pogut tancar el compte de targeta. Si us plau, contacta amb suport."
     },
     "TransactionDetails": {
       "title": "Detalls de la transacció",
@@ -3060,7 +3093,19 @@
       "dateOfBirth": "Data de naixement",
       "contactInformation": "Informació de contacte",
       "registeredAddress": "Adreça registrada",
-      "shippingAddress": "Adreça d'enviament"
+      "shippingAddress": "Adreça d'enviament",
+      "kycPendingTitle": "Verificació KYC pendent",
+      "kycPendingDescription": "La verificació KYC s'està processant. Això pot trigar una estona.",
+      "kycDeclinedTitle": "Verificació KYC rebutjada",
+      "kycDeclinedDescription": "La verificació KYC ha estat rebutjada. Contacteu amb el suport per obtenir més informació.",
+      "kycNotStartedTitle": "Completeu la verificació KYC",
+      "kycNotStartedDescription": "Completeu el procés de verificació KYC per desbloquejar totes les funcions de la targeta.",
+      "kycAwaitingInputTitle": "Continueu la verificació KYC",
+      "kycAwaitingInputDescription": "Es necessita informació addicional per completar la verificació KYC.",
+      "kycErrorTitle": "Error de verificació",
+      "kycErrorDescription": "S'ha produït un error durant la verificació. Torneu-ho a provar o contacteu amb el suport.",
+      "kycUnderReviewTitle": "KYC en revisió",
+      "kycUnderReviewDescription": "La verificació KYC està en revisió manual. Això pot trigar una estona."
     },
     "AddToMobileWallet": {
       "title": "Afegir a la cartera mobil",
@@ -3090,7 +3135,8 @@
     },
     "ShippingAddress": {
       "title": "Adreça d'enviament",
-      "fullName": "Nom complet",
+      "firstName": "Nom",
+      "lastName": "Cognoms",
       "addressLine1": "Adreça línia 1",
       "addressLine2": "Adreça línia 2",
       "city": "Ciutat",

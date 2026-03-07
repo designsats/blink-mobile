@@ -2703,6 +2703,8 @@
     "csvExport": "Извоз трансакција као „CSV“",
     "date": "Датум",
     "description": "Опис",
+    "discard": "Одбаци",
+    "discardChangesMessage": "Имате несачуване промене. Да ли сте сигурни да желите да их одбаците?",
     "domain": "Домен",
     "email": "Имејл",
     "error": "Грешка",
@@ -2789,7 +2791,12 @@
     "profiles": "Профили",
     "paste": "Налепи",
     "hasBeenCopiedToClipboard": "{type: string} је копиран/а у клипборд",
-    "save": "Сачувај"
+    "save": "Сачувај",
+    "validation": {
+      "required": "Ово поље је обавезно",
+      "minChars": "Мора имати најмање {min} знакова",
+      "invalidPostalCode": "Неважећи поштански број"
+    }
   },
   "errors": {
     "generic": "Дошло је до грешке.\nМолимо вас покушајте поново касније.",
@@ -2965,7 +2972,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Na čekanju",
-      "completed": "Završeno"
+      "completed": "Završeno",
+      "declined": "Odbijena",
+      "reversed": "Stornirana"
     },
     "CardDashboard": {
       "Actions": {
@@ -2980,6 +2989,7 @@
       "title": "Visa kartica"
     },
     "validThruLabel": "VAŽI DO",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kartica zamrznuta",
     "cardFrozenSubtitle": "Kartica je privremeno onemogućena",
     "CardLimits": {
@@ -3005,24 +3015,35 @@
         "contactless": "Бесконтактна плаћања",
         "contactlessDescription": "Дозволи бесконтактне трансакције"
       },
-      "title": "Ограничења картице"
+      "title": "Ограничења картице",
+      "noLimit": "Без ограничења",
+      "limitUpdateSuccess": "Ограничење успешно ажурирано",
+      "limitUpdateError": "Ажурирање ограничења није успело",
+      "limitMustBePositive": "Ограничење мора бити веће од нуле"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Detalji kartice",
+      "cardNumber": "Broj kartice",
+      "expiryDate": "Datum isteka",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
+      "cardholderName": "Ime vlasnika kartice",
+      "cardInformation": "Informacije o kartici",
+      "cardType": "Tip kartice",
       "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "statusActive": "Aktivna",
+      "statusFrozen": "Zamrznuta",
+      "statusInactive": "Neaktivna",
+      "issued": "Izdata",
+      "network": "Mreža",
+      "keepDetailsSafe": "Čuvajte svoje podatke na sigurnom",
+      "securityWarning": "Nikada ne delite podatke o svojoj kartici ni sa kim. Blink nikada neće tražiti podatke o vašoj kartici putem e-pošte ili telefona.",
+      "statusCancelled": "Отказана",
+      "statusNotActivated": "Није активирана",
+      "statusPending": "На чекању",
+      "statusFailed": "Неуспела",
+      "cardTypeVirtual": "Виртуелна Visa дебитна",
+      "cardTypePhysical": "Физичка Visa дебитна",
+      "authDescription": "Аутентификујте се да видите податке картице"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3060,7 +3081,19 @@
       "privacyPolicy": "Политика приватности картице",
       "closeCardAccount": "Затвори налог картице",
       "closeCardAccountDescription": "Трајно затворите своју Visa картицу",
-      "addToAppleWallet": "Dodaj u Apple Wallet"
+      "addToAppleWallet": "Додај у Apple Wallet",
+      "notificationToggleError": "Ажурирање подешавања обавештења није успело",
+      "closeCardWarning": "Ова радња је трајна. Ваша Visa картица ће бити отказана и не може се поново активирати.",
+      "closeCardTypeClose": "Унесите \"{close}\" за потврду",
+      "closeCardClose": "затвори",
+      "closeCardFinalConfirmTitle": "Завршна потврда",
+      "closeCardFinalConfirmMessage": "Да ли сте сигурни да желите да затворите налог картице? Ово се не може поништити.",
+      "closeCardPendingTransactions": "Имате трансакције на чекању. Сачекајте да се обраде пре затварања картице.",
+      "closeCardBalanceWarning": "Ваша картица има стање од {balance}. Повуците средства пре затварања. Да ли желите да наставите?",
+      "closeCardSuccessTitle": "Налог картице затворен",
+      "closeCardSuccessSubtitle": "Ваша Visa картица је трајно затворена.",
+      "closeCardSuccessButton": "Назад на почетну",
+      "closeCardError": "Затварање налога картице није успело. Контактирајте подршку."
     },
     "TransactionDetails": {
       "title": "Детаљи трансакције",
@@ -3098,7 +3131,19 @@
       "dateOfBirth": "Датум рођења",
       "contactInformation": "Контакт информације",
       "registeredAddress": "Регистрована адреса",
-      "shippingAddress": "Адреса за доставу"
+      "shippingAddress": "Адреса за доставу",
+      "kycPendingTitle": "КYC верификација на чекању",
+      "kycPendingDescription": "Ваша КYC верификација се обрађује. Ово може потрајати неко време.",
+      "kycDeclinedTitle": "КYC верификација одбијена",
+      "kycDeclinedDescription": "Ваша КYC верификација је одбијена. Контактирајте подршку за више информација.",
+      "kycNotStartedTitle": "Завршите КYC верификацију",
+      "kycNotStartedDescription": "Завршите процес КYC верификације да бисте откључали све функције картице.",
+      "kycAwaitingInputTitle": "Наставите КYC верификацију",
+      "kycAwaitingInputDescription": "Додатне информације су потребне за завршетак ваше КYC верификације.",
+      "kycErrorTitle": "Грешка верификације",
+      "kycErrorDescription": "Дошло је до грешке током верификације. Покушајте поново или контактирајте подршку.",
+      "kycUnderReviewTitle": "KYC на прегледу",
+      "kycUnderReviewDescription": "Ваша KYC верификација је на ручном прегледу. Ово може потрајати неко време."
     },
     "AddToMobileWallet": {
       "title": "Dodaj u mobilni novcanik",
@@ -3128,7 +3173,8 @@
     },
     "ShippingAddress": {
       "title": "Адреса за испоруку",
-      "fullName": "Пуно име",
+      "firstName": "Име",
+      "lastName": "Презиме",
       "addressLine1": "Адреса ред 1",
       "addressLine2": "Адреса ред 2",
       "city": "Град",

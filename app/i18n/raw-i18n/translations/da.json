@@ -2689,6 +2689,8 @@
     "csvExport": "Eksportér transaktioner som CSV",
     "date": "Dato",
     "description": "Beskrivelse",
+    "discard": "Kassér",
+    "discardChangesMessage": "Du har ikke-gemte ændringer. Er du sikker på, at du vil kassere dem?",
     "domain": "Domæne",
     "email": "Email",
     "error": "Fejl",
@@ -2775,7 +2777,12 @@
     "profiles": "Profiler",
     "paste": "Indsæt",
     "hasBeenCopiedToClipboard": "{type: string} blev kopieret til udklipsholderen",
-    "save": "Gem"
+    "save": "Gem",
+    "validation": {
+      "required": "Dette felt er påkrævet",
+      "minChars": "Skal være mindst {min} tegn",
+      "invalidPostalCode": "Ugyldigt postnummer"
+    }
   },
   "errors": {
     "generic": "Der opstod en fejl.\nPrøv igen senere.",
@@ -2945,7 +2952,9 @@
   "CardFlow": {
     "TransactionStatus": {
       "pending": "Afventer",
-      "completed": "Fuldført"
+      "completed": "Fuldført",
+      "declined": "Afvist",
+      "reversed": "Tilbageført"
     },
     "CardDashboard": {
       "Actions": {
@@ -2960,6 +2969,7 @@
       "title": "Visa-kort"
     },
     "validThruLabel": "GYLDIG TIL",
+    "networkVisa": "Visa",
     "cardFrozenTitle": "Kort spærret",
     "cardFrozenSubtitle": "Kortet er midlertidigt deaktiveret",
     "CardLimits": {
@@ -2985,24 +2995,35 @@
         "contactless": "Kontaktløse betalinger",
         "contactlessDescription": "Tillad kontaktløse transaktioner"
       },
-      "title": "Kortgrænser"
+      "title": "Kortgrænser",
+      "noLimit": "Ingen grænse",
+      "limitUpdateSuccess": "Grænse opdateret",
+      "limitUpdateError": "Kunne ikke opdatere grænsen",
+      "limitMustBePositive": "Grænsen skal være større end nul"
     },
     "CardDetails": {
-      "title": "Card details",
-      "cardNumber": "Card number",
-      "expiryDate": "Expiry date",
+      "title": "Kortoplysninger",
+      "cardNumber": "Kortnummer",
+      "expiryDate": "Udløbsdato",
       "cvv": "CVV",
-      "cardholderName": "Cardholder name",
-      "cardInformation": "Card information",
-      "cardType": "Card type",
+      "cardholderName": "Kortholderens navn",
+      "cardInformation": "Kortinformation",
+      "cardType": "Korttype",
       "status": "Status",
-      "statusActive": "Active",
-      "statusFrozen": "Frozen",
-      "statusInactive": "Inactive",
-      "issued": "Issued",
-      "network": "Network",
-      "keepDetailsSafe": "Keep your details safe",
-      "securityWarning": "Never share your card details with anyone. Blink will never ask for your card information via email or phone."
+      "statusActive": "Aktivt",
+      "statusFrozen": "Frosset",
+      "statusInactive": "Inaktivt",
+      "issued": "Udstedt",
+      "network": "Netværk",
+      "keepDetailsSafe": "Hold dine oplysninger sikre",
+      "securityWarning": "Del aldrig dine kortoplysninger med nogen. Blink vil aldrig bede om dine kortoplysninger via e-mail eller telefon.",
+      "statusCancelled": "Annulleret",
+      "statusNotActivated": "Ikke aktiveret",
+      "statusPending": "Afventer",
+      "statusFailed": "Mislykket",
+      "cardTypeVirtual": "Virtuelt Visa-debetkort",
+      "cardTypePhysical": "Fysisk Visa-debetkort",
+      "authDescription": "Godkend for at se kortoplysninger"
     },
     "CardStatements": {
       "title": "Statements",
@@ -3040,7 +3061,19 @@
       "privacyPolicy": "Kortets privatlivspolitik",
       "closeCardAccount": "Luk kortkonto",
       "closeCardAccountDescription": "Luk dit Visa-kort permanent",
-      "addToAppleWallet": "Tilfoej til Apple Wallet"
+      "addToAppleWallet": "Tilfoej til Apple Wallet",
+      "notificationToggleError": "Kunne ikke opdatere notifikationsindstillinger",
+      "closeCardWarning": "Denne handling er permanent. Dit Visa-kort vil blive annulleret og kan ikke genaktiveres.",
+      "closeCardTypeClose": "Skriv venligst \"{close}\" for at bekræfte",
+      "closeCardClose": "luk",
+      "closeCardFinalConfirmTitle": "Endelig Bekræftelse",
+      "closeCardFinalConfirmMessage": "Er du sikker på, at du vil lukke din kortkonto? Dette kan ikke fortrydes.",
+      "closeCardPendingTransactions": "Du har ventende transaktioner. Vent venligst, indtil de er afviklet, før du lukker dit kort.",
+      "closeCardBalanceWarning": "Dit kort har en saldo på {balance}. Hæv venligst dine midler, før du lukker. Vil du fortsætte alligevel?",
+      "closeCardSuccessTitle": "Kortkonto Lukket",
+      "closeCardSuccessSubtitle": "Dit Visa-kort er blevet permanent lukket.",
+      "closeCardSuccessButton": "Tilbage til Startside",
+      "closeCardError": "Kunne ikke lukke kortkonto. Kontakt venligst support."
     },
     "TransactionDetails": {
       "title": "Transaktionsdetaljer",
@@ -3078,7 +3111,19 @@
       "dateOfBirth": "Fødselsdato",
       "contactInformation": "Kontaktoplysninger",
       "registeredAddress": "Registreret adresse",
-      "shippingAddress": "Leveringsadresse"
+      "shippingAddress": "Leveringsadresse",
+      "kycPendingTitle": "KYC-bekræftelse afventer",
+      "kycPendingDescription": "Din KYC-bekræftelse behandles. Det kan tage lidt tid.",
+      "kycDeclinedTitle": "KYC-bekræftelse afvist",
+      "kycDeclinedDescription": "Din KYC-bekræftelse blev afvist. Kontakt venligst support for mere information.",
+      "kycNotStartedTitle": "Gennemfør KYC-bekræftelse",
+      "kycNotStartedDescription": "Gennemfør KYC-bekræftelsesprocessen for at låse op for alle kortfunktioner.",
+      "kycAwaitingInputTitle": "Fortsæt KYC-bekræftelse",
+      "kycAwaitingInputDescription": "Yderligere oplysninger er nødvendige for at fuldføre din KYC-bekræftelse.",
+      "kycErrorTitle": "Bekræftelsesfejl",
+      "kycErrorDescription": "Der opstod en fejl under bekræftelsen. Prøv venligst igen eller kontakt support.",
+      "kycUnderReviewTitle": "KYC under gennemgang",
+      "kycUnderReviewDescription": "Din KYC-verifikation er under manuel gennemgang. Det kan tage lidt tid."
     },
     "AddToMobileWallet": {
       "title": "Tilfoej til mobil tegnebog",
@@ -3108,7 +3153,8 @@
     },
     "ShippingAddress": {
       "title": "Leveringsadresse",
-      "fullName": "Fulde navn",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
       "addressLine1": "Adresselinje 1",
       "addressLine2": "Adresselinje 2",
       "city": "By",
