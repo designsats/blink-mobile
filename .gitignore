@@ -115,3 +115,4 @@ android/app/src/debug/res/values/strings.xml
 android/app/build.gradle
 CLAUDE.local.md
 .mcp.json
+ios/Podfile.lock
