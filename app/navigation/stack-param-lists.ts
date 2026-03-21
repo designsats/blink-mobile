@@ -52,6 +52,15 @@ export type RootStackParamList = {
   sendBitcoinConfirmation: {
     paymentDetail: PaymentDetail<WalletCurrency>
   }
+  sendBitcoinPayment: {
+    paymentDetail: PaymentDetail<WalletCurrency>
+    currencyAmount: string
+    satAmount: string
+    currencyFeeAmount: string
+    satFeeAmount: string
+    destination: string
+    paymentType: string
+  }
   conversionDetails: undefined
   conversionConfirmation: {
     fromWalletCurrency: WalletCurrency
@@ -70,6 +79,7 @@ export type RootStackParamList = {
     destination?: string
     paymentType?: string
     createdAt?: number
+    skipSuccessIcon?: boolean
   }
   setLightningAddress: { onboarding?: boolean }
   language: undefined

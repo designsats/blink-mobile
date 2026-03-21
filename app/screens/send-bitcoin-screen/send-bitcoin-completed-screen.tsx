@@ -301,9 +301,6 @@ const HeaderSection: React.FC<{
 }
 
 const SendBitcoinCompletedScreen: React.FC<Props> = ({ route }) => {
-  const [showSuccessIcon, setShowSuccessIcon] = useState(true)
-  const viewRef = useRef<View>(null)
-
   const {
     arrivalAtMempoolEstimate,
     status: statusRaw,
@@ -316,7 +313,11 @@ const SendBitcoinCompletedScreen: React.FC<Props> = ({ route }) => {
     destination,
     paymentType,
     createdAt,
+    skipSuccessIcon,
   } = route.params
+
+  const [showSuccessIcon, setShowSuccessIcon] = useState(!skipSuccessIcon)
+  const viewRef = useRef<View>(null)
 
   const styles = useStyles()
   const {

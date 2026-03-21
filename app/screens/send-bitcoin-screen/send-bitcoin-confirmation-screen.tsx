@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { ActivityIndicator, TouchableOpacity, View } from "react-native"
 import { PanGestureHandler } from "react-native-gesture-handler"
-import ReactNativeHapticFeedback from "react-native-haptic-feedback"
 
 import { gql } from "@apollo/client"
 import { CurrencyPill, useEqualPillWidth } from "@app/components/atomic/currency-pill"
@@ -32,16 +31,12 @@ import {
   toUsdMoneyAmount,
   ZeroUsdMoneyAmount,
 } from "@app/types/amounts"
-import { logPaymentAttempt, logPaymentResult } from "@app/utils/analytics"
-import crashlytics from "@react-native-firebase/crashlytics"
-import { CommonActions, RouteProp, useNavigation } from "@react-navigation/native"
+import { RouteProp, useFocusEffect, useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 import { makeStyles, Text, useTheme } from "@rn-vui/themed"
 
 import { testProps } from "../../utils/testProps"
 import useFee from "./use-fee"
-import { useSendPayment } from "./use-send-payment"
-import { useSaveLnAddressContact } from "./use-save-lnaddress-contact"
 import { ellipsizeMiddle } from "@app/utils/helper"
 
 gql`
@@ -80,7 +75,6 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     destination,
     paymentType,
     sendingWalletDescriptor,
-    sendPaymentMutation,
     getFee,
     settlementAmount,
     memo: note,
@@ -94,8 +88,6 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     getSecondaryAmountIfCurrencyIsDifferent,
     formatMoneyAmount,
   } = useDisplayCurrency()
-  const saveLnAddressContact = useSaveLnAddressContact()
-
   const { data } = useSendBitcoinConfirmationScreenQuery({ skip: !useIsAuthed() })
 
   const btcWallet = getBtcWallet(data?.me?.defaultAccount?.wallets)
@@ -117,37 +109,31 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     isApproximate: true,
   })
 
-  const [paymentError, setPaymentError] = useState<string | undefined>(undefined)
   const { LL } = useI18nContext()
   const { copyToClipboard } = useClipboard()
 
   const fee = useFee(getFee)
 
-  const defaultAmount = formatMoneyAmount({ moneyAmount: ZeroUsdMoneyAmount })
-  let currencyFeeAmount = defaultAmount
-  let satFeeAmount = defaultAmount
+  const hasNavigatedRef = React.useRef(false)
 
-  const {
-    loading: sendPaymentLoading,
-    sendPayment,
-    hasAttemptedSend,
-  } = useSendPayment(sendPaymentMutation)
+  // Reset the guard when returning from the payment screen (e.g. "Try Again")
+  useFocusEffect(
+    React.useCallback(() => {
+      hasNavigatedRef.current = false
+    }, []),
+  )
 
   const feeErrorText = String(LL.SendBitcoinConfirmationScreen.feeError())
   let feeDisplayText = feeErrorText
-  currencyFeeAmount = feeErrorText
-  satFeeAmount = feeErrorText
+  let currencyFeeAmount = feeErrorText
+  let satFeeAmount = feeErrorText
   if (fee.amount) {
     const feeDisplayAmount = paymentDetail.convertMoneyAmount(fee.amount, DisplayCurrency)
     feeDisplayText = formatDisplayAndWalletAmount({
       displayAmount: feeDisplayAmount,
       walletAmount: fee.amount,
     })
-
-    currencyFeeAmount = formatMoneyAmount({
-      moneyAmount: feeDisplayAmount,
-    })
-
+    currencyFeeAmount = formatMoneyAmount({ moneyAmount: feeDisplayAmount })
     const secondaryFeeAmount = getSecondaryAmountIfCurrencyIsDifferent({
       primaryAmount: feeDisplayAmount,
       walletAmount: paymentDetail.convertMoneyAmount(fee.amount, WalletCurrency.Btc),
@@ -163,9 +149,7 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     DisplayCurrency,
   )
 
-  const currencyAmount = formatMoneyAmount({
-    moneyAmount: displayAmount,
-  })
+  const currencyAmount = formatMoneyAmount({ moneyAmount: displayAmount })
 
   const secondaryAmount = getSecondaryAmountIfCurrencyIsDifferent({
     primaryAmount: displayAmount,
@@ -177,108 +161,31 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     moneyAmount: secondaryAmount ?? ZeroUsdMoneyAmount,
   })
 
-  const handleSendPayment = React.useCallback(async () => {
-    if (!sendPayment || !sendingWalletDescriptor?.currency) {
-      return sendPayment
-    }
+  const handleSendPayment = React.useCallback(() => {
+    if (hasNavigatedRef.current || !sendingWalletDescriptor?.currency) return
+    hasNavigatedRef.current = true
 
-    try {
-      logPaymentAttempt({
-        paymentType: paymentDetail.paymentType,
-        sendingWallet: sendingWalletDescriptor.currency,
-      })
-      const { status, errorsMessage, extraInfo, transaction } = await sendPayment()
-
-      logPaymentResult({
-        paymentType: paymentDetail.paymentType,
-        paymentStatus: status,
-        sendingWallet: sendingWalletDescriptor.currency,
-      })
-
-      if (status === "SUCCESS" || status === "PENDING") {
-        await saveLnAddressContact({
-          paymentType,
-          destination,
-          isMerchant:
-            paymentDetail.paymentType === "lnurl" ? paymentDetail.isMerchant : undefined,
-        })
-
-        navigation.dispatch((state) => {
-          const routes = [
-            { name: "Primary" },
-            {
-              name: "sendBitcoinCompleted",
-              params: {
-                arrivalAtMempoolEstimate: extraInfo?.arrivalAtMempoolEstimate,
-                status,
-                successAction: paymentDetail?.successAction,
-                preimage: extraInfo?.preimage,
-                currencyAmount,
-                satAmount,
-                currencyFeeAmount,
-                satFeeAmount,
-                destination:
-                  paymentDetail?.paymentType === "intraledger"
-                    ? destination
-                    : ellipsizeMiddle(destination, {
-                        maxLength: 50,
-                        maxResultLeft: 13,
-                        maxResultRight: 8,
-                      }),
-                paymentType: paymentDetail?.paymentType,
-                createdAt: transaction?.createdAt,
-              },
-            },
-          ]
-          return CommonActions.reset({
-            ...state,
-            routes,
-            index: routes.length - 1,
-          })
-        })
-        ReactNativeHapticFeedback.trigger("notificationSuccess", {
-          ignoreAndroidSystemSettings: true,
-        })
-        return
-      }
-
-      if (status === "ALREADY_PAID") {
-        setPaymentError(LL.SendBitcoinConfirmationScreen.invoiceAlreadyPaid())
-        ReactNativeHapticFeedback.trigger("notificationError", {
-          ignoreAndroidSystemSettings: true,
-        })
-        return
-      }
-
-      setPaymentError(
-        errorsMessage || LL.SendBitcoinConfirmationScreen.somethingWentWrong(),
-      )
-      ReactNativeHapticFeedback.trigger("notificationError", {
-        ignoreAndroidSystemSettings: true,
-      })
-    } catch (err) {
-      if (err instanceof Error) {
-        crashlytics().recordError(err)
-
-        const indempotencyErrorPattern = /409: Conflict/i
-        if (indempotencyErrorPattern.test(err.message)) {
-          setPaymentError(LL.SendBitcoinConfirmationScreen.paymentAlreadyAttempted())
-          return
-        }
-
-        setPaymentError(err.message || err.toString())
-      }
-    }
+    navigation.navigate("sendBitcoinPayment", {
+      paymentDetail,
+      currencyAmount,
+      satAmount,
+      currencyFeeAmount,
+      satFeeAmount,
+      destination:
+        paymentDetail.paymentType === "intraledger"
+          ? destination
+          : ellipsizeMiddle(destination, {
+              maxLength: 50,
+              maxResultLeft: 13,
+              maxResultRight: 8,
+            }),
+      paymentType: paymentDetail.paymentType,
+    })
   }, [
-    LL,
     navigation,
     paymentDetail,
-    sendPayment,
-    setPaymentError,
     sendingWalletDescriptor?.currency,
-    paymentType,
     destination,
-    saveLnAddressContact,
     currencyAmount,
     satAmount,
     currencyFeeAmount,
@@ -332,7 +239,7 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
     })
   }
 
-  const errorMessage = paymentError || invalidAmountErrorMessage
+  const errorMessage = invalidAmountErrorMessage
 
   const transactionType = () => {
     if (paymentType === "intraledger") return LL.common.intraledger()
@@ -498,11 +405,10 @@ const SendBitcoinConfirmationScreen: React.FC<Props> = ({ route }) => {
           <PanGestureHandler>
             <View style={styles.sliderContainer}>
               <GaloySliderButton
-                isLoading={sendPaymentLoading}
                 initialText={LL.SendBitcoinConfirmationScreen.slideToConfirm()}
                 loadingText={LL.SendBitcoinConfirmationScreen.slideConfirming()}
                 onSwipe={handleSendPayment}
-                disabled={!validAmount || hasAttemptedSend}
+                disabled={!validAmount}
               />
             </View>
           </PanGestureHandler>

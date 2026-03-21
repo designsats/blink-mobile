@@ -37,6 +37,7 @@ import RedeemBitcoinDetailScreen from "@app/screens/redeem-lnurl-withdrawal-scre
 import RedeemBitcoinResultScreen from "@app/screens/redeem-lnurl-withdrawal-screen/redeem-bitcoin-result-screen"
 import SendBitcoinCompletedScreen from "@app/screens/send-bitcoin-screen/send-bitcoin-completed-screen"
 import SendBitcoinConfirmationScreen from "@app/screens/send-bitcoin-screen/send-bitcoin-confirmation-screen"
+import SendBitcoinPaymentScreen from "@app/screens/send-bitcoin-screen/send-bitcoin-payment-screen"
 import SendBitcoinDestinationScreen from "@app/screens/send-bitcoin-screen/send-bitcoin-destination-screen"
 import SendBitcoinDetailsScreen from "@app/screens/send-bitcoin-screen/send-bitcoin-details-screen"
 import { SetLightningAddressScreen } from "@app/screens/lightning-address-screen/set-lightning-address-screen"
@@ -232,6 +233,11 @@ export const RootStack = () => {
         name="sendBitcoinConfirmation"
         component={SendBitcoinConfirmationScreen}
         options={{ title: LL.SendBitcoinScreen.title() }}
+      />
+      <RootNavigator.Screen
+        name="sendBitcoinPayment"
+        component={SendBitcoinPaymentScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
       />
       <RootNavigator.Screen
         name="sendBitcoinCompleted"
