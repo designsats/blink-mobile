@@ -1,6 +1,6 @@
 import LottieView from "lottie-react-native"
 import React, { useCallback, useEffect, useRef, useState } from "react"
-import { Animated, BackHandler, Dimensions, Easing, View } from "react-native"
+import { Animated, BackHandler, Dimensions, View } from "react-native"
 import ReactNativeHapticFeedback from "react-native-haptic-feedback"
 
 import errored from "@app/assets/animations/error.json"
@@ -110,10 +110,7 @@ const SendBitcoinPaymentScreen: React.FC<Props> = ({ route }) => {
   type PaymentResultType = Awaited<ReturnType<NonNullable<typeof sendPayment>>>
   const [paymentResult, setPaymentResult] = useState<PaymentResultType | null>(null)
 
-  // Text slide-up animation values
   const fadeAnim = useRef(new Animated.Value(0)).current
-  const windowHeight = Dimensions.get("window").height
-  const textPosition = useRef(new Animated.Value(windowHeight)).current
 
   // Kick off payment immediately on mount
   useEffect(() => {
@@ -200,27 +197,17 @@ const SendBitcoinPaymentScreen: React.FC<Props> = ({ route }) => {
     paymentType,
   ])
 
-  // Slide text up and fade in actions when a final animation state is reached
+  // Fade in text and actions when a final animation state is reached
   useEffect(() => {
     if (!finalStates.includes(paymentAnimationState)) return
-
-    const slideTimer = setTimeout(() => {
-      Animated.timing(textPosition, {
-        toValue: windowHeight * 0.62,
-        duration: 500,
-        easing: Easing.in(Easing.ease),
-        useNativeDriver: false,
-      }).start()
-    }, 2000)
 
     const fadeTimer = setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 500,
-        easing: Easing.in(Easing.ease),
-        useNativeDriver: false,
+        duration: 120,
+        useNativeDriver: true,
       }).start()
-    }, 2500)
+    }, 1500)
 
     // Auto-navigate to completed screen after success animations finish
     let navTimer: ReturnType<typeof setTimeout> | undefined
@@ -235,11 +222,10 @@ const SendBitcoinPaymentScreen: React.FC<Props> = ({ route }) => {
     }
 
     return () => {
-      clearTimeout(slideTimer)
       clearTimeout(fadeTimer)
       if (navTimer) clearTimeout(navTimer)
     }
-  }, [fadeAnim, textPosition, paymentAnimationState, navigateToCompleted])
+  }, [fadeAnim, paymentAnimationState, navigateToCompleted])
 
   // Animation controller: transitions SENDING → result states, with minimum duration guard
   const startTime = useRef(Date.now())
@@ -350,8 +336,8 @@ const SendBitcoinPaymentScreen: React.FC<Props> = ({ route }) => {
         ))}
       </View>
 
-      {/* Status text — slides up from bottom after final animation */}
-      <Animated.View style={[styles.txInfo, { top: textPosition }]}>
+      {/* Status text — fades in when final animation state is reached */}
+      <Animated.View style={[styles.txInfo, { opacity: fadeAnim }]}>
         {isFinalState && (
           <Text type="p1" style={styles.centerText}>
             {getStatusText()}
@@ -409,6 +395,7 @@ const useStyles = makeStyles(() => ({
   },
   txInfo: {
     position: "absolute",
+    top: "50%",
     left: 0,
     right: 0,
     alignItems: "center",
