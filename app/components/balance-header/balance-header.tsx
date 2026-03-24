@@ -1,24 +1,30 @@
 import * as React from "react"
 import ContentLoader, { Rect } from "react-content-loader/native"
-import { TouchableOpacity, View, Text } from "react-native"
+import { PixelRatio, TouchableOpacity, View, Text } from "react-native"
 
 import { makeStyles } from "@rn-vui/themed"
 
 import { useHideAmount } from "@app/graphql/hide-amount-context"
 import { testProps } from "@app/utils/testProps"
 
+const BASE_LOADER_HEIGHT = 40
+const BASE_LOADER_WIDTH = 100
+
 const Loader = () => {
   const styles = useStyles()
+  const fontScale = PixelRatio.getFontScale()
+  const loaderHeight = Math.round(BASE_LOADER_HEIGHT * fontScale)
+  const loaderWidth = Math.round(BASE_LOADER_WIDTH * fontScale)
   return (
     <ContentLoader
-      height={40}
-      width={100}
+      height={loaderHeight}
+      width={loaderWidth}
       speed={1.2}
       backgroundColor={styles.loaderBackground.color}
       foregroundColor={styles.loaderForefound.color}
-      viewBox="0 0 100 40"
+      viewBox={`0 0 ${loaderWidth} ${loaderHeight}`}
     >
-      <Rect x="0" y="0" rx="4" ry="4" width="100" height="40" />
+      <Rect x="0" y="0" rx="4" ry="4" width={loaderWidth} height={loaderHeight} />
     </ContentLoader>
   )
 }
@@ -43,7 +49,7 @@ export const BalanceHeader: React.FC<Props> = ({ loading, formattedBalance }) =>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity onPress={switchMemoryHideAmount}>
-          <View>
+          <View style={styles.balanceContainer}>
             {loading ? (
               <Loader />
             ) : (
@@ -63,10 +69,16 @@ export const BalanceHeader: React.FC<Props> = ({ loading, formattedBalance }) =>
   )
 }
 
+const fontScale = PixelRatio.getFontScale()
+
 const useStyles = makeStyles(({ colors }) => ({
   balanceHeaderContainer: {
     alignItems: "center",
     textAlign: "center",
+  },
+  balanceContainer: {
+    height: Math.round(BASE_LOADER_HEIGHT * fontScale),
+    justifyContent: "center",
   },
   primaryBalanceText: {
     fontSize: 32,
