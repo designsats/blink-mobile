@@ -7541,10 +7541,6 @@ type RootTranslation = {
 		 */
 		notifications: string
 		/**
-		 * R​e​c​o​v​e​r​y​ ​m​e​t​h​o​d
-		 */
-		recoveryMethod: string
-		/**
 		 * S​e​t​t​i​n​g​s
 		 */
 		title: string
@@ -19728,10 +19724,6 @@ export type TranslationFunctions = {
 		 * Notifications
 		 */
 		notifications: () => LocalizedString
-		/**
-		 * Recovery method
-		 */
-		recoveryMethod: () => LocalizedString
 		/**
 		 * Settings
 		 */
