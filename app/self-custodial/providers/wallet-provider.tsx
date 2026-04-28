@@ -9,6 +9,7 @@ import React, {
 
 import { type BreezSdkInterface } from "@breeztech/breez-sdk-spark-react-native"
 
+import { useFeatureFlags } from "@app/config/feature-flags-context"
 import { useAccountRegistry } from "@app/hooks/use-account-registry"
 import { getLightningAddress } from "@app/self-custodial/bridge"
 import { setSelfCustodialLightningAddress } from "@app/self-custodial/storage/account-index"
@@ -64,12 +65,13 @@ export const SelfCustodialWalletProvider: React.FC<React.PropsWithChildren> = ({
     activeAccount?.type === AccountType.SelfCustodial ? activeAccount.id : null
 
   const [retryCount, setRetryCount] = useState(0)
+  const { stableBalanceEnabled } = useFeatureFlags()
   const {
     wallets,
     status,
     sdk,
     connectedAccountId,
-    isStableBalanceActive,
+    sdkStableBalanceActive,
     lastReceivedPaymentId,
     hasMoreTransactions,
     loadingMore,
@@ -77,6 +79,8 @@ export const SelfCustodialWalletProvider: React.FC<React.PropsWithChildren> = ({
     refreshWallets,
     refreshStableBalanceActive,
   } = useSdkLifecycle(activeSelfCustodialAccountId, retryCount)
+
+  const isStableBalanceActive = stableBalanceEnabled && sdkStableBalanceActive
 
   const retry = useCallback(() => {
     setRetryCount((prev) => prev + 1)

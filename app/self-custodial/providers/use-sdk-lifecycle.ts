@@ -25,7 +25,7 @@ type SdkLifecycleState = {
   status: ActiveWalletStatus
   sdk: BreezSdkInterface | null
   connectedAccountId: string | null
-  isStableBalanceActive: boolean
+  sdkStableBalanceActive: boolean
   lastReceivedPaymentId: string | null
   hasMoreTransactions: boolean
   loadingMore: boolean
@@ -47,7 +47,7 @@ export const useSdkLifecycle = (
 ): SdkLifecycleState => {
   const [wallets, setWallets] = useState<WalletState[]>([])
   const [status, setStatus] = useState<ActiveWalletStatus>(ActiveWalletStatus.Unavailable)
-  const [isStableBalanceActive, setIsStableBalanceActive] = useState(false)
+  const [sdkStableBalanceActive, setSdkStableBalanceActive] = useState(false)
   const [lastReceivedPaymentId, setLastReceivedPaymentId] = useState<string | null>(null)
   const [hasMoreTransactions, setHasMoreTransactions] = useState(false)
   const [loadingMore, setLoadingMore] = useState(false)
@@ -148,7 +148,7 @@ export const useSdkLifecycle = (
       getUserSettings(connectedSdk)
         .then((settings) => {
           if (mounted) {
-            setIsStableBalanceActive(settings.stableBalanceActiveLabel !== undefined)
+            setSdkStableBalanceActive(settings.stableBalanceActiveLabel !== undefined)
           }
         })
         .catch(() => {})
@@ -230,7 +230,7 @@ export const useSdkLifecycle = (
     if (!sdkRef.current) return
     try {
       const settings = await getUserSettings(sdkRef.current)
-      setIsStableBalanceActive(settings.stableBalanceActiveLabel !== undefined)
+      setSdkStableBalanceActive(settings.stableBalanceActiveLabel !== undefined)
     } catch (err) {
       logSdkEvent(SdkLogLevel.Error, `Failed to refresh user settings: ${err}`)
     }
@@ -241,7 +241,7 @@ export const useSdkLifecycle = (
     status,
     sdk,
     connectedAccountId,
-    isStableBalanceActive,
+    sdkStableBalanceActive,
     lastReceivedPaymentId,
     hasMoreTransactions,
     loadingMore,
