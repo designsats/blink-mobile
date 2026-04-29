@@ -11913,22 +11913,6 @@ type RootTranslation = {
 		 * S​e​c​u​r​e​ ​w​a​l​l​e​t
 		 */
 		secureMe: string
-		/**
-		 * Y​o​u​ ​a​r​e​ ​i​n​ ​c​o​n​t​r​o​l
-		 */
-		trustModelTitle: string
-		/**
-		 * Y​o​u​r​ ​k​e​y​s​ ​c​o​n​t​r​o​l​ ​y​o​u​r​ ​f​u​n​d​s​.​ ​T​r​a​n​s​a​c​t​i​o​n​s​ ​a​r​e​ ​p​r​o​c​e​s​s​e​d​ ​b​y​ ​S​p​a​r​k​ ​o​p​e​r​a​t​o​r​s​,​ ​n​o​t​ ​v​a​l​i​d​a​t​e​d​ ​d​i​r​e​c​t​l​y​ ​o​n​ ​B​i​t​c​o​i​n​ ​L​1​.
-		 */
-		trustModelDescription: string
-		/**
-		 * V​e​r​y​ ​s​m​a​l​l​ ​b​a​l​a​n​c​e​s​ ​m​a​y​ ​n​o​t​ ​b​e​ ​e​c​o​n​o​m​i​c​a​l​ ​t​o​ ​r​e​c​o​v​e​r​ ​t​o​ ​t​h​e​ ​B​i​t​c​o​i​n​ ​b​a​s​e​ ​c​h​a​i​n​.
-		 */
-		trustModelWarning: string
-		/**
-		 * I​ ​u​n​d​e​r​s​t​a​n​d
-		 */
-		trustModelDismiss: string
 	}
 	SelfCustodialOffline: {
 		/**
@@ -24042,22 +24026,6 @@ export type TranslationFunctions = {
 		 * Secure wallet
 		 */
 		secureMe: () => LocalizedString
-		/**
-		 * You are in control
-		 */
-		trustModelTitle: () => LocalizedString
-		/**
-		 * Your keys control your funds. Transactions are processed by Spark operators, not validated directly on Bitcoin L1.
-		 */
-		trustModelDescription: () => LocalizedString
-		/**
-		 * Very small balances may not be economical to recover to the Bitcoin base chain.
-		 */
-		trustModelWarning: () => LocalizedString
-		/**
-		 * I understand
-		 */
-		trustModelDismiss: () => LocalizedString
 	}
 	SelfCustodialOffline: {
 		/**
