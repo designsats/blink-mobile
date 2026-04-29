@@ -8138,6 +8138,18 @@ type RootTranslation = {
 		 * L​e​a​r​n​ ​m​o​r​e​ ​a​b​o​u​t​ ​S​t​a​b​l​e​s​a​t​s
 		 */
 		learnMore: string
+		/**
+		 * Y​o​u​r​ ​D​o​l​l​a​r​ ​a​c​c​o​u​n​t​ ​h​o​l​d​s​ ​s​t​a​b​l​e​c​o​i​n​s
+		 */
+		headerSelfCustodial: string
+		/**
+		 * I​n​ ​t​h​e​ ​D​o​l​l​a​r​ ​a​c​c​o​u​n​t​ ​y​o​u​ ​h​o​l​d​ ​s​t​a​b​l​e​c​o​i​n​s​.​ ​T​o​k​e​n​s​ ​b​a​c​k​e​d​ ​b​y​ ​a​s​s​e​t​s​ ​w​i​t​h​ ​v​a​l​u​e​ ​h​e​l​d​ ​s​t​a​b​l​e​ ​t​o​ ​t​h​e​ ​U​S​D​.​ ​Y​o​u​ ​c​a​n​'​t​ ​s​e​n​d​ ​a​n​d​ ​r​e​c​e​i​v​e​ ​s​t​a​b​l​e​c​o​i​n​s​ ​(​y​e​t​)​.​ ​W​h​e​n​ ​y​o​u​ ​s​e​n​d​ ​f​r​o​m​ ​t​h​e​ ​D​o​l​l​a​r​ ​a​c​c​o​u​n​t​,​ ​y​o​u​ ​w​i​l​l​ ​s​w​a​p​ ​y​o​u​r​ ​s​t​a​b​l​e​c​o​i​n​s​ ​a​n​d​ ​s​e​n​d​ ​a​s​ ​B​i​t​c​o​i​n​ ​t​o​ ​t​h​e​ ​r​e​c​i​p​i​e​n​t​.
+		 */
+		bodySelfCustodial: string
+		/**
+		 * L​e​a​r​n​ ​m​o​r​e
+		 */
+		learnMoreSelfCustodial: string
 	}
 	SplashScreen: {
 		/**
@@ -20317,6 +20329,18 @@ export type TranslationFunctions = {
 		 * Learn more about Stablesats
 		 */
 		learnMore: () => LocalizedString
+		/**
+		 * Your Dollar account holds stablecoins
+		 */
+		headerSelfCustodial: () => LocalizedString
+		/**
+		 * In the Dollar account you hold stablecoins. Tokens backed by assets with value held stable to the USD. You can't send and receive stablecoins (yet). When you send from the Dollar account, you will swap your stablecoins and send as Bitcoin to the recipient.
+		 */
+		bodySelfCustodial: () => LocalizedString
+		/**
+		 * Learn more
+		 */
+		learnMoreSelfCustodial: () => LocalizedString
 	}
 	SplashScreen: {
 		/**
