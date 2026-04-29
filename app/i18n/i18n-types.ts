@@ -12202,18 +12202,6 @@ type RootTranslation = {
 	}
 	SelfCustodialDelete: {
 		/**
-		 * D​e​l​e​t​e​ ​s​e​l​f​-​c​u​s​t​o​d​i​a​l​ ​w​a​l​l​e​t
-		 */
-		title: string
-		/**
-		 * T​h​i​s​ ​w​i​l​l​ ​r​e​m​o​v​e​ ​t​h​i​s​ ​w​a​l​l​e​t​ ​f​r​o​m​ ​t​h​i​s​ ​d​e​v​i​c​e​.
-		 */
-		warning: string
-		/**
-		 * I​f​ ​y​o​u​ ​h​a​v​e​ ​y​o​u​r​ ​b​a​c​k​u​p​ ​p​h​r​a​s​e​ ​s​a​v​e​d​ ​y​o​u​ ​c​a​n​ ​r​e​s​t​o​r​e​ ​t​h​i​s​ ​w​a​l​l​e​t​ ​o​n​ ​a​n​y​ ​d​e​v​i​c​e​.​ ​I​f​ ​y​o​u​ ​d​o​n​'​t​,​ ​y​o​u​ ​w​i​l​l​ ​l​o​s​e​ ​a​c​c​e​s​s​ ​t​o​ ​y​o​u​r​ ​f​u​n​d​s​.
-		 */
-		recoveryNote: string
-		/**
 		 * I​m​p​o​r​t​a​n​t
 		 */
 		dangerZoneImportantTitle: string
@@ -24289,18 +24277,6 @@ export type TranslationFunctions = {
 		degradedBanner: () => LocalizedString
 	}
 	SelfCustodialDelete: {
-		/**
-		 * Delete self-custodial wallet
-		 */
-		title: () => LocalizedString
-		/**
-		 * This will remove this wallet from this device.
-		 */
-		warning: () => LocalizedString
-		/**
-		 * If you have your backup phrase saved you can restore this wallet on any device. If you don't, you will lose access to your funds.
-		 */
-		recoveryNote: () => LocalizedString
 		/**
 		 * Important
 		 */
