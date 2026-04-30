@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import crashlytics from "@react-native-firebase/crashlytics"
+
+import { reportError } from "@app/utils/error-logging"
 
 import type { PendingAutoConvert } from "./types"
 
@@ -7,10 +8,6 @@ const PENDING_STORAGE_KEY = "selfCustodialAutoConvertPending"
 
 /** Exceeds the default 12h Bolt11 expiry so invoices aren't dropped early. */
 const RECORD_TTL_MS = 24 * 60 * 60 * 1000
-
-const reportError = (err: unknown, context: string): void => {
-  crashlytics().recordError(err instanceof Error ? err : new Error(`${context}: ${err}`))
-}
 
 const readAll = async (): Promise<PendingAutoConvert[]> => {
   try {
@@ -20,7 +17,7 @@ const readAll = async (): Promise<PendingAutoConvert[]> => {
     if (!Array.isArray(parsed)) return []
     return parsed.filter(isPendingAutoConvert).map(normalizeRecord)
   } catch (err) {
-    reportError(err, "auto-convert-storage: readAll failed")
+    reportError("auto-convert-storage readAll", err)
     return []
   }
 }
@@ -29,7 +26,7 @@ const writeAll = async (records: PendingAutoConvert[]): Promise<void> => {
   try {
     await AsyncStorage.setItem(PENDING_STORAGE_KEY, JSON.stringify(records))
   } catch (err) {
-    reportError(err, "auto-convert-storage: writeAll failed")
+    reportError("auto-convert-storage writeAll", err)
   }
 }
 

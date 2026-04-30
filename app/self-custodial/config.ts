@@ -35,3 +35,6 @@ export const SparkConfig = {
   tokenIdentifier: Config.SPARK_TOKEN_IDENTIFIER ?? "",
   apiKey: Config.BREEZ_API_KEY ?? "",
 } as const
+
+export const storageDirFor = (accountId: string): string =>
+  `${SparkConfig.storageDir}/${accountId}`
