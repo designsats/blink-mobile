@@ -8868,6 +8868,14 @@ type RootTranslation = {
 		 */
 		blinkUser: string
 		/**
+		 * A​n​o​n​y​m​o​u​s
+		 */
+		anonymous: string
+		/**
+		 * A​n​o​n​y​m​o​u​s​ ​u​s​e​r
+		 */
+		anonymousUser: string
+		/**
 		 * B​l​i​n​k​ ​t​o​ ​B​l​i​n​k
 		 */
 		blinkToBlink: string
@@ -21018,6 +21026,14 @@ export type TranslationFunctions = {
 		 * Blink User
 		 */
 		blinkUser: () => LocalizedString
+		/**
+		 * Anonymous
+		 */
+		anonymous: () => LocalizedString
+		/**
+		 * Anonymous user
+		 */
+		anonymousUser: () => LocalizedString
 		/**
 		 * Blink to Blink
 		 */
