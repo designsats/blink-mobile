@@ -90,7 +90,7 @@ const defaultRemoteConfig: RemoteConfig = {
   sparkCompatibleWalletsUrl: "https://docs.spark.money/wallets/overview",
   backupNudgeBannerThreshold: 2100,
   backupNudgeModalThreshold: 21000,
-  nonCustodialEnabled: false,
+  nonCustodialEnabled: true,
   stableBalanceEnabled: false,
   autoConvertMaxAttempts: 3,
   autoConvertPollMaxAttempts: 7,
@@ -99,8 +99,8 @@ const defaultRemoteConfig: RemoteConfig = {
 }
 
 const defaultFeatureFlags: FeatureFlags = {
-  deviceAccountEnabled: false,
-  nonCustodialEnabled: false,
+  deviceAccountEnabled: true,
+  nonCustodialEnabled: true,
   stableBalanceEnabled: false,
 }
 
