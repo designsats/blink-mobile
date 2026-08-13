@@ -885,6 +885,12 @@ export type CurrencyConversionEstimation = {
   readonly usdCentAmount: Scalars['CentAmount']['output'];
 };
 
+export type CustodialRestrictions = {
+  readonly __typename: 'CustodialRestrictions';
+  readonly dollarBalance: Scalars['Boolean']['output'];
+  readonly transfer: Scalars['Boolean']['output'];
+};
+
 export type DepositFeeTier = {
   readonly __typename: 'DepositFeeTier';
   readonly amount: Scalars['String']['output'];
@@ -2299,6 +2305,7 @@ export type Query = {
   /** Returns an estimated conversion rate for the given amount and currency */
   readonly currencyConversionEstimation: CurrencyConversionEstimation;
   readonly currencyList: ReadonlyArray<Currency>;
+  readonly custodialRestrictions: CustodialRestrictions;
   readonly deviceSessionCount: Scalars['Int']['output'];
   readonly globals?: Maybe<Globals>;
   readonly hiddenBalanceToolTip: Scalars['Boolean']['output'];
@@ -2322,6 +2329,7 @@ export type Query = {
   /** Returns 1 Sat and 1 Usd Cent price for the given currency in minor unit */
   readonly realtimePrice: RealtimePrice;
   readonly region?: Maybe<Region>;
+  readonly regionCheck: RegionCheck;
   readonly txLastSeen: TxLastSeen;
   readonly upgradeModalLastShownAt?: Maybe<Scalars['String']['output']>;
   /** @deprecated will be migrated to AccountDefaultWalletId */
@@ -2483,6 +2491,13 @@ export type Region = {
   readonly latitudeDelta: Scalars['Float']['output'];
   readonly longitude: Scalars['Float']['output'];
   readonly longitudeDelta: Scalars['Float']['output'];
+};
+
+export type RegionCheck = {
+  readonly __typename: 'RegionCheck';
+  readonly countryCode?: Maybe<Scalars['String']['output']>;
+  readonly custodialCreationAllowed: Scalars['Boolean']['output'];
+  readonly restricted: Scalars['Boolean']['output'];
 };
 
 export type SatAmountPayload = {
@@ -3362,6 +3377,18 @@ export type CurrencyListQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type CurrencyListQuery = { readonly __typename: 'Query', readonly currencyList: ReadonlyArray<{ readonly __typename: 'Currency', readonly id: string, readonly flag: string, readonly name: string, readonly symbol: string, readonly fractionDigits: number }> };
 
+export type UserEmailDeleteMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserEmailDeleteMutation = { readonly __typename: 'Mutation', readonly userEmailDelete: { readonly __typename: 'UserEmailDeletePayload', readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string }>, readonly me?: { readonly __typename: 'User', readonly id: string, readonly phone?: string | null, readonly totpEnabled: boolean, readonly email?: { readonly __typename: 'Email', readonly address?: string | null, readonly verified?: boolean | null } | null } | null } };
+
+export type UserEmailRegistrationInitiateMutationVariables = Exact<{
+  input: UserEmailRegistrationInitiateInput;
+}>;
+
+
+export type UserEmailRegistrationInitiateMutation = { readonly __typename: 'Mutation', readonly userEmailRegistrationInitiate: { readonly __typename: 'UserEmailRegistrationInitiatePayload', readonly emailRegistrationId?: string | null, readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string }>, readonly me?: { readonly __typename: 'User', readonly id: string, readonly email?: { readonly __typename: 'Email', readonly address?: string | null, readonly verified?: boolean | null } | null } | null } };
+
 export type CaptchaCreateChallengeMutationVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3544,13 +3571,6 @@ export type QuizClaimMutationVariables = Exact<{
 
 
 export type QuizClaimMutation = { readonly __typename: 'Mutation', readonly quizClaim: { readonly __typename: 'QuizClaimPayload', readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string, readonly code?: string | null }>, readonly quizzes: ReadonlyArray<{ readonly __typename: 'Quiz', readonly id: string, readonly amount: number, readonly completed: boolean, readonly notBefore?: number | null }> } };
-
-export type UserEmailRegistrationInitiateMutationVariables = Exact<{
-  input: UserEmailRegistrationInitiateInput;
-}>;
-
-
-export type UserEmailRegistrationInitiateMutation = { readonly __typename: 'Mutation', readonly userEmailRegistrationInitiate: { readonly __typename: 'UserEmailRegistrationInitiatePayload', readonly emailRegistrationId?: string | null, readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string }>, readonly me?: { readonly __typename: 'User', readonly id: string, readonly email?: { readonly __typename: 'Email', readonly address?: string | null, readonly verified?: boolean | null } | null } | null } };
 
 export type UserEmailRegistrationValidateMutationVariables = Exact<{
   input: UserEmailRegistrationValidateInput;
@@ -3896,12 +3916,7 @@ export type OnChainUsdPaymentSendAsBtcDenominatedMutation = { readonly __typenam
 export type AccountDeleteMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AccountDeleteMutation = { readonly __typename: 'Mutation', readonly accountDelete: { readonly __typename: 'AccountDeletePayload', readonly success: boolean, readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string }> } };
-
-export type UserEmailDeleteMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type UserEmailDeleteMutation = { readonly __typename: 'Mutation', readonly userEmailDelete: { readonly __typename: 'UserEmailDeletePayload', readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string }>, readonly me?: { readonly __typename: 'User', readonly id: string, readonly phone?: string | null, readonly totpEnabled: boolean, readonly email?: { readonly __typename: 'Email', readonly address?: string | null, readonly verified?: boolean | null } | null } | null } };
+export type AccountDeleteMutation = { readonly __typename: 'Mutation', readonly accountDelete: { readonly __typename: 'AccountDeletePayload', readonly success: boolean, readonly errors: ReadonlyArray<{ readonly __typename: 'GraphQLApplicationError', readonly message: string, readonly code?: string | null }> } };
 
 export type UserPhoneDeleteMutationVariables = Exact<{ [key: string]: never; }>;
 
@@ -5218,6 +5233,92 @@ export type CurrencyListQueryHookResult = ReturnType<typeof useCurrencyListQuery
 export type CurrencyListLazyQueryHookResult = ReturnType<typeof useCurrencyListLazyQuery>;
 export type CurrencyListSuspenseQueryHookResult = ReturnType<typeof useCurrencyListSuspenseQuery>;
 export type CurrencyListQueryResult = Apollo.QueryResult<CurrencyListQuery, CurrencyListQueryVariables>;
+export const UserEmailDeleteDocument = gql`
+    mutation userEmailDelete {
+  userEmailDelete {
+    errors {
+      message
+    }
+    me {
+      id
+      phone
+      totpEnabled
+      email {
+        address
+        verified
+      }
+    }
+  }
+}
+    `;
+export type UserEmailDeleteMutationFn = Apollo.MutationFunction<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>;
+
+/**
+ * __useUserEmailDeleteMutation__
+ *
+ * To run a mutation, you first call `useUserEmailDeleteMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUserEmailDeleteMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [userEmailDeleteMutation, { data, loading, error }] = useUserEmailDeleteMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useUserEmailDeleteMutation(baseOptions?: Apollo.MutationHookOptions<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>(UserEmailDeleteDocument, options);
+      }
+export type UserEmailDeleteMutationHookResult = ReturnType<typeof useUserEmailDeleteMutation>;
+export type UserEmailDeleteMutationResult = Apollo.MutationResult<UserEmailDeleteMutation>;
+export type UserEmailDeleteMutationOptions = Apollo.BaseMutationOptions<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>;
+export const UserEmailRegistrationInitiateDocument = gql`
+    mutation userEmailRegistrationInitiate($input: UserEmailRegistrationInitiateInput!) {
+  userEmailRegistrationInitiate(input: $input) {
+    errors {
+      message
+    }
+    emailRegistrationId
+    me {
+      id
+      email {
+        address
+        verified
+      }
+    }
+  }
+}
+    `;
+export type UserEmailRegistrationInitiateMutationFn = Apollo.MutationFunction<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>;
+
+/**
+ * __useUserEmailRegistrationInitiateMutation__
+ *
+ * To run a mutation, you first call `useUserEmailRegistrationInitiateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUserEmailRegistrationInitiateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [userEmailRegistrationInitiateMutation, { data, loading, error }] = useUserEmailRegistrationInitiateMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUserEmailRegistrationInitiateMutation(baseOptions?: Apollo.MutationHookOptions<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>(UserEmailRegistrationInitiateDocument, options);
+      }
+export type UserEmailRegistrationInitiateMutationHookResult = ReturnType<typeof useUserEmailRegistrationInitiateMutation>;
+export type UserEmailRegistrationInitiateMutationResult = Apollo.MutationResult<UserEmailRegistrationInitiateMutation>;
+export type UserEmailRegistrationInitiateMutationOptions = Apollo.BaseMutationOptions<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>;
 export const CaptchaCreateChallengeDocument = gql`
     mutation captchaCreateChallenge {
   captchaCreateChallenge {
@@ -6512,49 +6613,6 @@ export function useQuizClaimMutation(baseOptions?: Apollo.MutationHookOptions<Qu
 export type QuizClaimMutationHookResult = ReturnType<typeof useQuizClaimMutation>;
 export type QuizClaimMutationResult = Apollo.MutationResult<QuizClaimMutation>;
 export type QuizClaimMutationOptions = Apollo.BaseMutationOptions<QuizClaimMutation, QuizClaimMutationVariables>;
-export const UserEmailRegistrationInitiateDocument = gql`
-    mutation userEmailRegistrationInitiate($input: UserEmailRegistrationInitiateInput!) {
-  userEmailRegistrationInitiate(input: $input) {
-    errors {
-      message
-    }
-    emailRegistrationId
-    me {
-      id
-      email {
-        address
-        verified
-      }
-    }
-  }
-}
-    `;
-export type UserEmailRegistrationInitiateMutationFn = Apollo.MutationFunction<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>;
-
-/**
- * __useUserEmailRegistrationInitiateMutation__
- *
- * To run a mutation, you first call `useUserEmailRegistrationInitiateMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUserEmailRegistrationInitiateMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [userEmailRegistrationInitiateMutation, { data, loading, error }] = useUserEmailRegistrationInitiateMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUserEmailRegistrationInitiateMutation(baseOptions?: Apollo.MutationHookOptions<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>(UserEmailRegistrationInitiateDocument, options);
-      }
-export type UserEmailRegistrationInitiateMutationHookResult = ReturnType<typeof useUserEmailRegistrationInitiateMutation>;
-export type UserEmailRegistrationInitiateMutationResult = Apollo.MutationResult<UserEmailRegistrationInitiateMutation>;
-export type UserEmailRegistrationInitiateMutationOptions = Apollo.BaseMutationOptions<UserEmailRegistrationInitiateMutation, UserEmailRegistrationInitiateMutationVariables>;
 export const UserEmailRegistrationValidateDocument = gql`
     mutation userEmailRegistrationValidate($input: UserEmailRegistrationValidateInput!) {
   userEmailRegistrationValidate(input: $input) {
@@ -8866,6 +8924,7 @@ export const AccountDeleteDocument = gql`
   accountDelete {
     errors {
       message
+      code
     }
     success
   }
@@ -8896,49 +8955,6 @@ export function useAccountDeleteMutation(baseOptions?: Apollo.MutationHookOption
 export type AccountDeleteMutationHookResult = ReturnType<typeof useAccountDeleteMutation>;
 export type AccountDeleteMutationResult = Apollo.MutationResult<AccountDeleteMutation>;
 export type AccountDeleteMutationOptions = Apollo.BaseMutationOptions<AccountDeleteMutation, AccountDeleteMutationVariables>;
-export const UserEmailDeleteDocument = gql`
-    mutation userEmailDelete {
-  userEmailDelete {
-    errors {
-      message
-    }
-    me {
-      id
-      phone
-      totpEnabled
-      email {
-        address
-        verified
-      }
-    }
-  }
-}
-    `;
-export type UserEmailDeleteMutationFn = Apollo.MutationFunction<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>;
-
-/**
- * __useUserEmailDeleteMutation__
- *
- * To run a mutation, you first call `useUserEmailDeleteMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUserEmailDeleteMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [userEmailDeleteMutation, { data, loading, error }] = useUserEmailDeleteMutation({
- *   variables: {
- *   },
- * });
- */
-export function useUserEmailDeleteMutation(baseOptions?: Apollo.MutationHookOptions<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>(UserEmailDeleteDocument, options);
-      }
-export type UserEmailDeleteMutationHookResult = ReturnType<typeof useUserEmailDeleteMutation>;
-export type UserEmailDeleteMutationResult = Apollo.MutationResult<UserEmailDeleteMutation>;
-export type UserEmailDeleteMutationOptions = Apollo.BaseMutationOptions<UserEmailDeleteMutation, UserEmailDeleteMutationVariables>;
 export const UserPhoneDeleteDocument = gql`
     mutation userPhoneDelete {
   userPhoneDelete {
@@ -10310,6 +10326,7 @@ export type ResolversTypes = {
   CountryCode: ResolverTypeWrapper<Scalars['CountryCode']['output']>;
   Currency: ResolverTypeWrapper<Currency>;
   CurrencyConversionEstimation: ResolverTypeWrapper<CurrencyConversionEstimation>;
+  CustodialRestrictions: ResolverTypeWrapper<CustodialRestrictions>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']['output']>;
   DepositFeeTier: ResolverTypeWrapper<DepositFeeTier>;
   DepositFeesInformation: ResolverTypeWrapper<DepositFeesInformation>;
@@ -10446,6 +10463,7 @@ export type ResolversTypes = {
   RealtimePriceInput: RealtimePriceInput;
   RealtimePricePayload: ResolverTypeWrapper<RealtimePricePayload>;
   Region: ResolverTypeWrapper<Region>;
+  RegionCheck: ResolverTypeWrapper<RegionCheck>;
   SafeInt: ResolverTypeWrapper<Scalars['SafeInt']['output']>;
   SatAmount: ResolverTypeWrapper<Scalars['SatAmount']['output']>;
   SatAmountPayload: ResolverTypeWrapper<SatAmountPayload>;
@@ -10614,6 +10632,7 @@ export type ResolversParentTypes = {
   CountryCode: Scalars['CountryCode']['output'];
   Currency: Currency;
   CurrencyConversionEstimation: CurrencyConversionEstimation;
+  CustodialRestrictions: CustodialRestrictions;
   DateTime: Scalars['DateTime']['output'];
   DepositFeeTier: DepositFeeTier;
   DepositFeesInformation: DepositFeesInformation;
@@ -10736,6 +10755,7 @@ export type ResolversParentTypes = {
   RealtimePriceInput: RealtimePriceInput;
   RealtimePricePayload: RealtimePricePayload;
   Region: Region;
+  RegionCheck: RegionCheck;
   SafeInt: Scalars['SafeInt']['output'];
   SatAmount: Scalars['SatAmount']['output'];
   SatAmountPayload: SatAmountPayload;
@@ -11247,6 +11267,12 @@ export type CurrencyConversionEstimationResolvers<ContextType = any, ParentType 
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   timestamp?: Resolver<ResolversTypes['Timestamp'], ParentType, ContextType>;
   usdCentAmount?: Resolver<ResolversTypes['CentAmount'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CustodialRestrictionsResolvers<ContextType = any, ParentType extends ResolversParentTypes['CustodialRestrictions'] = ResolversParentTypes['CustodialRestrictions']> = {
+  dollarBalance?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  transfer?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -11821,6 +11847,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   countryCode?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   currencyConversionEstimation?: Resolver<ResolversTypes['CurrencyConversionEstimation'], ParentType, ContextType, RequireFields<QueryCurrencyConversionEstimationArgs, 'amount' | 'currency'>>;
   currencyList?: Resolver<ReadonlyArray<ResolversTypes['Currency']>, ParentType, ContextType>;
+  custodialRestrictions?: Resolver<ResolversTypes['CustodialRestrictions'], ParentType, ContextType>;
   deviceSessionCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   globals?: Resolver<Maybe<ResolversTypes['Globals']>, ParentType, ContextType>;
   hiddenBalanceToolTip?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
@@ -11841,6 +11868,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   price?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   realtimePrice?: Resolver<ResolversTypes['RealtimePrice'], ParentType, ContextType, RequireFields<QueryRealtimePriceArgs, 'currency'>>;
   region?: Resolver<Maybe<ResolversTypes['Region']>, ParentType, ContextType>;
+  regionCheck?: Resolver<ResolversTypes['RegionCheck'], ParentType, ContextType>;
   txLastSeen?: Resolver<ResolversTypes['TxLastSeen'], ParentType, ContextType, RequireFields<QueryTxLastSeenArgs, 'accountId'>>;
   upgradeModalLastShownAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   userDefaultWalletId?: Resolver<ResolversTypes['WalletId'], ParentType, ContextType, RequireFields<QueryUserDefaultWalletIdArgs, 'username'>>;
@@ -11884,6 +11912,13 @@ export type RegionResolvers<ContextType = any, ParentType extends ResolversParen
   latitudeDelta?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   longitude?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   longitudeDelta?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type RegionCheckResolvers<ContextType = any, ParentType extends ResolversParentTypes['RegionCheck'] = ResolversParentTypes['RegionCheck']> = {
+  countryCode?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  custodialCreationAllowed?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  restricted?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -12316,6 +12351,7 @@ export type Resolvers<ContextType = any> = {
   CountryCode?: GraphQLScalarType;
   Currency?: CurrencyResolvers<ContextType>;
   CurrencyConversionEstimation?: CurrencyConversionEstimationResolvers<ContextType>;
+  CustodialRestrictions?: CustodialRestrictionsResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
   DepositFeeTier?: DepositFeeTierResolvers<ContextType>;
   DepositFeesInformation?: DepositFeesInformationResolvers<ContextType>;
@@ -12400,6 +12436,7 @@ export type Resolvers<ContextType = any> = {
   RealtimePrice?: RealtimePriceResolvers<ContextType>;
   RealtimePricePayload?: RealtimePricePayloadResolvers<ContextType>;
   Region?: RegionResolvers<ContextType>;
+  RegionCheck?: RegionCheckResolvers<ContextType>;
   SafeInt?: GraphQLScalarType;
   SatAmount?: GraphQLScalarType;
   SatAmountPayload?: SatAmountPayloadResolvers<ContextType>;
