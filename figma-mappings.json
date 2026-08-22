@@ -1,0 +1,5027 @@
+{
+  "file": "https://www.figma.com/design/9MQuQi8ZhXVvDibWSI3C4c/Blink",
+  "generatedFrom": "Figma MCP get_code_connect_map + pilot mappings 2026-08-22",
+  "note": "Snapshot of Code Connect simple mappings stored in the Figma file. Templates in app/**/*.figma.ts take precedence where both exist.",
+  "mappings": {
+    "11060:38097": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "11067:35650": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "11067:47681": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "11204:36896": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66229": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66237": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66242": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66249": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66254": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66261": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66266": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66272": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66277": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66283": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66288": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66300": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66305": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66317": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66322": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66329": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66334": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66342": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66347": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66357": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66367": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66374": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66379": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66389": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66394": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66402": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66407": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66415": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66423": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66430": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66435": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66443": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66448": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66454": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66459": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66465": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66470": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66482": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66487": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66495": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66500": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66514": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66519": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66533": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66547": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66558": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66569": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66576": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66581": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66587": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66592": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66600": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66609": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66615": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66620": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66622": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66624": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66631": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66636": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66666": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66696": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66698": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66700": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66706": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66711": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66718": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66723": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66729": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66734": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66742": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66747": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66754": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66759": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66765": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66770": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66778": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66783": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66791": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66796": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66803": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66808": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66816": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66821": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66828": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66833": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66841": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66846": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66852": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66857": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66869": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66881": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66894": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66899": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66910": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66915": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66922": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66927": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66935": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66940": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66961": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66966": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66972": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66978": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66984": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66990": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:66996": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67001": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67010": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67015": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67025": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67030": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67038": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67043": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67049": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67054": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67060": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67065": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67071": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67076": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67078": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67080": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67099": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67118": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67125": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67130": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67138": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67143": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67149": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67154": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67160": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67165": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67171": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67176": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67182": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67187": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67193": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67198": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67204": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67209": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67215": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67220": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67226": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67231": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67238": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67243": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67249": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67254": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67260": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67265": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67271": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67276": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67286": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67291": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67300": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67305": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67311": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67316": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67322": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67327": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67333": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67338": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67344": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67349": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67351": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67353": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67359": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67364": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67370": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67375": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67377": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67379": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67385": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67390": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67396": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67401": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67407": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67412": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67418": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67423": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67430": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67435": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67441": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67446": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67453": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67458": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67464": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67469": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67476": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67481": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67488": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67493": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67501": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67509": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67515": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67520": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67522": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67524": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67531": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67538": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67551": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67556": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67562": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67567": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67575": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67580": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67586": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67591": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67594": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67597": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67599": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67601": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67607": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67612": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67618": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67623": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67629": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67634": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67653": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67658": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67667": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67672": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67679": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67684": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67690": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67695": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67701": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67706": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12440:67714": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:95795": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:95801": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:97133": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:97138": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:97143": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:97148": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12496:97153": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:15854": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:2524": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54860": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54866": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54877": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54894": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54913": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54920": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:54927": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:55762": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:55769": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:56046": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "12499:56241": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1249:14865": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "15066:73984": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "15744:50838": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "16328:83502": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "16499:94908": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1675:15195": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1677:15150": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1684:16171": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "17697:17259": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "17697:82039": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "17697:82046": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "17713:89018": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "17713:89026": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18057:108833": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18057:108881": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18057:108887": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18745:40209": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18773:53770": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "18773:53772": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1905:16688": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1905:18114": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "1946:26719": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "19730:10700": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "19736:88036": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20063:42525": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20063:61076": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20231:89674": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20280:91106": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20282:107971": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20282:107983": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20282:108076": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20282:108089": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20282:108093": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20362:111234": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20362:111240": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20362:111244": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20904:113341": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20904:113342": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "20904:113345": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:12168": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:162": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:17536": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:17547": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:17558": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:17570": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18050": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18055": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18061": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18066": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18069": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18077": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18107": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:18144": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:192": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:207": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:223": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:24224": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2775": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2870": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2891": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2910": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2914": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2923": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2927": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2936": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2942": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2953": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2959": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2970": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2976": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2987": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:2993": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31788": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31793": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31799": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31804": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31807": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31815": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31828": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31837": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:31874": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:32307": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:32309": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:32505": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:32520": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:32536": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3312": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3370": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3372": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3681": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3719": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:37791": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:3995": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:4024": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:4236": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:4240": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:435": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:467": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:472": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:520": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:522": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:5383": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:6194": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:6278": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:6347": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:6349": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:7819": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:7823": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:8222": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9455": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9466": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9477": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9500": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9509": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21282:9528": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41026": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41030": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41034": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41050": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41088": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41116": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41149": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41160": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41170": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41181": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41191": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41195": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41433": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41437": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41446": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41450": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41470": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41477": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41484": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41489": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41493": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41522": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41567": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41600": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41607": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41611": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41676": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41932": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41934": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:41963": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42235": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42241": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42253": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42258": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42269": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42274": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42281": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42285": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42290": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42294": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42302": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42314": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42318": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42340": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "21395:42568": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2275:17280": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2575:19616": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2575:19764": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2575:19829": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2575:19904": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "2575:19922": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "283:6150": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "283:6151": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "283:6152": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "283:6155": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "287:6242": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "287:6257": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "288:5637": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "3037:21686": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "317:5566": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "322:5673": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "322:5707": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "322:5757": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "338:5874": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "3477:22821": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "347:5708": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "347:5726": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "369:6126": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "369:6242": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "369:6292": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10011": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10043": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10064": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10077": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10100": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10125": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10148": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10169": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10183": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10206": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10223": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10254": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10290": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10319": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10354": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10384": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10400": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10419": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10433": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10456": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10469": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10487": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10492": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10506": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10514": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10518": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10520": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10526": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10529": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10536": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10566": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10568": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10578": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10580": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10582": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10584": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10824": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10837": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10852": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10876": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10906": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10911": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10949": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10968": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:10989": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11002": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11015": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11035": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11052": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11094": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11134": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11167": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11187": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11206": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11265": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11304": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11347": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11369": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11396": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:11419": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13575": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13642": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13646": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13723": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13724": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:13818": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    },
+    "38:13820": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    },
+    "38:13822": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    },
+    "38:9750": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9771": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9801": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9837": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9862": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9899": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9940": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9964": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "38:9989": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4205:25126": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4205:25157": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4205:25336": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4205:25943": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4205:25944": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4237:31429": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "431:5952": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "431:6224": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "431:6488": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "431:6602": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "437:6766": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "440:7215": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "440:7419": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "442:6245": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "454:8346": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "458:9253": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4822:31522": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4989:17056": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "4989:23776": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "498:12458": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5312:31940": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5391:30254": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5391:30268": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5391:30275": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "543:8708": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "549:8826": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "549:8836": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5528:10459": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5555:30015": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5555:30028": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5555:30877": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5556:30926": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5559:32073": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5559:32109": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5590:17713": {
+      "componentName": "GaloyPrimaryButton",
+      "source": "app/components/atomic/galoy-primary-button/galoy-primary-button.tsx"
+    },
+    "5590:17717": {
+      "componentName": "GaloyPrimaryButton",
+      "source": "app/components/atomic/galoy-primary-button/galoy-primary-button.tsx"
+    },
+    "5590:17719": {
+      "componentName": "GaloyPrimaryButton",
+      "source": "app/components/atomic/galoy-primary-button/galoy-primary-button.tsx"
+    },
+    "5687:16118": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5687:23372": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5687:23476": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5687:23567": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5688:25152": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5688:25165": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5688:25179": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5688:25860": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5811:34334": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5811:34439": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "586:9356": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12068": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12496": {
+      "componentName": "GaloyInput",
+      "source": "app/components/atomic/galoy-input/galoy-input.tsx"
+    },
+    "5897:12898": {
+      "componentName": "GaloyInput",
+      "source": "app/components/atomic/galoy-input/galoy-input.tsx"
+    },
+    "5897:12899": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12901": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12907": {
+      "componentName": "GaloyInput",
+      "source": "app/components/atomic/galoy-input/galoy-input.tsx"
+    },
+    "5897:12908": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12910": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12916": {
+      "componentName": "GaloyInput",
+      "source": "app/components/atomic/galoy-input/galoy-input.tsx"
+    },
+    "5897:12917": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:12919": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:15378": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5897:15392": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "589:9114": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5932:18849": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "5932:18864": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "597:30888": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6078:25107": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6078:25134": {
+      "componentName": "GaloyInput",
+      "source": "app/components/atomic/galoy-input/galoy-input.tsx"
+    },
+    "6078:25135": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6078:25137": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6154:32958": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6154:32963": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6154:32965": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25727": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25733": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25737": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25739": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25753": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25755": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25789": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25791": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25813": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25815": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25817": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25819": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6197:25840": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6197:25842": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6209:26426": {
+      "componentName": "GaloySecondaryButton",
+      "source": "app/components/atomic/galoy-secondary-button/galoy-secondary-button.tsx"
+    },
+    "6209:26428": {
+      "componentName": "GaloySecondaryButton",
+      "source": "app/components/atomic/galoy-secondary-button/galoy-secondary-button.tsx"
+    },
+    "6209:26430": {
+      "componentName": "GaloySecondaryButton",
+      "source": "app/components/atomic/galoy-secondary-button/galoy-secondary-button.tsx"
+    },
+    "6288:46490": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6288:46505": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6288:46580": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6411:32393": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "642:10982": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6622:29881": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6622:29888": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6622:30554": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "662:14891": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6653:35490": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6653:35492": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6653:35532": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6653:35534": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6653:35543": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "6653:35545": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6749:34422": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6765:37454": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6817:39946": {
+      "componentName": "GaloyPrimaryButton",
+      "source": "app/components/atomic/galoy-primary-button/galoy-primary-button.tsx"
+    },
+    "6817:39997": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "6817:40032": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "719:12637": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7332:31789": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7332:34752": {
+      "componentName": "GaloyIconButton",
+      "source": "app/components/atomic/galoy-icon-button/galoy-icon-button.tsx"
+    },
+    "7332:34754": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7581:61634": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7741:16138": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7741:16148": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7741:16288": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7741:16295": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "7916:39811": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8121:46273": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8121:46284": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8121:48161": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8734:52093": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8734:52095": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "8734:52098": {
+      "componentName": "GaloyIcon",
+      "source": "app/components/atomic/galoy-icon/galoy-icon.tsx",
+      "snippet": null,
+      "snippetImports": [],
+      "snippetNestedFunctions": [],
+      "version": "unknown"
+    },
+    "972:15001": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    },
+    "972:15003": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    },
+    "972:15005": {
+      "componentName": "GaloyTertiaryButton",
+      "source": "app/components/atomic/galoy-tertiary-button/galoy-tertiary-button.tsx"
+    }
+  }
+}

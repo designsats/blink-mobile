@@ -17,5 +17,9 @@
       "@types/jest"
     ]
   },
-  "include": ["app", "e2e", "__tests__"]
+  "include": ["app", "e2e", "__tests__"],
+  // Code Connect templates use the virtual "figma" module whose global types
+  // break jest's require.resolve — they are typechecked by tsconfig.figma.json
+  // and validated by `figma connect parse` instead.
+  "exclude": ["**/*.figma.ts"]
 }
