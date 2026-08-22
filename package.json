@@ -55,6 +55,8 @@
     "e2e:build": "detox build --configuration",
     "e2e:test": "detox test --configuration",
     "find-unused-ll-keys": "yarn node utils/find-unused-ll-keys.js",
+    "figma:publish": "node scripts/figma-publish.mjs",
+    "figma:unpublish": "node scripts/figma-publish.mjs --unpublish",
     "deps:check": "rnx-align-deps",
     "deps:fix": "rnx-align-deps --write"
   },
