@@ -158,7 +158,9 @@ const useStyles = makeStyles(({ colors }) => ({
   currencyInputContainer: {
     padding: 10,
     marginTop: 10,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 10,
   },
   withdrawableDescriptionText: {

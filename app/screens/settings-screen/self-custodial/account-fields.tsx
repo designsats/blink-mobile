@@ -139,7 +139,9 @@ const useStyles = makeStyles(({ colors }) => ({
   box: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     paddingLeft: 14,
     paddingRight: 10,

@@ -101,7 +101,9 @@ type StyleProps = {
 const useStyles = makeStyles(
   ({ colors }, { titleColor, isLg, bulletSpacing }: StyleProps) => ({
     container: {
-      backgroundColor: colors.grey5,
+      backgroundColor: colors.grey7,
+      borderWidth: 1,
+      borderColor: colors.grey4,
       borderRadius: 8,
       padding: 14,
       gap: 10,

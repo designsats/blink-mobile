@@ -113,7 +113,9 @@ const useStyles = makeStyles(({ colors }) => ({
     paddingBottom: 20,
   },
   toolsCard: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     overflow: "hidden",
   },

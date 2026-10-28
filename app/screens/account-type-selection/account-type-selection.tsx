@@ -175,7 +175,9 @@ const useStyles = makeStyles(({ colors }) => ({
     marginBottom: 20,
   },
   banner: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 12,

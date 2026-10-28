@@ -44,7 +44,9 @@ export const InfoBanner: React.FC<InfoBannerProps> = ({
 
 const useStyles = makeStyles(({ colors }) => ({
   container: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 14,

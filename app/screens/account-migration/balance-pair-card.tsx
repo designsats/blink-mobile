@@ -62,7 +62,9 @@ export const BalancePairCard: React.FC<BalancePairCardProps> = ({
 const useStyles = makeStyles(({ colors }) => ({
   card: {
     width: "100%",
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 10,

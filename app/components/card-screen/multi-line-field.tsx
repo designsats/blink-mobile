@@ -23,7 +23,7 @@ export const MultiLineField: React.FC<MultiLineFieldProps> = ({
   } = useTheme()
 
   const content = (
-    <View style={styles.container}>
+    <View style={[styles.container, !onPress && styles.static]}>
       {leftIcon && <GaloyIcon name={leftIcon} size={16} />}
       <View style={styles.textContainer}>
         {lines.map((line, index) => (
@@ -62,6 +62,11 @@ const useStyles = makeStyles(({ colors }) => ({
     paddingLeft: 14,
     paddingRight: 10,
     gap: 14,
+  },
+  static: {
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
   },
   textContainer: {
     flex: 1,

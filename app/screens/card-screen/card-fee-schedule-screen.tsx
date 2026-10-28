@@ -226,7 +226,9 @@ const useStyles = makeStyles(({ colors }) => ({
     color: colors.black,
   },
   card: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
   },
   row: {
@@ -263,7 +265,9 @@ const useStyles = makeStyles(({ colors }) => ({
     backgroundColor: colors.grey4,
   },
   noticeCard: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     padding: 14,
     gap: 14,
@@ -285,7 +289,9 @@ const useStyles = makeStyles(({ colors }) => ({
     color: colors.grey1,
   },
   infoBox: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderLeftWidth: 2,
     borderLeftColor: colors.black,
     borderRadius: 6,
@@ -315,7 +321,9 @@ const useStyles = makeStyles(({ colors }) => ({
     color: colors.black,
   },
   detailsCard: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     padding: 14,
     gap: 12,

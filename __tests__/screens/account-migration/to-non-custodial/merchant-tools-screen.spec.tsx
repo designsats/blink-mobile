@@ -93,12 +93,14 @@ describe("MigrationMerchantToolsScreen", () => {
     expect(screen.getByTestId("icon-woocommerce")).toBeTruthy()
   })
 
-  it("groups the tools on the grouped-list surface in both themes", async () => {
+  it("groups the tools on the static grey7 card with a grey4 border in both themes", async () => {
     renderScreenInTheme("light")
     await flushEffects()
 
     expect(screen.getByTestId("migration-merchant-tools-card")).toHaveStyle({
-      backgroundColor: light.grey5,
+      backgroundColor: light.grey7,
+      borderColor: light.grey4,
+      borderWidth: 1,
     })
 
     screen.unmount()
@@ -106,7 +108,9 @@ describe("MigrationMerchantToolsScreen", () => {
     await flushEffects()
 
     expect(screen.getByTestId("migration-merchant-tools-card")).toHaveStyle({
-      backgroundColor: dark.grey5,
+      backgroundColor: dark.grey7,
+      borderColor: dark.grey4,
+      borderWidth: 1,
     })
   })
 

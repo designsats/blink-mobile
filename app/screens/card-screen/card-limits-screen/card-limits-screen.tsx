@@ -196,7 +196,9 @@ const useStyles = makeStyles(({ colors }) => ({
   },
   currentLimitsCard: {
     flexDirection: "row",
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     minHeight: 80,
     paddingVertical: 18,

@@ -35,7 +35,7 @@ const useStyles = makeStyles(({ colors }) => ({
     gap: 8,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
     borderBottomWidth: 1,
     borderBottomColor: colors.grey4,
   },

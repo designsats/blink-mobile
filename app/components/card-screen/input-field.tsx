@@ -184,7 +184,7 @@ export const InputField: React.FC<InputFieldProps> = ({
   }
 
   const content = (
-    <View style={styles.valueContainer}>
+    <View style={[styles.valueContainer, !onPress && styles.valueContainerStatic]}>
       <Text style={styles.value}>{value}</Text>
       {rightIconElement}
     </View>
@@ -244,6 +244,11 @@ const useStyles = makeStyles(({ colors }, { valueStyle, size }: StyleProps) => {
     },
     valueContainerDisabled: {
       opacity: 0.5,
+    },
+    valueContainerStatic: {
+      backgroundColor: colors.grey7,
+      borderWidth: 1,
+      borderColor: colors.grey4,
     },
     value: {
       flex: 1,

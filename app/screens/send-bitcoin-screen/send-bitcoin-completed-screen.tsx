@@ -441,7 +441,9 @@ const useStyles = makeStyles(({ colors }) => ({
   successActionFieldContainer: {
     overflow: "hidden",
     gap: 20,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 10,
     alignItems: "center",
     paddingHorizontal: 10,

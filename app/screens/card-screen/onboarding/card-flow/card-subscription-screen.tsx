@@ -194,7 +194,9 @@ const useStyles = makeStyles(({ colors }) => ({
     paddingTop: 30,
   },
   cardContainer: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 16,
     padding: 18,
     paddingBottom: 5,

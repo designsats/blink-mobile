@@ -288,7 +288,9 @@ const useStyles = makeStyles(({ colors }) => ({
   },
   conversionInfoCard: {
     margin: 20,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 13,
     padding: 20,
   },
@@ -360,7 +362,9 @@ const useStyles = makeStyles(({ colors }) => ({
   },
   infoContainer: {
     marginHorizontal: 20,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 6,
     padding: 20,
     paddingVertical: 12,

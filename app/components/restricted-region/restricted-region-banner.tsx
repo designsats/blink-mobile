@@ -24,7 +24,7 @@ const useStyles = makeStyles(({ colors }) => ({
     borderWidth: 1,
     borderColor: colors.primary,
     borderRadius: 12,
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
     padding: 14,
   },
   title: {

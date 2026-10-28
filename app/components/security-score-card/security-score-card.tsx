@@ -103,11 +103,12 @@ const useStyles = makeStyles(({ colors }) => ({
   container: {
     rowGap: 20,
   },
-  /** The mock paints this `grey7`, which on the black settings background is a
-   *  6% step no eye resolves. `grey5` is the surface the rows above already sit
-   *  on, so the card reads as one of them. */
+  /** Static, so `grey7`; the `grey4` border is what lifts it off the black
+   *  settings background, where the fill alone is a step no eye resolves. */
   surface: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 12,

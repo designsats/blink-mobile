@@ -47,7 +47,9 @@ const useStyles = makeStyles(({ colors }) => ({
     lineHeight: 20,
   },
   card: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey7,
+    borderWidth: 1,
+    borderColor: colors.grey4,
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 14,
